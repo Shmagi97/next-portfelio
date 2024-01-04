@@ -1,0 +1,9 @@
+.cont {
+  border: solid rgb(0, 211, 81);
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(244, 239, 233);
+  width: 40%;
+  position: fixed;
+  right: 0;
+}

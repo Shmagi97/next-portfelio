@@ -1,0 +1,11 @@
+.fixedimagediv {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  border: solid rgb(34, 255, 0);
+  justify-self: flex start;
+  position: fixed;
+  left: -50px;
+  top: -50px;
+  background-color: rgb(244, 239, 233);
+}
