@@ -3,6 +3,7 @@
 import Button from "../button"
 import style from './navigate.module.css'
 
+
 const Navigate = () => {
     return <div className={style.cont}>
     

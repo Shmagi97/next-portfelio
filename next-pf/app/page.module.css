@@ -1,13 +1,15 @@
-.main {
+.section {
   /* display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center; */
   padding: 6rem;
-  min-height: 1180vh;
+  /* min-height: 1180vh; */
   border: solid rgb(255, 0, 0);
   width: 70%;
-  margin: 400px auto;
+  margin: auto;
+  background-color: antiquewhite;
+  /* opacity: 80%; */
 }
 
 /* Enable hover only on non-touch devices */

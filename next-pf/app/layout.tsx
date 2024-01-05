@@ -1,11 +1,14 @@
 
+
 import style from './layout.module.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navigate from './components/button/navigate/navigate'
-import FixedImage from './fixedImage/fixedImage'
-
+import FixedImage from './components/fixedImage/fixedImage'
+import ShareClickBtn from './components/button/shareButtons/shareBrn'
+import share from '@/public/icons/share.png'
+import search from '@/public/icons/search.png'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,21 +22,34 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+
+ 
   return (
     
     <html lang="en">
       
       <body className={inter.className}>
 
+      <main className={style.layoutMain}>
+
        <section className={style.layoutSection}>
         
         <FixedImage/>
          <Navigate/>
+         <div className={style.shareBtnDiv}>
+
+         <ShareClickBtn
+         img = {share}
+         />
+         <ShareClickBtn
+         img = {search}
+         />
+         </div>
          
          </section>
-      
+       
        {children}
-      
+       </main>
       </body>
     </html>
   )
