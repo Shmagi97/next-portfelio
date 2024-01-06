@@ -1,15 +1,15 @@
 import Image from 'next/image'
-import style from './fixedImage.module.css'
+import styles from './fixedImage.module.css'
 import img2 from '@/public/image/img2.jpg'
 
 const FixedImage = () => {
-    return <div className={style.fixedimagediv}>
+    return <div className={styles.fixedimagediv}>
        <Image
        
        alt='imageFixed'
        src={img2}
        width={100}
-       style={{objectFit: 'cover'}}
+      
        priority = {true}
        />
     </div>

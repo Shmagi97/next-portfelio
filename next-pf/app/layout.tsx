@@ -9,6 +9,9 @@ import FixedImage from './components/fixedImage/fixedImage'
 import ShareClickBtn from './components/button/shareButtons/shareBrn'
 import share from '@/public/icons/share.png'
 import search from '@/public/icons/search.png'
+import Footer from './components/footer/footer'
+import Background from './components/background/background'
+import { GlobalContextProvider } from './context/context'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -25,6 +28,8 @@ export default function RootLayout({
 
  
   return (
+
+  
     
     <html lang="en">
       
@@ -32,7 +37,11 @@ export default function RootLayout({
 
       <main className={style.layoutMain}>
 
-       <section className={style.layoutSection}>
+      <GlobalContextProvider>
+
+       <Background/>
+     
+       <header className={style.layoutSection}>
         
         <FixedImage/>
          <Navigate/>
@@ -40,17 +49,29 @@ export default function RootLayout({
 
          <ShareClickBtn
          img = {share}
+         
+        
          />
          <ShareClickBtn
          img = {search}
+        
+        
          />
          </div>
          
-         </section>
-       
-       {children}
+         </header>
+
+           {children}
+ 
+       <footer>
+          <Footer/>
+       </footer>
+
+       </GlobalContextProvider>
+
        </main>
       </body>
     </html>
+ 
   )
 }

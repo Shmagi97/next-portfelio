@@ -11,13 +11,16 @@ type propsTp = {
 
 const Button = (props : propsTp) => {
 
-    return <Link href={'/'} className={style.buttonDiv}>
-             
-             {props.title}
+    return <div className={style.buttonDiv}>
 
-           </Link>
+
+             <span></span>
     
+             <Link href={'/'} className={style.buttonLink}>
+                 {props.title}
+              </Link>
     
+           </div>
    
     
 }

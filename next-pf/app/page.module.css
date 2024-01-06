@@ -1,15 +1,10 @@
 .section {
-  /* display: flex;
-  flex-direction: column;
+  display: flex;
   justify-content: space-between;
-  align-items: center; */
-  padding: 6rem;
-  /* min-height: 1180vh; */
-  border: solid rgb(255, 0, 0);
-  width: 70%;
-  margin: auto;
-  background-color: antiquewhite;
-  /* opacity: 80%; */
+  align-items: center;
+  position: absolute;
+  width: 99.5%;
+  top: 50%;
 }
 
 /* Enable hover only on non-touch devices */
