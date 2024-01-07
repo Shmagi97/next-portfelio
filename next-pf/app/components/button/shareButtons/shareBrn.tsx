@@ -4,62 +4,49 @@ import Image, { StaticImageData,  } from 'next/image';
 import styles from './clikButtons.module.css'
 import { useGlobalContext } from '@/app/context/context';
 import { useEffect } from 'react';
-import { MouseEvent } from 'react';
+// import { MouseEvent } from 'react';
 
 type propsTp = {
     img: StaticImageData ;
     clickInfo?: string;
-    
+    left? : string;
+    right? : string;
 }
 
 
 const ShareClickBtn = (props: propsTp) => {
    
     
+    const {  setImagenumber  } = useGlobalContext ()
 
-    const { imgnumber , setImagenumber,   imgclickinfo, setImageclickinfo} = useGlobalContext ()
-    console.log(imgnumber);
-  
-    // useEffect(()=> {
-    //     setImgnumber(props.clickInfo)
-    // },[props.clickInfo])
+    // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
-    // function clickLeftVrite () {
+    // event : MouseEvent <HTMLButtonElement>
+ 
+    function cda ( ) {
 
-    //     setImgnumber(props.clickInfo)
+        // const value = event.currentTarget.value;
 
-    //     // if(props.left){
-    //     //     console.log('left')
-    //     // } else {console.log('right')}
-    // }
-
-    
-
-    function cda (event : MouseEvent <HTMLButtonElement> ) {
-        const value = event.currentTarget.value;
-        setImageclickinfo(value)
-
-        if (imgclickinfo === 'left' && imgnumber >= 1){
+        // setImageclickinfo(value)
+     
+        if (props.left ){
             
-            setImagenumber((prevImgNumber) => prevImgNumber - 1);
-            console.log(imgnumber);
-           
-        } 
+            setImagenumber((prevImgNumber) => prevImgNumber -1);
+ 
+        } else {   setImagenumber((prevImgNumber) => prevImgNumber +1)    }
         
-        
-        if (imgclickinfo === 'right' && imgnumber <= 1){
 
-            setImagenumber((prevImgNumber) => prevImgNumber + 1)
-            console.log(imgnumber);
-        }
-       
-       
+        // if (props.right ){
+
+        //     setImagenumber((prevImgNumber) => prevImgNumber +1)        
+        // }
+      
     }
     
 
     return <>
     
-     <button className={styles.btnStyle} value = {props.clickInfo} onClick={ cda }> 
+     <div className={styles.btnStyle} onClick={ cda }> 
      
         <Image
        
@@ -68,7 +55,7 @@ const ShareClickBtn = (props: propsTp) => {
          width={20}
         />
     
-     </button>
+     </div>
     
     </>
 }

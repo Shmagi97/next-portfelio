@@ -1,6 +1,7 @@
 'use client'
 
 import ShareClickBtn from './components/button/shareButtons/shareBrn'
+import GlobalImage from './components/globalImage/globalImage'
 import styles from './page.module.css'
 import left from '@/public/icons/left.png'
 import right from '@/public/icons/right.png'
@@ -35,15 +36,17 @@ export default function Home() {
 
       <ShareClickBtn
       img={left}
-      clickInfo={'left'}
+      left={'left'}
       />
       
       <h1>saxelebi</h1>
 
       <ShareClickBtn
       img={right}
-      clickInfo={'right'}
+      right={'right'}
       />
+
+      {/* <GlobalImage/> */}
  
     </section>
  

@@ -10,19 +10,15 @@ import { useState } from "react"
 
 const Background = () => {
 
-    const { imgclickinfo, imgnumber } = useGlobalContext ()
+    const {  imgnumber } = useGlobalContext ()
   
-    //  console.log(imgnumber);
-
     const backImageMasiv = [backGround, img2, photo1]
   
-     
-
     return <>
 
     {backImageMasiv.map((el, index)=> {
 
-      if ((imgclickinfo === 'left' && index == imgnumber) || (imgclickinfo === 'right' && index == imgnumber) ){
+      if ( index == imgnumber ){
 
         return <>
         

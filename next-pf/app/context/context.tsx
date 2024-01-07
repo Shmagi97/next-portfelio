@@ -1,5 +1,6 @@
 "use client";
 
+import { StaticImageData } from "next/image";
 import {
   createContext,
   useContext,
@@ -8,37 +9,37 @@ import {
   useState,
 } from "react";
 
-type DataType = {
-  firstName: String,
-};
+// type DataType = {
+//   img: StaticImageData,
+// };
 
 interface ContextProps {
     imgnumber: number,
     setImagenumber: Dispatch <SetStateAction <number> >
-    imgclickinfo : string,
-    setImageclickinfo : Dispatch <SetStateAction <string> > ,
-    data : DataType [],
-    setData : Dispatch<SetStateAction<DataType[]>>,
+    // imgclickinfo : string,
+    // setImageclickinfo : Dispatch <SetStateAction <string> > ,
+    dataimg : StaticImageData [],
+    setDataimg : Dispatch<SetStateAction<StaticImageData []>>,
 }
 
 const GlobalContext = createContext<ContextProps>({
     imgnumber : 0,
     setImagenumber : () : number => 0,
-    imgclickinfo : '',
-    setImageclickinfo : () : string => '',
-    data : [],
-    setData : () : DataType[] => [],
+    // imgclickinfo : '',
+    // setImageclickinfo : () : string => '',
+    dataimg : [],
+    setDataimg : () : StaticImageData [] => [],
 
 })
 
 export const GlobalContextProvider = ({ children }) => {
-    const [imgclickinfo, setImageclickinfo] = useState ('');
+    // const [imgclickinfo, setImageclickinfo] = useState ('');
     const [imgnumber, setImagenumber] = useState(0)
-    const [data, setData] = useState < [] | DataType[] > ([]);
+    const [dataimg, setDataimg] = useState < [] | StaticImageData [] > ([]);
 
     return (
 
-        <GlobalContext.Provider value={{imgnumber, setImagenumber, imgclickinfo, setImageclickinfo, data, setData}}>
+        <GlobalContext.Provider value={{imgnumber, setImagenumber, dataimg, setDataimg}}>
 
             {children}
 
