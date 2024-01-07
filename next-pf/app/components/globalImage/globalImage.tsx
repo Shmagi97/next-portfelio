@@ -1,3 +1,5 @@
+'use client'
+
 import { useGlobalContext } from "@/app/context/context"
 import backGround from '@/public/image/backGround.jpg'
 import img2 from '@/public/image/img2.jpg'
@@ -13,11 +15,16 @@ const GlobalImage = () => {
 
     const {dataimg, setDataimg} = useGlobalContext()
     const backImageMasiv = [backGround, img2, photo1]
-    setDataimg (backImageMasiv )
+    
+    setDataimg ([
+        {firstName : 'rame 1'},
+        {firstName : 'rame 2'},
+        {firstName : 'rame 3'}
+    ])
 
-    useEffect(()=> {
-        // console.log(dataimg)
-    }, [])
+    
+        console.log(dataimg)
+  
   
     
     return null
@@ -25,4 +32,4 @@ const GlobalImage = () => {
     
 }
 
-// export default GlobalImage
+export default GlobalImage

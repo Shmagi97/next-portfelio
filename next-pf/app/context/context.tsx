@@ -9,17 +9,17 @@ import {
   useState,
 } from "react";
 
-// type DataType = {
-//   img: StaticImageData,
-// };
+type DataType = {
+  firstName: string,
+};
 
 interface ContextProps {
     imgnumber: number,
     setImagenumber: Dispatch <SetStateAction <number> >
     // imgclickinfo : string,
     // setImageclickinfo : Dispatch <SetStateAction <string> > ,
-    dataimg : StaticImageData [],
-    setDataimg : Dispatch<SetStateAction<StaticImageData []>>,
+    dataimg : DataType [],
+    setDataimg : Dispatch <SetStateAction < DataType [] >>,
 }
 
 const GlobalContext = createContext<ContextProps>({
@@ -28,14 +28,14 @@ const GlobalContext = createContext<ContextProps>({
     // imgclickinfo : '',
     // setImageclickinfo : () : string => '',
     dataimg : [],
-    setDataimg : () : StaticImageData [] => [],
+    setDataimg : () : DataType [] => [],
 
 })
 
 export const GlobalContextProvider = ({ children }) => {
     // const [imgclickinfo, setImageclickinfo] = useState ('');
     const [imgnumber, setImagenumber] = useState(0)
-    const [dataimg, setDataimg] = useState < [] | StaticImageData [] > ([]);
+    const [dataimg, setDataimg] = useState < [] | DataType [] > ([]);
 
     return (
 
