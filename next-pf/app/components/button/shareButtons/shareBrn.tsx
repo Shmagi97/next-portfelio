@@ -17,7 +17,7 @@ type propsTp = {
 const ShareClickBtn = (props: propsTp) => {
    
     
-    const {  setImagenumber  } = useGlobalContext ()
+    const {  setImagenumber , imgnumber } = useGlobalContext ()
 
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
@@ -29,17 +29,24 @@ const ShareClickBtn = (props: propsTp) => {
 
         // setImageclickinfo(value)
      
-        if (props.left ){
+        if (props.left && imgnumber > -1){
             
             setImagenumber((prevImgNumber) => prevImgNumber -1);
+
+            if (imgnumber == 0){
+                setImagenumber(9);
+            }
  
-        } else {   setImagenumber((prevImgNumber) => prevImgNumber +1)    }
+        } 
         
+        if (props.right && imgnumber < 10 ){
 
-        // if (props.right ){
-
-        //     setImagenumber((prevImgNumber) => prevImgNumber +1)        
-        // }
+            setImagenumber((prevImgNumber) => prevImgNumber +1)
+            
+            if (imgnumber == 9){
+                setImagenumber(0);
+            }
+        }
       
     }
     

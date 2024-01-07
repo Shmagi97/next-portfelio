@@ -1,37 +1,22 @@
 'use client'
 
 import ShareClickBtn from './components/button/shareButtons/shareBrn'
-import GlobalImage from './components/globalImage/globalImage'
+// import GlobalImage from './components/globalImage/globalImage'
 import styles from './page.module.css'
 import left from '@/public/icons/left.png'
 import right from '@/public/icons/right.png'
-// import { useEffect } from 'react'
-// import { useGlobalContext } from './context/context'
 
+
+// export const rame = (a : number, b : number ) => {
+
+//   const jami = a + b
+//   console.log(jami)
+// }
 
 export default function Home() {
 
-  // const {data, setData, userId, setUserId} = useGlobalContext();
-
-  // useEffect(()=> {
-
-  //   setUserId('2');
-
-  //   setData([
-  //     {firstName: 'pirveli'},
-  //     {firstName: 'meore'},
-  //     {firstName: 'mesame'},
-  //   ])
-    
-    
-  // },[])
-
-  // console.log(userId, 'data')
-
   return (
-
-  
-   
+ 
     <section className={styles.section}>
 
       <ShareClickBtn
