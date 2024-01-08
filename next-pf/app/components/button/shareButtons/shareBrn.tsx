@@ -3,7 +3,7 @@
 import Image, { StaticImageData,  } from 'next/image';
 import styles from './clikButtons.module.css'
 import { useGlobalContext } from '@/app/context/context';
-import { useEffect } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 // import { MouseEvent } from 'react';
 
 type propsTp = {
@@ -18,16 +18,69 @@ const ShareClickBtn = (props: propsTp) => {
    
     
     const {  setImagenumber , imgnumber } = useGlobalContext ()
+    const [delay, setDelay] = useState(2)
+    const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
 
+    // console.log(delay, 'start')
+ 
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
     // event : MouseEvent <HTMLButtonElement>
+
+   useEffect(()=> {
+
+     if (clear){
+       clearInterval(clear)
+       setClear(null)
+       console.log( clear, 'clear');
+       
+     }
+    
+     const newClear = setInterval (autoClick, delay * 1000)
+     setClear(newClear)
+     console.log(newClear, 'daseta');
+     return () => {
+
+        if(newClear){
+            clearInterval(newClear)  
+        }
+    }
+
+   },[delay])
+
+    const limit = 10
+    let num = 0
+
+    function autoClick () {
+
+            
+            num += 1
+
+           setImagenumber(num)
+        
+        if ( num >= limit) {
+          
+            num = 0
+            setImagenumber(num)      
+
+        }
  
-    function cda ( ) {
+        
+     }
+
+    function clicked ( ) {
 
         // const value = event.currentTarget.value;
 
         // setImageclickinfo(value)
+        
+        
+        setDelay(25)
+         console.log(delay, 'click')
+        
+        if (props.right){
+            
+        }
      
         if (props.left && imgnumber > -1){
             
@@ -38,6 +91,7 @@ const ShareClickBtn = (props: propsTp) => {
             }
  
         } 
+        
         
         if (props.right && imgnumber < 10 ){
 
@@ -53,7 +107,7 @@ const ShareClickBtn = (props: propsTp) => {
 
     return <>
     
-     <div className={styles.btnStyle} onClick={ cda }> 
+     <div className={styles.btnStyle} onClick={ clicked }> 
      
         <Image
        

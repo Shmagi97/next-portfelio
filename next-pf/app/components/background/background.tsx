@@ -1,28 +1,28 @@
 'use client'
 
 import Image from "next/image"
-import backGround from '@/public/image/backGround.jpg'
-import img2 from '@/public/image/img2.jpg'
-import photo1 from '@/public/image/photo1.jpg'
 import style from './background.module.css'
 import { useGlobalContext } from '@/app/context/context';
+import { useState } from "react";
 
 
 const Background = () => {
 
-    const {  imgnumber, dataimg, globalImageFn } = useGlobalContext ()
-    console.log(imgnumber);
-    
-  
-    globalImageFn()
+    const { imgnumber,  dataimg, setImagenumber, globalImageFn } = useGlobalContext ()
+    const [numberauto , setNumberauto] = useState(0)
    
+    
+    globalImageFn()
+
+    // console.log(imgnumber, 'end');
+ 
     return <>
 
   
 
       {dataimg.map((el, index)=> {
         // console.log(el)
-       if ( index == imgnumber ){
+       if ( (index == imgnumber)  ){
 
            return <>
     
@@ -40,12 +40,6 @@ const Background = () => {
           }
     
        })}
-
-
-    
-
- 
-    
     
     </>
 }
