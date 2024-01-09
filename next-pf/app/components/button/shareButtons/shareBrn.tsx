@@ -18,55 +18,37 @@ const ShareClickBtn = (props: propsTp) => {
    
     
     const {  setImagenumber , imgnumber } = useGlobalContext ()
-    const [delay, setDelay] = useState(2)
+    const [delay, setDelay] = useState(3)
+    const [chek, setChek] = useState (false)
     const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
-
+    
+  
     // console.log(delay, 'start')
  
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
     // event : MouseEvent <HTMLButtonElement>
 
-   useEffect(()=> {
+     //@@@@@@@@@@@@@
 
-     if (clear){
-       clearInterval(clear)
-       setClear(null)
-       console.log( clear, 'clear');
-       
-     }
-    
-     const newClear = setInterval (autoClick, delay * 1000)
-     setClear(newClear)
-     console.log(newClear, 'daseta');
-     return () => {
+    //  useEffect(() => {
+    //     const interval = setTimeout(() => { 
+    //       setImagenumber((prevImgNumber) => {
+    //         let newImgNumber = prevImgNumber + 1;
+    //         if (newImgNumber >= 10) {
+    //           newImgNumber = 0;
+    //         }
+    //         return newImgNumber;
+    //       });
+    //     }, delay * 1000);
 
-        if(newClear){
-            clearInterval(newClear)  
-        }
-    }
+    //     console.log(delay,'ahaa');
 
-   },[delay])
+    //     return () => clearInterval(interval);
 
-    const limit = 10
-    let num = 0
+    //   }, [delay, imgnumber]);
 
-    function autoClick () {
-
-            
-            num += 1
-
-           setImagenumber(num)
-        
-        if ( num >= limit) {
-          
-            num = 0
-            setImagenumber(num)      
-
-        }
- 
-        
-     }
+     //@@@@@@@@@@@@@
 
     function clicked ( ) {
 
@@ -75,12 +57,13 @@ const ShareClickBtn = (props: propsTp) => {
         // setImageclickinfo(value)
         
         
-        setDelay(25)
-         console.log(delay, 'click')
+        setDelay(5)
         
-        if (props.right){
-            
-        }
+
+         if (delay == 5){
+            setDelay(25)
+            console.log(delay, 'click')
+         }
      
         if (props.left && imgnumber > -1){
             
