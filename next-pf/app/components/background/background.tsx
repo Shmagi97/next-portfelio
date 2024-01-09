@@ -14,7 +14,7 @@ const Background = () => {
     
     globalImageFn()
 
-    // console.log(imgnumber, 'end');
+    console.log(imgnumber, 'end');
  
     return <>
 

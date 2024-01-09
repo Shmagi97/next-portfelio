@@ -18,35 +18,50 @@ const ShareClickBtn = (props: propsTp) => {
    
     
     const {  setImagenumber , imgnumber } = useGlobalContext ()
-    const [delay, setDelay] = useState(3)
+    const [delay, setDelay] = useState(1)
     const [chek, setChek] = useState (false)
     const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
     
   
-    // console.log(delay, 'start')
+    // console.log(imgnumber, 'imgnumber')
  
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
     // event : MouseEvent <HTMLButtonElement>
 
      //@@@@@@@@@@@@@
+      
 
-    //  useEffect(() => {
-    //     const interval = setTimeout(() => { 
-    //       setImagenumber((prevImgNumber) => {
-    //         let newImgNumber = prevImgNumber + 1;
-    //         if (newImgNumber >= 10) {
-    //           newImgNumber = 0;
-    //         }
-    //         return newImgNumber;
-    //       });
-    //     }, delay * 1000);
+     useEffect(() => {
+        const interval = setTimeout(() => { 
+            autoClick()
+        }, delay * 1000);
 
-    //     console.log(delay,'ahaa');
+        // console.log(delay,'ahaa');
 
-    //     return () => clearInterval(interval);
+        return () => clearTimeout(interval);
 
-    //   }, [delay, imgnumber]);
+      }, [delay, imgnumber]);
+
+      const limit = 10
+      let num = 0
+  
+      function autoClick () {
+  
+              
+              num += 1
+  
+             setImagenumber(num)
+          
+          if ( num >= limit) {
+            
+              num = 0
+              setImagenumber(num)      
+  
+          }
+   
+          
+       }
 
      //@@@@@@@@@@@@@
 
@@ -61,7 +76,7 @@ const ShareClickBtn = (props: propsTp) => {
         
 
          if (delay == 5){
-            setDelay(25)
+            setDelay(10)
             console.log(delay, 'click')
          }
      
