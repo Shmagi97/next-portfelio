@@ -1,26 +1,21 @@
 'use client'
 
+import { StringDecoder } from "string_decoder"
 import Button from "../button"
 import style from './navigate.module.css'
-// import { useEffect } from "react"
-// import { useGlobalContext } from "@/app/context/context"
-
 
 const Navigate = () => {
 
-    // const {userId, setUserId} = useGlobalContext ()
-
-    // useEffect(()=> {
-    //   setUserId('2')
-    // }, [])
-
+    const servises = [{
+        service1: '1', service2: '2',  service3: '3', 
+    }]
     
-
+  
     return <div className={style.cont}>
     
      <Button title = 'მთავარი'/>
-     <Button title = 'სერვისები' size = '20'/>
-     <Button title = 'სტატიები'/>
+     <Button title = 'სერვისები'  dropDown = 'yes' getServises = {servises}/>
+     <Button title = 'სტატიები'  dropDown = 'yes' />
      <Button title = 'პორტფელიო'/>
 
     

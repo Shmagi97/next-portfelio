@@ -3,25 +3,54 @@
 import Link from 'next/link';
 import style from './button.module.css'
 
+interface Service {
+    name : string;
+    description : string;
+}
+
 
 type propsTp = {
     title : string;
-    size? : string;
+    dropDown? : string;
+    getServises? : Service[];
 }
 
 const Button = (props : propsTp) => {
 
-    return <div className={style.buttonDiv}>
+    console.log(props.getServises)
+
+    return <section className={style.buttonsSection}>
+    
+              <div className={style.buttonDiv}>
 
 
-             <span></span>
+                <span></span>
     
-             <Link href={'/'} className={style.buttonLink}>
-                 {props.title}
-              </Link>
+                 <Link href={'/'} className={style.buttonLink}>
+                   {props.title}
+                 </Link>
     
-           </div>
-   
+               </div>
+
+              { props.dropDown ?  (
+
+               <div className={style.dropDown}>
+                
+                 <ul>
+                    <li>
+                        {/* {props.getServises.map((el)=> {
+                            console.log(el, 'fffff')
+                            <p></p>
+                        })} */}
+                        <p>hhhhhhhhh</p>
+                    </li>
+                   
+                 </ul>
+
+               </div>
+
+               ) : false }
+           </section>
     
 }
 

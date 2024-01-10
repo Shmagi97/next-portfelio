@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 80px;
+  height: 50px;
 }
 
 .buttonDiv > span {
@@ -20,4 +20,35 @@
 
 .buttonDiv:hover > span {
   border: 0.1px solid red;
+}
+
+.buttonsSection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.dropDown {
+  position: absolute;
+  padding: 10px 10px;
+  background-color: #5a6165;
+  border-radius: 15px;
+  margin-top: 50px;
+  text-align: center;
+  display: none;
+}
+
+.dropDown > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropDown > ul > li {
+  border-bottom: 1px solid red;
+  cursor: pointer;
+}
+
+.buttonsSection:hover > .dropDown {
+  display: block;
 }
