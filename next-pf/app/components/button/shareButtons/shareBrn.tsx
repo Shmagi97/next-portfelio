@@ -3,82 +3,35 @@
 import Image, { StaticImageData,  } from 'next/image';
 import styles from './clikButtons.module.css'
 import { useGlobalContext } from '@/app/context/context';
-import { useEffect, useMemo, useState } from 'react';
+import SetIntervalFn from '../../setInterval/setInterval';
 // import { MouseEvent } from 'react';
 
 type propsTp = {
     img: StaticImageData ;
-    clickInfo?: string;
     left? : string;
     right? : string;
 }
 
 
 const ShareClickBtn = (props: propsTp) => {
-   
     
-    const {  setImagenumber , imgnumber } = useGlobalContext ()
-    const [delay, setDelay] = useState(1)
-    const [chek, setChek] = useState (false)
-    const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
-    
-  
-    // console.log(imgnumber, 'imgnumber')
+    const {  setImagenumber , imgnumber , setChekDelay } = useGlobalContext ()
+
+    // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
  
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
     // event : MouseEvent <HTMLButtonElement>
 
-     //@@@@@@@@@@@@@
-      
-
-     useEffect(() => {
-        const interval = setTimeout(() => { 
-            autoClick()
-        }, delay * 1000);
-
-        // console.log(delay,'ahaa');
-
-        return () => clearTimeout(interval);
-
-      }, [delay, imgnumber]);
-
-      const limit = 10
-      let num = 0
-  
-      function autoClick () {
-  
-              
-              num += 1
-  
-             setImagenumber(num)
-          
-          if ( num >= limit) {
-            
-              num = 0
-              setImagenumber(num)      
-  
-          }
-   
-          
-       }
-
-     //@@@@@@@@@@@@@
 
     function clicked ( ) {
 
         // const value = event.currentTarget.value;
 
         // setImageclickinfo(value)
-        
-        
-        setDelay(5)
-        
 
-         if (delay == 5){
-            setDelay(10)
-            console.log(delay, 'click')
-         }
+        setChekDelay(true)
+
      
         if (props.left && imgnumber > -1){
             
@@ -106,7 +59,7 @@ const ShareClickBtn = (props: propsTp) => {
     return <>
     
      <div className={styles.btnStyle} onClick={ clicked }> 
-     
+       <SetIntervalFn/>
         <Image
        
          alt='search'

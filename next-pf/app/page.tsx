@@ -1,17 +1,10 @@
 'use client'
 
 import ShareClickBtn from './components/button/shareButtons/shareBrn'
-// import GlobalImage from './components/globalImage/globalImage'
 import styles from './page.module.css'
 import left from '@/public/icons/left.png'
 import right from '@/public/icons/right.png'
 
-
-// export const rame = (a : number, b : number ) => {
-
-//   const jami = a + b
-//   console.log(jami)
-// }
 
 export default function Home() {
 
@@ -31,7 +24,6 @@ export default function Home() {
       right={'right'}
       />
 
-      {/* <GlobalImage/> */}
  
     </section>
  
