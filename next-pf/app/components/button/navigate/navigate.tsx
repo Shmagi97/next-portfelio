@@ -1,22 +1,23 @@
 'use client'
 
-import { StringDecoder } from "string_decoder"
 import Button from "../button"
 import style from './navigate.module.css'
 
 const Navigate = () => {
 
-    const servises = [{
-        service1: '1', service2: '2',  service3: '3', 
-    }]
+    const servises = [
+       { service: '1', statia: '4' , portfelio: '7'} ,
+       { service: '2', statia: '5' , portfelio: '8'} ,
+       {service: '3', statia: '6' , portfelio: '9'} ,
+    ]
     
   
     return <div className={style.cont}>
     
      <Button title = 'მთავარი'/>
-     <Button title = 'სერვისები'  dropDown = 'yes' getServises = {servises}/>
-     <Button title = 'სტატიები'  dropDown = 'yes' />
-     <Button title = 'პორტფელიო'/>
+     <Button title = 'სერვისები'  dropDown = 'first' getServises = {servises}/>
+     <Button title = 'სტატიები'  dropDown = 'second' getServises = {servises}/>
+     <Button title = 'პორტფელიო' dropDown = 'Three' getServises = {servises}/>
 
     
     </div>

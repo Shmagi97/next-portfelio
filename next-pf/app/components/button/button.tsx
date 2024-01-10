@@ -4,8 +4,9 @@ import Link from 'next/link';
 import style from './button.module.css'
 
 interface Service {
-    name : string;
-    description : string;
+  service : string;
+  statia : string;
+  portfelio: string;
 }
 
 
@@ -17,12 +18,9 @@ type propsTp = {
 
 const Button = (props : propsTp) => {
 
-    console.log(props.getServises)
-
     return <section className={style.buttonsSection}>
     
               <div className={style.buttonDiv}>
-
 
                 <span></span>
     
@@ -37,13 +35,21 @@ const Button = (props : propsTp) => {
                <div className={style.dropDown}>
                 
                  <ul>
-                    <li>
-                        {/* {props.getServises.map((el)=> {
-                            console.log(el, 'fffff')
-                            <p></p>
-                        })} */}
-                        <p>hhhhhhhhh</p>
-                    </li>
+                
+                {props.getServises?.map((el, index)=> (
+                  
+                   <li key={index}>
+
+                    { 
+
+                     props.dropDown === 'first' ?  <p>{el.service}</p> 
+                    :  props.dropDown === 'second' ?  <p>{el.statia}</p> 
+                    : <p>{el.portfelio}</p>
+                    
+                    }
+            
+                   </li>
+                ))}
                    
                  </ul>
 
