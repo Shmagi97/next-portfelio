@@ -24,6 +24,8 @@ interface ContextProps {
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     chekDelay : boolean,
     setChekDelay : Dispatch <SetStateAction <boolean> >,
+    usefectRerender : number,
+    setUsefectRerender : Dispatch < SetStateAction < number > >,
 
 
 }
@@ -37,6 +39,8 @@ const GlobalContext = createContext<ContextProps>({
     setDataimg : () : DataType [] => [],
     chekDelay : false,
     setChekDelay : () : boolean => false,
+    usefectRerender : 0, 
+    setUsefectRerender : () : number => 0,
 
 })
 
@@ -46,10 +50,11 @@ export const GlobalContextProvider = ({ children }) => {
     const [imgnumber, setImagenumber] = useState(0)
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
     const [chekDelay, setChekDelay] = useState (false)
+    const [usefectRerender, setUsefectRerender] = useState (0)
    
     return (
 
-        <GlobalContext.Provider value={{imgnumber, setImagenumber, dataimg, setDataimg, globalImageFn, chekDelay, setChekDelay  }}>
+        <GlobalContext.Provider value={{imgnumber, setImagenumber, dataimg, setDataimg, globalImageFn, chekDelay, setChekDelay, usefectRerender, setUsefectRerender   }}>
 
             {children}
 

@@ -15,7 +15,7 @@ type propsTp = {
 
 const ShareClickBtn = (props: propsTp) => {
     
-    const {  setImagenumber , imgnumber , setChekDelay } = useGlobalContext ()
+    const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender } = useGlobalContext ()
 
     // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
  
@@ -36,6 +36,7 @@ const ShareClickBtn = (props: propsTp) => {
         if (props.left && imgnumber > -1){
             
             setImagenumber((prevImgNumber) => prevImgNumber -1);
+            setUsefectRerender((prevImgNumber) => prevImgNumber -1);
 
             if (imgnumber == 0){
                 setImagenumber(9);
@@ -47,6 +48,7 @@ const ShareClickBtn = (props: propsTp) => {
         if (props.right && imgnumber < 10 ){
 
             setImagenumber((prevImgNumber) => prevImgNumber +1)
+            setUsefectRerender((prevImgNumber) => prevImgNumber +1)
             
             if (imgnumber == 9){
                 setImagenumber(0);

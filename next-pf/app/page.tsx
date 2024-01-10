@@ -17,7 +17,7 @@ export default function Home() {
       left={'left'}
       />
       
-      <h1>saxelebi</h1>
+      <h1>Web Development `Next.js and TypeScript` </h1>
 
       <ShareClickBtn
       img={right}
