@@ -5,6 +5,7 @@ import { Input, Space } from 'antd';
 import { SearchProps } from 'antd/es/input';
 
 import style from './search.module.css'
+import { LogoutOutlined } from '@ant-design/icons';
 
 const SearchComponent = () => {
 
@@ -20,6 +21,13 @@ const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?
 
     <Search placeholder="input search text" onSearch={onSearch} enterButton />
 
+   </div>
+   <div className={style.SearchModal}>
+
+    <span className={style.span1}></span>
+    <span className={style.span2}></span>
+    <span className={style.span3}></span>
+    <LogoutOutlined />
    </div>
 
    </section>
