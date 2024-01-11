@@ -4,14 +4,10 @@ import style from './layout.module.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import Navigate from './components/button/navigate/navigate'
-import FixedImage from './components/fixedImage/fixedImage'
-import ShareClickBtn from './components/button/shareButtons/shareBrn'
-import share from '@/public/icons/share.png'
-import search from '@/public/icons/search.png'
-import Footer from './components/footer/footer'
+import Footer from './components/footerAndHeader/footer/footer'
 import Background from './components/background/background'
 import { GlobalContextProvider } from './context/context'
+import Header from './components/footerAndHeader/header/header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -40,32 +36,12 @@ export default function RootLayout({
       <GlobalContextProvider>
 
        <Background/>
-     
-       <header className={style.layoutSection}>
-        
-        <FixedImage/>
-         <Navigate/>
-         <div className={style.shareBtnDiv}>
 
-         <ShareClickBtn
-         img = {share}
-         
-        
-         />
-         <ShareClickBtn
-         img = {search}
-        
-        
-         />
-         </div>
-         
-         </header>
+       <Header/>
 
            {children}
  
-       <footer>
-          <Footer/>
-       </footer>
+        <Footer/>
 
        </GlobalContextProvider>
 

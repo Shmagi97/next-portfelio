@@ -1,0 +1,13 @@
+.layoutHeader {
+  display: flex;
+  justify-content: space-around;
+  width: 99.5%;
+  align-items: center;
+  position: fixed;
+  top: 0;
+}
+
+.shareBtnDiv {
+  display: flex;
+  column-gap: 10px;
+}

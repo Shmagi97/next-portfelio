@@ -4,12 +4,16 @@ import Image, { StaticImageData,  } from 'next/image';
 import styles from './clikButtons.module.css'
 import { useGlobalContext } from '@/app/context/context';
 import SetIntervalFn from '../../setInterval/setInterval';
+import Link from 'next/link';
+import facebook from '@/public/icons/facebook.png'
+import linkedin from '@/public/icons/linkedin.png'
 // import { MouseEvent } from 'react';
 
 type propsTp = {
     img: StaticImageData ;
     left? : string;
     right? : string;
+    hoverShare? : string;
 }
 
 
@@ -22,8 +26,9 @@ const ShareClickBtn = (props: propsTp) => {
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
     // event : MouseEvent <HTMLButtonElement>
-
-
+      
+    // console.log(props);
+    
     function clicked ( ) {
 
         // const value = event.currentTarget.value;
@@ -68,6 +73,45 @@ const ShareClickBtn = (props: propsTp) => {
          src= {props.img}
          width={20}
         />
+
+        {
+          props.hoverShare ? (
+
+            <div className={styles.shareHoverDiv}>
+
+                <ul className={styles.shareHoverUl}>
+                    <li>
+                         <Link href={'https://www.facebook.com/profile.php?id=100008644398321'} target='_blank'>
+                           
+                            <Image
+                             alt='facebook'
+                             src={facebook}
+                             width={20}
+                            />
+                         </Link>
+                     </li>
+                </ul>
+
+                <ul className={styles.shareHoverUl}>
+                    <li> 
+                        <Link href={'https://www.linkedin.com/in/shmagi-narsavidze-20a972273/'} target='_blank'>
+                            <Image
+                            alt='linkedln'
+                            src={linkedin}
+                            width={20}
+                            />
+                        </Link>
+                 </li>
+                </ul>
+
+            </div>
+             
+            
+
+          ) : false
+        
+    
+        }
     
      </div>
     
