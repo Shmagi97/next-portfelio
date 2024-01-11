@@ -1,0 +1,16 @@
+.searchSection {
+  position: absolute;
+  border: solid red;
+  min-height: 740px;
+  width: 99.8%;
+  z-index: 100;
+  background-color: rgb(216, 212, 207);
+  display: flex;
+  justify-content: center;
+  opacity: 0.9;
+}
+
+.searchSectionDiv {
+  margin-top: 200px;
+  width: 50%;
+}

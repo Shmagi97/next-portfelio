@@ -8,6 +8,8 @@ import Footer from './components/footerAndHeader/footer/footer'
 import Background from './components/background/background'
 import { GlobalContextProvider } from './context/context'
 import Header from './components/footerAndHeader/header/header'
+import SearchComponent from './components/serach/search'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,7 +34,9 @@ export default function RootLayout({
       <body className={inter.className}>
 
       <main className={style.layoutMain}>
-
+      
+       <SearchComponent/>
+ 
       <GlobalContextProvider>
 
        <Background/>
