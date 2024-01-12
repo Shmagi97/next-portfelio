@@ -16,8 +16,6 @@ const SearchComponent : React.FC = () => {
 
     useEffect(()=> {
         setSectionelement(useRefElement)
-        console.log('Updated searchsectionelement:', searchsectionelement);
-
     },[])
     
     function clickSearchLogaut () {

@@ -2,10 +2,7 @@
 
 import { useGlobalContext } from "@/app/context/context"
 
-import backGround from '@/public/image/backGround.jpg'
 import img2 from '@/public/image/img2.jpg'
-import photo1 from '@/public/image/photo1.jpg'
-
 import images2 from '@/public/image/images2.jpg'
 import images3 from '@/public/image/images3.jpg'
 import images4 from '@/public/image/images4.jpg'
@@ -23,9 +20,7 @@ export const globalImageFn = () => {
 
     useEffect(()=> {
        setDataimg ([
-           { img : backGround},
            { img : img2},
-           { img : photo1},
            { img : images1},
            { img : images2},
            { img : images3},

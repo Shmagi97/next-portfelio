@@ -12,8 +12,8 @@ const Background = () => {
    globalImageFn()
  
     return <>
-
-  
+     
+     
 
       {dataimg.map((el, index)=> {
         // console.log(el)

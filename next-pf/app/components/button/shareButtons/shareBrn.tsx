@@ -8,11 +8,11 @@ import Link from 'next/link';
 import facebook from '@/public/icons/facebook.png'
 import linkedin from '@/public/icons/linkedin.png'
 import styleSearch from '@/app/components/serach/search.module.css'
-import { useEffect } from 'react';
+import { LeftOutlined, RightOutlined, SearchOutlined, ShareAltOutlined } from '@ant-design/icons';
 // import { MouseEvent } from 'react';
 
 type propsTp = {
-    img: StaticImageData ;
+    antIcon? : string;
     left? : string;
     right? : string;
     hoverShare? : string;
@@ -46,18 +46,18 @@ const ShareClickBtn = (props: propsTp) => {
             setUsefectRerender((prevImgNumber) => prevImgNumber -1);
 
             if (imgnumber == 0){
-                setImagenumber(9);
+                setImagenumber(7);
             }
  
         } 
         
         
-        if (props.right && imgnumber < 10 ){
+        if (props.right && imgnumber < 8 ){
 
             setImagenumber((prevImgNumber) => prevImgNumber +1)
             setUsefectRerender((prevImgNumber) => prevImgNumber +1)
             
-            if (imgnumber == 9){
+            if (imgnumber == 7){
                 setImagenumber(0);
             }
         }
@@ -73,12 +73,13 @@ const ShareClickBtn = (props: propsTp) => {
     
      <div className={styles.btnStyle} onClick={ clicked }> 
        <SetIntervalFn/>
-        <Image
-       
-         alt='search'
-         src= {props.img}
-         width={20}
-        />
+    
+         {
+            props.antIcon === 'share' ?  <ShareAltOutlined/> :  props.antIcon === 'search' ? 
+            <SearchOutlined/> : props.antIcon === 'left' ?  <LeftOutlined/> : props.antIcon === 'right' ? 
+            <RightOutlined/> : false
+
+         }
 
         {
           props.hoverShare ? (

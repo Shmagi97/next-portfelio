@@ -7,7 +7,7 @@ const SetIntervalFn = () => {
   const [delay, setDelay] = useState(5);
   const {  setImagenumber , chekDelay, usefectRerender } = useGlobalContext ()
 
-  const limit = 10
+  const limit = 8
   let num = 0
 
   useEffect(() => {

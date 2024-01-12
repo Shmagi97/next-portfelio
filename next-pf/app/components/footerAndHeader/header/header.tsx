@@ -1,10 +1,9 @@
+'use client'
 
 import Navigate from "../../button/navigate/navigate"
 import ShareClickBtn from "../../button/shareButtons/shareBrn"
 import FixedImage from "../../fixedImage/fixedImage"
 import style from './header.module.css'
-import share from '@/public/icons/share.png'
-import search from '@/public/icons/search.png'
 
 const Header = () => {
 
@@ -16,12 +15,12 @@ const Header = () => {
        <div className={style.shareBtnDiv}>
 
          <ShareClickBtn
-          img = {share}
+          antIcon = {'share'}
           hoverShare = {'active'}
          />
            <ShareClickBtn
-          img = {search}
           clickSearch = {'active'}
+          antIcon = {'search'}
          />
 
        </div>
