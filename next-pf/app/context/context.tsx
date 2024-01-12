@@ -7,17 +7,16 @@ import {
   Dispatch,
   SetStateAction,
   useState,
+  useRef,
+  RefObject,
 } from "react";
-
-import { globalImageFn } from "../components/globalImage/globalImage";
 
 type DataType = {
   img : StaticImageData;
 };
 
 interface ContextProps {
-    
-    globalImageFn : Function,
+
     imgnumber: number,
     setImagenumber: Dispatch <SetStateAction <number> >
     dataimg : DataType [],
@@ -26,13 +25,13 @@ interface ContextProps {
     setChekDelay : Dispatch <SetStateAction <boolean> >,
     usefectRerender : number,
     setUsefectRerender : Dispatch < SetStateAction < number > >,
-
-
+    searchsectionelement : RefObject <HTMLDivElement | null> ,
+    setSectionelement : Dispatch < SetStateAction < RefObject <HTMLDivElement | null> > >,
 }
+
 
 const GlobalContext = createContext<ContextProps>({
     
-    globalImageFn : Function,
     imgnumber : 0,
     setImagenumber : () : number => 0,
     dataimg : [],
@@ -41,7 +40,8 @@ const GlobalContext = createContext<ContextProps>({
     setChekDelay : () : boolean => false,
     usefectRerender : 0, 
     setUsefectRerender : () : number => 0,
-
+    searchsectionelement : { current: null } ,
+    setSectionelement : () : RefObject < HTMLDivElement | null > => ({ current: null }),
 })
 
 
@@ -51,10 +51,14 @@ export const GlobalContextProvider = ({ children }) => {
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
     const [chekDelay, setChekDelay] = useState (false)
     const [usefectRerender, setUsefectRerender] = useState (0)
+    
+    const initialSearchSectionElementRef = useRef<HTMLDivElement | null>(null);
+    const [searchsectionelement, setSectionelement] = useState (initialSearchSectionElementRef);
    
     return (
 
-        <GlobalContext.Provider value={{imgnumber, setImagenumber, dataimg, setDataimg, globalImageFn, chekDelay, setChekDelay, usefectRerender, setUsefectRerender   }}>
+        <GlobalContext.Provider value={{imgnumber, setImagenumber, dataimg, setDataimg , 
+         chekDelay, setChekDelay, usefectRerender, setUsefectRerender, searchsectionelement,  setSectionelement  }}>
 
             {children}
 

@@ -37,5 +37,7 @@ export const globalImageFn = () => {
        ])
 
    },[imgnumber])
+   
+   return null
 
 }

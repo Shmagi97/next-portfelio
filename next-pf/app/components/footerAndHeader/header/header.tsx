@@ -8,7 +8,6 @@ import search from '@/public/icons/search.png'
 
 const Header = () => {
 
-
     return <header className={style.layoutHeader}>
 
        <FixedImage/>
@@ -18,10 +17,11 @@ const Header = () => {
 
          <ShareClickBtn
           img = {share}
-          hoverShare = {'acrive'}
+          hoverShare = {'active'}
          />
            <ShareClickBtn
           img = {search}
+          clickSearch = {'active'}
          />
 
        </div>

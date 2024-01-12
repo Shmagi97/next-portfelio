@@ -1,13 +1,33 @@
 'use client'
 
-import React from 'react';
+import React, {  RefObject, useEffect, useRef, useState } from 'react';
 import { Input, Space } from 'antd';
 import { SearchProps } from 'antd/es/input';
 
-import style from './search.module.css'
+import styleSearch from './search.module.css'
 import { LogoutOutlined } from '@ant-design/icons';
+import { useGlobalContext } from '@/app/context/context';
 
-const SearchComponent = () => {
+const SearchComponent : React.FC = () => {
+
+    const {searchsectionelement , setSectionelement} = useGlobalContext()
+
+    const useRefElement : RefObject < HTMLDivElement > = useRef(null)
+
+    useEffect(()=> {
+        setSectionelement(useRefElement)
+        console.log('Updated searchsectionelement:', searchsectionelement);
+
+    },[])
+    
+    function clickSearchLogaut () {
+
+      if (searchsectionelement.current){
+         searchsectionelement.current.classList.replace(styleSearch.searchSection, styleSearch.sectionNone)
+       }
+    
+    }
+
 
 const { Search } = Input;
 
@@ -15,19 +35,22 @@ const { Search } = Input;
 const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value, _e);
 
 
-    return <section className={style.searchSection}>
+    return <section className={styleSearch.sectionNone} ref={useRefElement}>
 
-    <div className={style.searchSectionDiv}>
+    <div className={styleSearch.searchSectionDiv} >
 
     <Search placeholder="input search text" onSearch={onSearch} enterButton />
 
-   </div>
-   <div className={style.SearchModal}>
-
-    <span className={style.span1}></span>
-    <span className={style.span2}></span>
-    <span className={style.span3}></span>
+    <div className={styleSearch.searchLogaut}  onClick={clickSearchLogaut}>
     <LogoutOutlined />
+    </div>
+
+   </div>
+   <div className={styleSearch.SearchModal}>
+
+    <span className={styleSearch.span1}></span>
+    <span className={styleSearch.span2}></span>
+    <span className={styleSearch.span3}></span>
    </div>
 
    </section>

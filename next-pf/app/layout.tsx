@@ -34,10 +34,10 @@ export default function RootLayout({
       <body className={inter.className}>
 
       <main className={style.layoutMain}>
-      
-       <SearchComponent/>
  
       <GlobalContextProvider>
+      
+      <SearchComponent/>
 
        <Background/>
 

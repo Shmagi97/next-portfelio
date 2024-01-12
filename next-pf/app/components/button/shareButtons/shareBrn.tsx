@@ -7,6 +7,8 @@ import SetIntervalFn from '../../setInterval/setInterval';
 import Link from 'next/link';
 import facebook from '@/public/icons/facebook.png'
 import linkedin from '@/public/icons/linkedin.png'
+import styleSearch from '@/app/components/serach/search.module.css'
+import { useEffect } from 'react';
 // import { MouseEvent } from 'react';
 
 type propsTp = {
@@ -14,12 +16,12 @@ type propsTp = {
     left? : string;
     right? : string;
     hoverShare? : string;
+    clickSearch? : string;
 }
-
 
 const ShareClickBtn = (props: propsTp) => {
     
-    const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender } = useGlobalContext ()
+    const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender, searchsectionelement} = useGlobalContext ()
 
     // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
  
@@ -58,6 +60,10 @@ const ShareClickBtn = (props: propsTp) => {
             if (imgnumber == 9){
                 setImagenumber(0);
             }
+        }
+
+        if (props.clickSearch){  
+            searchsectionelement.current?.classList.replace(styleSearch.sectionNone, styleSearch.searchSection)
         }
       
     }
