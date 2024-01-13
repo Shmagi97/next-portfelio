@@ -25,8 +25,12 @@ interface ContextProps {
     setChekDelay : Dispatch <SetStateAction <boolean> >,
     usefectRerender : number,
     setUsefectRerender : Dispatch < SetStateAction < number > >,
-    searchsectionelement : RefObject <HTMLDivElement | null> ,
-    setSectionelement : Dispatch < SetStateAction < RefObject <HTMLDivElement | null> > >,
+    globalChildSection : RefObject <HTMLDivElement | null> ,
+    setGlobalChildSection : Dispatch < SetStateAction < RefObject <HTMLDivElement | null> > >,
+    clickedFixedImage : boolean,
+    setClickedFixedImage : Dispatch < SetStateAction < boolean > >,
+    clickedSearch: boolean,
+    setClickedSearch : Dispatch < SetStateAction < boolean > >,
 }
 
 
@@ -40,8 +44,12 @@ const GlobalContext = createContext<ContextProps>({
     setChekDelay : () : boolean => false,
     usefectRerender : 0, 
     setUsefectRerender : () : number => 0,
-    searchsectionelement : { current: null } ,
-    setSectionelement : () : RefObject < HTMLDivElement | null > => ({ current: null }),
+    globalChildSection : { current: null } ,
+    setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
+    clickedFixedImage : false ,
+    setClickedFixedImage : () : boolean => false ,
+    clickedSearch : false ,
+    setClickedSearch : () : boolean => false ,
 })
 
 
@@ -51,14 +59,19 @@ export const GlobalContextProvider = ({ children }) => {
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
     const [chekDelay, setChekDelay] = useState (false)
     const [usefectRerender, setUsefectRerender] = useState (0)
+    const [clickedFixedImage, setClickedFixedImage] = useState (false)
+    const [clickedSearch, setClickedSearch] = useState (false)
     
-    const initialSearchSectionElementRef = useRef<HTMLDivElement | null>(null);
-    const [searchsectionelement, setSectionelement] = useState (initialSearchSectionElementRef);
+    const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
+    const [globalChildSection, setGlobalChildSection] = useState (initialGlobalChildSection);
    
     return (
 
-        <GlobalContext.Provider value={{imgnumber, setImagenumber, dataimg, setDataimg , 
-         chekDelay, setChekDelay, usefectRerender, setUsefectRerender, searchsectionelement,  setSectionelement  }}>
+        <GlobalContext.Provider value={{
+            imgnumber, setImagenumber, dataimg, setDataimg , 
+            chekDelay, setChekDelay, usefectRerender, setUsefectRerender, globalChildSection,
+            setGlobalChildSection, clickedFixedImage, setClickedFixedImage, clickedSearch, setClickedSearch,   
+            }}>
 
             {children}
 

@@ -1,0 +1,19 @@
+.hadSection {
+  border: solid red;
+  height: 600px;
+  width: 100%;
+}
+
+.hadSectionFirstDiv {
+  border: solid yellow;
+}
+
+.fixedimagediv {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  cursor: pointer;
+  overflow: hidden;
+  border-right: 6px solid red;
+  border-bottom: 6px solid red;
+}

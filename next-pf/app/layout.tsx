@@ -9,7 +9,7 @@ import Background from './components/background/background'
 import { GlobalContextProvider } from './context/context'
 import Header from './components/footerAndHeader/header/header'
 import SearchComponent from './components/serach/search'
-
+import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -36,18 +36,18 @@ export default function RootLayout({
       <main className={style.layoutMain}>
  
       <GlobalContextProvider>
-      
-      <SearchComponent/>
+          {/* 1. GlobalDinamikChaild- ში ივენთზე დინამიურად იცვლება შვილი კომპპონენტები */}
+           <GlobalDinamikChaild/>
 
-       <Background/>
+           <Background/>
 
-       <Header/>
+           <Header/>
 
-           {children}
+                {children}
  
-        <Footer/>
+           <Footer/>
 
-       </GlobalContextProvider>
+      </GlobalContextProvider>
 
        </main>
       </body>

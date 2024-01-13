@@ -1,15 +1,31 @@
 import Image from 'next/image'
 import styles from './fixedImage.module.css'
-import img2 from '@/public/image/img2.jpg'
+import myImage1 from '@/public/image/myImage1.jpg'
+import { useGlobalContext } from '@/app/context/context';
 
-const FixedImage = () => {
-    return <div className={styles.fixedimagediv}>
+type fixedImageTP = {
+    click? : string;
+}
+
+const FixedImage = (props : fixedImageTP) => {
+
+    const {globalChildSection, setClickedFixedImage } = useGlobalContext()
+    
+    function clickImgFixed () {
+      
+        if (props.click) { 
+            
+            globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
+            setClickedFixedImage(true)
+        }
+    }
+
+    return <div className={styles.fixedimagediv}  onClick={clickImgFixed}>
        <Image
        
        alt='imageFixed'
-       src={img2}
+       src={myImage1}
        width={100}
-      
        priority = {true}
        />
     </div>

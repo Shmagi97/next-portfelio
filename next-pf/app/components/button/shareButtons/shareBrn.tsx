@@ -7,7 +7,6 @@ import SetIntervalFn from '../../setInterval/setInterval';
 import Link from 'next/link';
 import facebook from '@/public/icons/facebook.png'
 import linkedin from '@/public/icons/linkedin.png'
-import styleSearch from '@/app/components/serach/search.module.css'
 import { LeftOutlined, RightOutlined, SearchOutlined, ShareAltOutlined } from '@ant-design/icons';
 // import { MouseEvent } from 'react';
 
@@ -21,15 +20,13 @@ type propsTp = {
 
 const ShareClickBtn = (props: propsTp) => {
     
-    const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender, searchsectionelement} = useGlobalContext ()
+    const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender, globalChildSection, setClickedSearch} = useGlobalContext ()
 
     // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
  
     // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
 
     // event : MouseEvent <HTMLButtonElement>
-      
-    // console.log(props);
     
     function clicked ( ) {
 
@@ -62,8 +59,9 @@ const ShareClickBtn = (props: propsTp) => {
             }
         }
 
-        if (props.clickSearch){  
-            searchsectionelement.current?.classList.replace(styleSearch.sectionNone, styleSearch.searchSection)
+        if (props.clickSearch){
+            globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
+            setClickedSearch(true)
         }
       
     }

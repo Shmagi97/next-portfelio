@@ -9,7 +9,9 @@ const Header = () => {
 
     return <header className={style.layoutHeader}>
 
-       <FixedImage/>
+       <FixedImage
+       click = {'active'}
+       />
        <Navigate/>
 
        <div className={style.shareBtnDiv}>

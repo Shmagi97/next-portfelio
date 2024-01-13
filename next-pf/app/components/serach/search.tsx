@@ -1,6 +1,6 @@
 'use client'
 
-import React, {  RefObject, useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { Input, Space } from 'antd';
 import { SearchProps } from 'antd/es/input';
 
@@ -8,20 +8,16 @@ import styleSearch from './search.module.css'
 import { LogoutOutlined } from '@ant-design/icons';
 import { useGlobalContext } from '@/app/context/context';
 
+
 const SearchComponent : React.FC = () => {
 
-    const {searchsectionelement , setSectionelement} = useGlobalContext()
-
-    const useRefElement : RefObject < HTMLDivElement > = useRef(null)
-
-    useEffect(()=> {
-        setSectionelement(useRefElement)
-    },[])
+    const {globalChildSection, setClickedSearch } = useGlobalContext()
     
     function clickSearchLogaut () {
 
-      if (searchsectionelement.current){
-         searchsectionelement.current.classList.replace(styleSearch.searchSection, styleSearch.sectionNone)
+      if (globalChildSection.current){
+        globalChildSection.current.classList.replace('searchSection', 'sectionNone')
+        setClickedSearch(false)
        }
     
     }
@@ -33,7 +29,8 @@ const { Search } = Input;
 const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?.source, value, _e);
 
 
-    return <section className={styleSearch.sectionNone} ref={useRefElement}>
+    return <>
+
 
     <div className={styleSearch.searchSectionDiv} >
 
@@ -51,7 +48,7 @@ const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?
     <span className={styleSearch.span3}></span>
    </div>
 
-   </section>
+   </>
 }
 
 export default SearchComponent 
