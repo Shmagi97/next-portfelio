@@ -26,7 +26,7 @@ const Button = (props : propsTp) => {
 
                 <span></span>
                 {/* style.buttonLink */}
-                 <Link href={'/'} className={ `${style.buttonLink} ${props.activeClass ? style.buttonLinkActive : undefined}` }>
+                 <Link href={'/'} className={ `${style.buttonLink} ${props.activeClass ? style.buttonLinkActive : false }` }>
                    {props.title}
                  </Link>
     

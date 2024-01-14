@@ -3,6 +3,7 @@
 .hadSection {
     border: solid red;
     width: 100%;
+    display: flex;
   }
   
   .hadSectionFirstDiv {
@@ -68,3 +69,11 @@
     color: $textColors ;
   }
   
+  /* navigacia style */
+
+  .navigateDiv{
+    margin: 0 auto;
+    height: 50px;
+    width: 45%;
+    margin-top: 20px;
+  }

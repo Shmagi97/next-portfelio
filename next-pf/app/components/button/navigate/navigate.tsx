@@ -1,7 +1,7 @@
 'use client'
 
 import Button from "../button"
-import style from './navigate.module.css'
+import style from './navigate.module.scss'
 
 const Navigate = () => {
 
@@ -23,4 +23,16 @@ const Navigate = () => {
     </div>
 }
 
-export default Navigate
+const NavigateGlobalSection = () => {
+
+
+    return <div className={style.contGlobalSection}>
+    
+    <Button title = 'მთავარი'   activeClass  />
+    <Button title = 'მთავარი'   activeClass  />
+    <Button title = 'მთავარი'   activeClass  />
+   
+   </div>
+}
+
+export  { Navigate, NavigateGlobalSection };

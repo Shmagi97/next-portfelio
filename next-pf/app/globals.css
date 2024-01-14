@@ -37,6 +37,7 @@ body {
   row-gap: 20px;
   opacity: 0.9;
   animation: setionClouseAnimate 0.5s;
+  user-select: none;
 }
 
 @keyframes setionClouseAnimate {

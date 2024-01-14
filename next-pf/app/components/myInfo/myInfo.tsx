@@ -1,3 +1,4 @@
+'use client'
 
 import Image from 'next/image'
 import myImage1 from '@/public/image/myImage1.jpg'
@@ -6,6 +7,7 @@ import { useGlobalContext } from '@/app/context/context'
 import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
 import style from './myInfo.module.scss'
+import { NavigateGlobalSection } from '../button/navigate/navigate'
 
 
 const MyInfo = () => {
@@ -59,6 +61,10 @@ const MyInfo = () => {
                />
              </div>
 
+            </div>
+             
+            <div className={style.navigateDiv}>
+              <NavigateGlobalSection/>
             </div>
                 
     </section>
