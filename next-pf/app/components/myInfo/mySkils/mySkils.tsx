@@ -1,6 +1,6 @@
 'use client'
 
-import mySkils from './mySkils.module.css'
+import mySkils from './mySkils.module.scss'
 
 const MySkils = () => {
 

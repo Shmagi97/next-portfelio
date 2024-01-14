@@ -16,6 +16,7 @@ type propsTp = {
     right? : string;
     hoverShare? : string;
     clickSearch? : string;
+    btnActiveClass? : boolean;
 }
 
 const ShareClickBtn = (props: propsTp) => {
@@ -69,7 +70,7 @@ const ShareClickBtn = (props: propsTp) => {
 
     return <>
     
-     <div className={styles.btnStyle} onClick={ clicked }> 
+     <div className={`${styles.btnStyle} ${props.btnActiveClass ? styles.btnStyleActive : false }`} onClick={ clicked }> 
        <SetIntervalFn/>
     
          {

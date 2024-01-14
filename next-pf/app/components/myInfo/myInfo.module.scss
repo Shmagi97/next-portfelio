@@ -50,12 +50,9 @@
   }
   
   .leftIconDiv:hover {
-    color:  $btnTextColor;
+    color: $btnActiveClassColor;
   }
-  
-  .leftIconDiv:active {
-    background-color: #000000;
-  }
+
   
   .myContactDiv {
     display: flex;
@@ -65,5 +62,9 @@
     position: absolute;
     top: 30px;
     right: 10%;
+  }
+
+  .h1{
+    color: $textColors ;
   }
   

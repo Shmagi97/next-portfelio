@@ -15,6 +15,7 @@ type propsTp = {
     title : string;
     dropDown? : string;
     getServises? : Service[];
+    activeClass? : boolean;
 }
 
 const Button = (props : propsTp) => {
@@ -24,8 +25,8 @@ const Button = (props : propsTp) => {
               <div className={style.buttonDiv}>
 
                 <span></span>
-    
-                 <Link href={'/'} className={style.buttonLink}>
+                {/* style.buttonLink */}
+                 <Link href={'/'} className={ `${style.buttonLink} ${props.activeClass ? style.buttonLinkActive : undefined}` }>
                    {props.title}
                  </Link>
     

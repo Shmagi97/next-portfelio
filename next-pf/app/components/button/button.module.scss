@@ -18,6 +18,11 @@
   .buttonLink {
     text-decoration: none;
     color: $btnTextColor;
+    user-select: none;
+  }
+
+  .buttonLinkActive:active{
+    color: $btnActiveClassColor ;
   }
   
   .buttonDiv:hover > span {

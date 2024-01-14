@@ -1,12 +1,15 @@
 'use client'
 
 import { CaretDownOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons"
-import myContact from './myContact.module.css'
+import myContact from './myContact.module.scss'
 
 type antIqonTP = {
     antIcon1? : string ;
     antIcon2? : string ;
     antIcon3? : string ;
+    antIcon1Span? : string;
+    antIcon2Span? : string;
+    antIcon3Span? : string;
 
 }
 
@@ -26,7 +29,8 @@ const MyContact = (props : antIqonTP ) => {
                   }  
               
                 </a>
-                <span>568 59 60 12</span>
+                <span>{ props.antIcon1Span ? props.antIcon1Span : props.antIcon2Span ? props.antIcon2Span 
+                        : props.antIcon3Span ? props.antIcon3Span : undefined }</span>
               </div>
           
            </div>
