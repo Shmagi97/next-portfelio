@@ -8,7 +8,8 @@ import Footer from './components/footerAndHeader/footer/footer'
 import Background from './components/background/background'
 import { GlobalContextProvider } from './context/context'
 import Header from './components/footerAndHeader/header/header'
-import SearchComponent from './components/serach/search'
+
+
 import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
 
 const inter = Inter({ subsets: ['latin'] })

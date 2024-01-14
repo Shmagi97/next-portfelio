@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import style from './button.module.css'
+import globalBtn from '@/app/global.module.scss'
 
 interface Service {
   service : string;
@@ -24,7 +25,7 @@ const Button = (props : propsTp) => {
 
                 <span></span>
     
-                 <Link href={'/'} className={style.buttonLink}>
+                 <Link href={'/'} className={`${style.buttonLink} ${ globalBtn.colorBtn}`}>
                    {props.title}
                  </Link>
     

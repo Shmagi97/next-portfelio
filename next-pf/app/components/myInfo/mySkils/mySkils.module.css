@@ -1,0 +1,114 @@
+/* skils animation */
+
+.sectionAnimation {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 13px;
+}
+
+.sectionAnimation > div {
+  display: flex;
+  flex-direction: column;
+  row-gap: 3px;
+}
+
+.sectionAnimation > div > span {
+  color: white;
+  font-size: 20px;
+  opacity: 60%;
+}
+
+.sectionAnimation > div > span > span {
+  color: #36e97b;
+  font-size: 13px;
+}
+
+.sectionAnimation > div > div {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+  height: 5px;
+  border-radius: 100%;
+}
+
+.sectionAnimation > div > div > span {
+  position: absolute;
+  display: block;
+  border: solid red;
+
+  animation: skills-line-run linear;
+  animation-duration: 4s;
+  animation-fill-mode: forwards;
+}
+
+.spanWidth1 {
+  width: 100%;
+}
+
+.spanWidth2 {
+  width: 100%;
+}
+
+.spanWidth3 {
+  width: 65%;
+}
+
+.spanWidth4 {
+  width: 30%;
+}
+
+.spanWidth5 {
+  width: 100%;
+}
+
+.spanWidth6 {
+  width: 100%;
+}
+
+.spanWidth7 {
+  width: 90%;
+}
+
+.spanWidth8 {
+  width: 75%;
+}
+
+.spanWidth9 {
+  width: 20%;
+}
+
+@keyframes skills-line-run {
+  0% {
+    left: -100%;
+  }
+
+  50%,
+  100% {
+    left: 0%;
+  }
+}
+
+.leftIconDiv {
+  float: right;
+  transform: translateY(-50px);
+
+  width: 30px;
+  height: 30px;
+  background-color: #8b8b8b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  opacity: 0.8;
+}
+
+.leftIconDiv:hover {
+  color: #36e97b;
+}
+
+.leftIconDiv:active {
+  background-color: #000000;
+}
