@@ -1,41 +1,36 @@
 'use client'
 
-const MyContact = () => {
+import { CaretDownOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons"
+import myContact from './myContact.module.css'
 
+type antIqonTP = {
+    antIcon1? : string ;
+    antIcon2? : string ;
+    antIcon3? : string ;
 
-    return <section>
+}
 
-           <div>
+const MyContact = (props : antIqonTP ) => {
+
+    const rame = "tel:568 59 60 12"
+
+    return <div className={myContact.flexDiv}>
               <div>
-                <a href="tel:568 59 60 12"></a>
+                <a target="_blank" href = { props.antIcon1 ? props.antIcon1 : props.antIcon2 ? props.antIcon2 : 
+                           props.antIcon3 ?  props.antIcon3 : undefined }>
+                  { 
+                  
+                     props.antIcon1 ?  <PhoneOutlined/> : props.antIcon2 ? <MailOutlined/> :
+                     props.antIcon3 ? <CaretDownOutlined/> : false
+                  
+                  }  
+              
+                </a>
+                <span>568 59 60 12</span>
               </div>
-              <div>
-                <span>Phone Number</span>
-                <a href="tel:568 59 60 12"></a>
-              </div>
+          
            </div>
 
-           <div>
-              <div>
-                <a href="https://www.google.com/maps/place/43%C2%B002'12.3%22N+42%C2%B041'28.1%22E/@43.036742,42.691133,17z/data=!3m1!4b1!4m4!3m3!8m2!3d43.036742!4d42.691133?entry=ttu"></a>
-              </div>
-              <div>
-                <span>user Address</span>
-                <a href="https://www.google.com/maps/place/43%C2%B002'12.3%22N+42%C2%B041'28.1%22E/@43.036742,42.691133,17z/data=!3m1!4b1!4m4!3m3!8m2!3d43.036742!4d42.691133?entry=ttu"></a>
-              </div>
-           </div>
-
-           <div>
-              <div>
-                <a href="mailto:sh.narsa1997@gmail.com"></a>
-              </div>
-              <div>
-                <span>Email Address</span>
-                <a href="mailto:sh.narsa1997@gmail.com"></a>
-              </div>
-           </div>
-
-    </section>
 }
 
 export default MyContact

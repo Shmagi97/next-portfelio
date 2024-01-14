@@ -1,6 +1,7 @@
 .hadSection {
   border: solid red;
   width: 100%;
+  /* display: flex; */
 }
 
 .hadSectionFirstDiv {
@@ -9,6 +10,10 @@
   flex-direction: column;
   row-gap: 30px;
   padding: 10px 0px 0px 10px;
+  max-width: 30%;
+  min-width: 270px;
+  width: 100%;
+  position: relative;
 }
 
 .divWre {
@@ -49,4 +54,14 @@
 
 .leftIconDiv:active {
   background-color: #000000;
+}
+
+.myContactDiv {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+  width: 50px;
+  position: absolute;
+  top: 30px;
+  right: 10%;
 }
