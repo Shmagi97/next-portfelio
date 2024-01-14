@@ -3,8 +3,7 @@
 import React from 'react';
 import { Input, Space } from 'antd';
 import { SearchProps } from 'antd/es/input';
-
-import styleSearch from './search.module.css'
+import styleSearch from './search.module.scss'
 import { LogoutOutlined } from '@ant-design/icons';
 import { useGlobalContext } from '@/app/context/context';
 

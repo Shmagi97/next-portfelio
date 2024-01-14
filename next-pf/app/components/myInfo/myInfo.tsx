@@ -1,12 +1,11 @@
 
-import style from './myInfo.module.css'
 import Image from 'next/image'
 import myImage1 from '@/public/image/myImage1.jpg'
-import globalMyinfo from '@/app/global.module.scss'
 import { LeftOutlined } from '@ant-design/icons'
 import { useGlobalContext } from '@/app/context/context'
 import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
+import style from './myInfo.module.scss'
 
 
 const MyInfo = () => {
@@ -40,7 +39,7 @@ const MyInfo = () => {
                     <LeftOutlined/>
                  </div>
 
-               <h1 className={globalMyinfo.colorNMyinfo}>შმაგი ნარსავიძე</h1>
+               <h1 >შმაგი ნარსავიძე</h1>
              </div>
 
              <MySkils/>

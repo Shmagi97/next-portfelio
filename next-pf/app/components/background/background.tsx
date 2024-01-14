@@ -23,7 +23,7 @@ const Background = () => {
     
             <Image
                key={index}
-               className={` ${style.backgroundImage} ${style.position1}`}
+               className={style.backgroundImage}
                alt="imageBackground"
                 src={el.img}
                priority= {true}

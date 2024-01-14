@@ -14,7 +14,7 @@ const Navigate = () => {
   
     return <div className={style.cont}>
     
-     <Button title = 'მთავარი'/>
+     <Button title = 'მთავარი' />
      <Button title = 'სერვისები'  dropDown = 'first' getServises = {servises}/>
      <Button title = 'სტატიები'  dropDown = 'second' getServises = {servises}/>
      <Button title = 'პორტფელიო' dropDown = 'Three' getServises = {servises}/>

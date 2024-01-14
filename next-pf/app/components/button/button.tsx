@@ -1,8 +1,8 @@
 'use client'
 
 import Link from 'next/link';
-import style from './button.module.css'
-import globalBtn from '@/app/global.module.scss'
+import style from './button.module.scss'
+
 
 interface Service {
   service : string;
@@ -25,7 +25,7 @@ const Button = (props : propsTp) => {
 
                 <span></span>
     
-                 <Link href={'/'} className={`${style.buttonLink} ${ globalBtn.colorBtn}`}>
+                 <Link href={'/'} className={style.buttonLink}>
                    {props.title}
                  </Link>
     

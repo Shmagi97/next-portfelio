@@ -1,13 +1,13 @@
 'use client'
 
 import Image, { StaticImageData,  } from 'next/image';
-import styles from './clikButtons.module.css'
 import { useGlobalContext } from '@/app/context/context';
 import SetIntervalFn from '../../setInterval/setInterval';
 import Link from 'next/link';
 import facebook from '@/public/icons/facebook.png'
 import linkedin from '@/public/icons/linkedin.png'
 import { LeftOutlined, RightOutlined, SearchOutlined, ShareAltOutlined } from '@ant-design/icons';
+import styles from './shareBtn.module.scss'
 // import { MouseEvent } from 'react';
 
 type propsTp = {
