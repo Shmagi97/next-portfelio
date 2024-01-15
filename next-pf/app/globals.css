@@ -38,6 +38,7 @@ body {
   opacity: 0.9;
   animation: setionClouseAnimate 0.5s;
   user-select: none;
+  overflow: hidden;
 }
 
 @keyframes setionClouseAnimate {
@@ -48,4 +49,8 @@ body {
   100% {
     scale: 1;
   }
+}
+
+body {
+  overflow: hidden;
 }

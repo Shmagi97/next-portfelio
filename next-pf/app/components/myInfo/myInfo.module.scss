@@ -1,14 +1,14 @@
 @import '../../colors.scss';
 
 .hadSection {
-    border: solid red;
+   
     width: 100%;
     display: flex;
    
   }
   
   .hadSectionFirstDiv {
-    border: solid yellow;
+   
     display: flex;
     flex-direction: column;
     row-gap: 30px;
@@ -81,14 +81,34 @@
 
   .myInfoTextSection{
      
-    border: solid rgb(60, 0, 255);
     width: 100%;
    
   }
 
   .infoTextDiv{
-    border: solid red;
     width: 95%;
     margin: 20px auto ;
+    max-height: 600px;
+    overflow-y: auto;
   
   }
+
+  .h2{
+    font-size: 20px;
+    text-align: center;
+    color:$btnTextColor;
+   
+  }
+
+ .pHtml{
+  font-size: 15px;
+  color: $textColors ;
+  text-align: center;
+  width: 40%;
+  margin: 0 auto;
+ }
+
+ .mySertificate{
+  width: 100%;
+  height: auto;
+ }

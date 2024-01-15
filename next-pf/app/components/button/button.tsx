@@ -2,7 +2,6 @@
 
 import Link from 'next/link';
 import style from './button.module.scss'
-import { useEffect, useState } from 'react';
 import { useGlobalContext } from '@/app/context/context';
 
 

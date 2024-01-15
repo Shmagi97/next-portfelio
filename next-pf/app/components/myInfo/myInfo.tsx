@@ -9,7 +9,7 @@ import MyContact from './myContactInfo/myContact'
 import style from './myInfo.module.scss'
 import { NavigateGlobalSection } from '../button/navigate/navigate'
 import { useEffect } from 'react'
-
+import mySertificate from '@/public/sertifikati/mySertificate.png'
 
 const MyInfo = () => {
 
@@ -78,7 +78,29 @@ const MyInfo = () => {
                 
                 {
 
-                   clickBtnNumber[0] == 1  ? ( <p>pirveli</p> ) :  clickBtnNumber[1] == 1 ? ( <p>meore</p> ) :
+                   clickBtnNumber[0] == 1  ? ( <>
+
+                    <h2 className={style.h2}> ჩემს შესახებ </h2>
+
+                   <p className={style.pHtml}>
+    
+                     2023 წელს დავიწყე სწავლა Smart Academy - ში, 
+                     front-end development and seo- ს მიმართულებით.
+                      რაც მოიცავს html, css და javascript- ის ცოდნას
+                  
+                   </p>
+
+                   </>
+                   ) :  clickBtnNumber[1] == 1 ? (
+                    
+                   <Image
+                   className={style.mySertificate}
+                    alt='mySertificate'
+                    src={mySertificate}
+                
+                   />
+                    
+                    ) :
                    clickBtnNumber[2] == 1 ? ( <p>mesame</p> ) : clickBtnNumber[3] == 1 ? ( <p>meotxe</p> ) : ( <p>else</p> )
 
                 }
