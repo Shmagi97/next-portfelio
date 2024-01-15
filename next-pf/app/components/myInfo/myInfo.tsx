@@ -8,12 +8,17 @@ import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
 import style from './myInfo.module.scss'
 import { NavigateGlobalSection } from '../button/navigate/navigate'
+import { useEffect } from 'react'
 
 
 const MyInfo = () => {
 
-    const { globalChildSection  , setClickedFixedImage } = useGlobalContext ()
- 
+    const { globalChildSection  , setClickedFixedImage, clickBtnNumber } = useGlobalContext ()
+    
+    useEffect(()=> {
+      console.log(clickBtnNumber);
+    }, [clickBtnNumber])
+    
     function clickBack () {
         globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
         setClickedFixedImage(false)
@@ -62,10 +67,24 @@ const MyInfo = () => {
              </div>
 
             </div>
-             
-            <div className={style.navigateDiv}>
-              <NavigateGlobalSection/>
-            </div>
+
+            <section className={style.myInfoTextSection}>
+
+              <div className={style.navigateDiv}>
+                <NavigateGlobalSection/>
+               </div>
+
+               <div className={style.infoTextDiv}>
+                
+                {
+
+                   clickBtnNumber[0] == 1  ? ( <p>pirveli</p> ) :  clickBtnNumber[1] == 1 ? ( <p>meore</p> ) :
+                   clickBtnNumber[2] == 1 ? ( <p>mesame</p> ) : clickBtnNumber[3] == 1 ? ( <p>meotxe</p> ) : ( <p>else</p> )
+
+                }
+
+               </div>
+            </section>
                 
     </section>
 }

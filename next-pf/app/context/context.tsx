@@ -31,6 +31,9 @@ interface ContextProps {
     setClickedFixedImage : Dispatch < SetStateAction < boolean > >,
     clickedSearch: boolean,
     setClickedSearch : Dispatch < SetStateAction < boolean > >,
+    clickBtnNumber : number [] ,
+    setClickBtnNumber : Dispatch < SetStateAction < number []  > >
+    
 }
 
 
@@ -50,6 +53,8 @@ const GlobalContext = createContext<ContextProps>({
     setClickedFixedImage : () : boolean => false ,
     clickedSearch : false ,
     setClickedSearch : () : boolean => false ,
+    clickBtnNumber : [],
+    setClickBtnNumber : () : number [] => [],
 })
 
 
@@ -61,6 +66,7 @@ export const GlobalContextProvider = ({ children }) => {
     const [usefectRerender, setUsefectRerender] = useState (0)
     const [clickedFixedImage, setClickedFixedImage] = useState (false)
     const [clickedSearch, setClickedSearch] = useState (false)
+    const [clickBtnNumber, setClickBtnNumber ] = useState < [] | number []  > ([])
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
     const [globalChildSection, setGlobalChildSection] = useState (initialGlobalChildSection);
@@ -70,7 +76,8 @@ export const GlobalContextProvider = ({ children }) => {
         <GlobalContext.Provider value={{
             imgnumber, setImagenumber, dataimg, setDataimg , 
             chekDelay, setChekDelay, usefectRerender, setUsefectRerender, globalChildSection,
-            setGlobalChildSection, clickedFixedImage, setClickedFixedImage, clickedSearch, setClickedSearch,   
+            setGlobalChildSection, clickedFixedImage, setClickedFixedImage, clickedSearch, setClickedSearch, 
+            clickBtnNumber, setClickBtnNumber,   
             }}>
 
             {children}

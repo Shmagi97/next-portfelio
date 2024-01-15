@@ -4,6 +4,7 @@
     border: solid red;
     width: 100%;
     display: flex;
+   
   }
   
   .hadSectionFirstDiv {
@@ -12,7 +13,7 @@
     flex-direction: column;
     row-gap: 30px;
     padding: 10px 0px 0px 10px;
-    max-width: 30%;
+    max-width: 25%;
     min-width: 270px;
     width: 100%;
     position: relative;
@@ -76,4 +77,18 @@
     height: 50px;
     width: 45%;
     margin-top: 20px;
+  }
+
+  .myInfoTextSection{
+     
+    border: solid rgb(60, 0, 255);
+    width: 100%;
+   
+  }
+
+  .infoTextDiv{
+    border: solid red;
+    width: 95%;
+    margin: 20px auto ;
+  
   }
