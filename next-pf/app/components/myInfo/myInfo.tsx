@@ -8,17 +8,12 @@ import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
 import style from './myInfo.module.scss'
 import { NavigateGlobalSection } from '../button/navigate/navigate'
-import { useEffect } from 'react'
 import mySertificate from '@/public/sertifikati/mySertificate.png'
 import reziume from '@/public/reziume/reziume.png'
 
 const MyInfo = () => {
 
     const { globalChildSection  , setClickedFixedImage, clickBtnNumber } = useGlobalContext ()
-    
-    useEffect(()=> {
-      console.log(clickBtnNumber);
-    }, [clickBtnNumber])
     
     function clickBack () {
         globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
@@ -38,13 +33,13 @@ const MyInfo = () => {
                   alt='myImage'
                   src={myImage1}
                   width={100}
-                  priority = {true}
+                  suppressHydrationWarning
                  />
 
                  </div>
 
                  <div className={style.leftIconDiv} onClick={clickBack}>
-                    <LeftOutlined/>
+                    <LeftOutlined suppressHydrationWarning/>
                  </div>
 
                <h1 className={style.h1} >შმაგი ნარსავიძე</h1>
@@ -141,7 +136,7 @@ const MyInfo = () => {
                    className={style.mySertificate}
                     alt='mySertificate'
                     src={mySertificate}
-                
+                    suppressHydrationWarning
                    />
                     
                     ) :
@@ -150,7 +145,7 @@ const MyInfo = () => {
                     <Image
                     alt='pdfReziume'
                     src={reziume}
-                    
+                    suppressHydrationWarning
                     className={style.mySertificate}
                     
                     />

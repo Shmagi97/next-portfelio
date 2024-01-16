@@ -12,22 +12,21 @@ const Background = () => {
    globalImageFn()
  
     return <>
-     
-     
+
 
       {dataimg.map((el, index)=> {
-        // console.log(el)
+
        if ( (index == imgnumber)  ){
 
            return <>
     
             <Image
+            
                key={index}
                className={style.backgroundImage}
                alt="imageBackground"
-                src={el.img}
-               priority= {true}
-
+                src={el.img} 
+                
              />
     
            </>

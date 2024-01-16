@@ -2,7 +2,7 @@
 
 import Image, { StaticImageData,  } from 'next/image';
 import { useGlobalContext } from '@/app/context/context';
-import SetIntervalFn from '../../setInterval/setInterval';
+import { setIntervalFn } from '../../setInterval/setInterval';
 import Link from 'next/link';
 import facebook from '@/public/icons/facebook.png'
 import linkedin from '@/public/icons/linkedin.png'
@@ -20,6 +20,8 @@ type propsTp = {
 }
 
 const ShareClickBtn = (props: propsTp) => {
+
+    setIntervalFn()
     
     const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender, globalChildSection, setClickedSearch} = useGlobalContext ()
 
@@ -71,12 +73,12 @@ const ShareClickBtn = (props: propsTp) => {
     return <>
     
      <div className={`${styles.btnStyle} ${props.btnActiveClass ? styles.btnStyleActive : false }`} onClick={ clicked }> 
-       <SetIntervalFn/>
+
     
          {
-            props.antIcon === 'share' ?  <ShareAltOutlined/> :  props.antIcon === 'search' ? 
-            <SearchOutlined/> : props.antIcon === 'left' ?  <LeftOutlined/> : props.antIcon === 'right' ? 
-            <RightOutlined/> : false
+            props.antIcon === 'share' ?  <ShareAltOutlined suppressHydrationWarning/> : props.antIcon === 'search' ? 
+            <SearchOutlined suppressHydrationWarning/> : props.antIcon === 'left' ?  <LeftOutlined suppressHydrationWarning/> : props.antIcon === 'right' ? 
+            <RightOutlined suppressHydrationWarning/> : false
 
          }
 

@@ -1,3 +1,5 @@
+'use client'
+
 import Image from 'next/image'
 import styles from './fixedImage.module.css'
 import myImage1 from '@/public/image/myImage1.jpg'
@@ -26,7 +28,7 @@ const FixedImage = (props : fixedImageTP) => {
        alt='imageFixed'
        src={myImage1}
        width={100}
-       priority = {true}
+       suppressHydrationWarning 
        />
     </div>
 }

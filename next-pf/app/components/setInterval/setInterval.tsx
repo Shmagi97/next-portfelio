@@ -3,7 +3,7 @@
 import { useGlobalContext } from "@/app/context/context";
 import { useEffect, useState } from "react";
 
-const SetIntervalFn = () => {
+export const setIntervalFn = () => {
   const [delay, setDelay] = useState(5);
   const {  setImagenumber , chekDelay, usefectRerender } = useGlobalContext ()
 
@@ -42,5 +42,3 @@ useEffect(()=> {
 
     return null
 };
-
-export default SetIntervalFn;

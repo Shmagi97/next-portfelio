@@ -15,16 +15,14 @@ type antIqonTP = {
 
 const MyContact = (props : antIqonTP ) => {
 
-    const rame = "tel:568 59 60 12"
-
     return <div className={myContact.flexDiv}>
               <div>
                 <a target="_blank" href = { props.antIcon1 ? props.antIcon1 : props.antIcon2 ? props.antIcon2 : 
                            props.antIcon3 ?  props.antIcon3 : undefined }>
                   { 
                   
-                     props.antIcon1 ?  <PhoneOutlined/> : props.antIcon2 ? <MailOutlined/> :
-                     props.antIcon3 ? <CaretDownOutlined/> : false
+                     props.antIcon1 ?  <PhoneOutlined suppressHydrationWarning/> : props.antIcon2 ? <MailOutlined suppressHydrationWarning/> :
+                     props.antIcon3 ? <CaretDownOutlined suppressHydrationWarning/> : false
                   
                   }  
               

@@ -17,10 +17,10 @@
 
   .contGlobalSection{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 18px;
-    min-width: 400px;
+    min-width: 420px;
    
     padding: 0px 15px 0px 15px;
     background-color: $navigateGlobalSectionBacground ;

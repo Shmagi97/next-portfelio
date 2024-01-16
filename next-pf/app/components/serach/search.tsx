@@ -6,9 +6,17 @@ import { SearchProps } from 'antd/es/input';
 import styleSearch from './search.module.scss'
 import { LogoutOutlined } from '@ant-design/icons';
 import { useGlobalContext } from '@/app/context/context';
+import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 
+// AntdIconProps ირებს ყველა პროპს ანტ დიზაინიდან და ამ სინტაქსით 'React.FC < AntdIconProps >' გადასცემს 
+// ყველა ანტ დიზაინის კომპონენტს იმ პროპეს რომელითაც ტაიპსკრიპტში განვსაზღვრათ ტიპებს საჭიროა ყველა კომპონენტ~
+// გაეწეროს კონკრეტული პროპსი ანუ 'AntdIconProps' - იდან წამოღებული სტილი
 
-const SearchComponent : React.FC = () => {
+// 'suppressHydrationWarning' ეს არის პროპი რპმელიც აგვარებს ვარნინგის პრობლემა ნექსტის იმეიგზე , ვარნინგი გამოწვეულია 
+// იმით რომ ნექსტის იმეიგზე ოპტიმიზაციისტვის გაწერილი სერვერის მხარის სტილები შეუსაბამოა კლიენტის მხარეს 
+//გაწერილ სტილებთან ''suppressHydrationWarning'' მუშაობს იმეიგზე მაგრამ არ მუშაობს ან დიზაინის კომპონენტებზე
+
+const SearchComponent : React.FC < AntdIconProps > = () => {
 
     const {globalChildSection, setClickedSearch } = useGlobalContext()
     
@@ -33,10 +41,10 @@ const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?
 
     <div className={styleSearch.searchSectionDiv} >
 
-    <Search placeholder="input search text" onSearch={onSearch} enterButton />
+    <Search suppressHydrationWarning  placeholder="input search text" onSearch={onSearch} enterButton />
 
     <div className={styleSearch.searchLogaut}  onClick={clickSearchLogaut}>
-    <LogoutOutlined />
+    <LogoutOutlined suppressHydrationWarning/>
     </div>
 
    </div>
