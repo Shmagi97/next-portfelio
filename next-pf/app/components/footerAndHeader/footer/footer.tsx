@@ -4,7 +4,7 @@
 import style from './footer.module.css'
 
 const Footer = () => {
-    return <footer>
+    return <footer className={style.footer}>
     
       <section className={style.footerSection}>
            <p>არ შეიცავს ინფორმაციას</p>

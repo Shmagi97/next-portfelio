@@ -1,5 +1,6 @@
 'use client'
 
+import Background from './components/background/background'
 import ShareClickBtn from './components/button/shareButtons/shareBrn'
 
 import styles from './page.module.scss'
@@ -9,6 +10,8 @@ export default function Home() {
   return (
  
     <section className={styles.section}>
+
+      <Background/>
 
       <ShareClickBtn
       left={'left'}

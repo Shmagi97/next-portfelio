@@ -41,7 +41,7 @@ const NavigateGlobalSection = () => {
     return <div className={style.contGlobalSection}>
 
     <LeftOutlined className={style.leftElseInfo} onClick={leftElseInfoFN} />
-    <Button title = 'ინფო' globalDomPaint = 'info' activeClass  clickNumber = {0} />
+    <Button title = 'განათლება' globalDomPaint = 'info' activeClass  clickNumber = {0} />
     <Button title = 'დიპლომი' globalDomPaint = 'diplomi'  activeClass clickNumber = {1} />
     <Button title = 'რეზიუმე'  globalDomPaint = 'reziume'  activeClass clickNumber = {2} />
     <Button title = 'გამოცდილება'  globalDomPaint = 'gamocdileba'  activeClass clickNumber = {3} />

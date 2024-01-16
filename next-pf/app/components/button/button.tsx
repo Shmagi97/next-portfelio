@@ -17,9 +17,7 @@ type propsTp = {
     dropDown? : string;
     getServises? : Service[];
     activeClass? : boolean;
-    globalDomPaint? : string;
-
-    numberProp? : boolean;
+    globalDomPaint? : string; // ამ ეტაპზე არ ვიყენებ
     clickNumber? : number;
 }
 

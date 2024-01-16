@@ -19,6 +19,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   background-color: black;
+  overflow: hidden;
 }
 
 .sectionNone {
@@ -49,8 +50,4 @@ body {
   100% {
     scale: 1;
   }
-}
-
-body {
-  overflow: hidden;
 }

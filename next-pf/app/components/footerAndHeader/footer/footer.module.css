@@ -1,8 +1,11 @@
-.footerSection {
-  position: absolute;
+.footer {
+  position: fixed;
   bottom: 0;
-  height: 100px;
   width: 100%;
+}
+
+.footerSection {
+  height: 100px;
   background-color: #d50032;
   text-align: center;
   opacity: 0.8;

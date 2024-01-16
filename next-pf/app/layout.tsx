@@ -5,7 +5,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Footer from './components/footerAndHeader/footer/footer'
-import Background from './components/background/background'
 import { GlobalContextProvider } from './context/context'
 import Header from './components/footerAndHeader/header/header'
 
@@ -39,8 +38,6 @@ export default function RootLayout({
       <GlobalContextProvider>
           {/* 1. GlobalDinamikChaild- ში ივენთზე დინამიურად იცვლება შვილი კომპპონენტები */}
            <GlobalDinamikChaild/>
-
-           <Background/>
 
            <Header/>
 
