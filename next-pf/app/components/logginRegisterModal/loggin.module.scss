@@ -1,14 +1,8 @@
 @import '../../colors.scss';
 
-.modalSection{
-    position: absolute;
-    width: 40%;
-    z-index: 30;
-    left: 30%;
-    top: 15%;
-}
 
-.modalSection > div {
+
+.logginModalDiv {
     position: relative;
     top: 3px;
     width: 100%;
@@ -20,7 +14,7 @@
    
 }
 
-.modalSection > div > h2 {
+.logginModalDiv > h2 {
     margin: 0 0 30px;
     padding: 0;
     color:$textColors;

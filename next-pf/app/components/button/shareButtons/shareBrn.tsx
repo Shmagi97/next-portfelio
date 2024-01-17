@@ -25,6 +25,7 @@ const ShareClickBtn = (props: propsTp) => {
     
     const {  setImagenumber , imgnumber , setChekDelay,
              setUsefectRerender, globalChildSection, setClickedSearch } = useGlobalContext ()
+             
 
     // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
  

@@ -10,6 +10,7 @@ import Header from './components/footerAndHeader/header/header'
 
 
 import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
+import { LogginModal } from './components/logginRegisterModal/loggin'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -38,7 +39,7 @@ export default function RootLayout({
       <GlobalContextProvider>
           {/* 1. GlobalDinamikChaild- ში ივენთზე დინამიურად იცვლება შვილი კომპპონენტები */}
            <GlobalDinamikChaild/>
-
+           <LogginModal/>
            <Header/>
 
                 {children}

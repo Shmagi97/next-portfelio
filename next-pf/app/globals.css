@@ -51,3 +51,15 @@ body {
     scale: 1;
   }
 }
+
+.logginModalSectionNone {
+  display: none;
+}
+
+.logginModalSection {
+  position: absolute;
+  width: 40%;
+  z-index: 30;
+  left: 30%;
+  top: 15%;
+}

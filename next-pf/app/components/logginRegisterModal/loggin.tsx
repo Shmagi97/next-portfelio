@@ -1,12 +1,24 @@
 'use client'
 
+import { RefObject, useEffect, useRef } from 'react'
 import style from './loggin.module.scss'
+import { useGlobalContext } from '@/app/context/context'
 
 export const LogginModal = () => {
 
-    return <section className={style.modalSection}>
+    const {  globalModalSection, setGlobalModalSection } = useGlobalContext()
+    
+    const useRefModalElement : RefObject < HTMLDivElement > = useRef (null)
 
-        <div>
+    useEffect(()=> {
+        
+        setGlobalModalSection(useRefModalElement)
+ 
+    }, [globalModalSection])
+
+    return <section className='logginModalSectionNone'  ref={ useRefModalElement }>
+
+        <div className={style.logginModalDiv}>
             <h2>შესვლა</h2>
             <form action="#" method="#" className={style.formHtml}>
                <div>
