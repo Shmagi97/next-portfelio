@@ -6,7 +6,7 @@ import { setIntervalFn } from '../../setInterval/setInterval';
 import Link from 'next/link';
 import facebook from '@/public/icons/facebook.png'
 import linkedin from '@/public/icons/linkedin.png'
-import { LeftOutlined, RightOutlined, SearchOutlined, ShareAltOutlined } from '@ant-design/icons';
+import { GithubOutlined, LeftOutlined, RightOutlined, SearchOutlined, ShareAltOutlined } from '@ant-design/icons';
 import styles from './shareBtn.module.scss'
 // import { MouseEvent } from 'react';
 
@@ -14,7 +14,7 @@ type propsTp = {
     antIcon? : string;
     left? : string;
     right? : string;
-    hoverShare? : string;
+    hoverShare? : boolean;
     clickSearch? : string;
     btnActiveClass? : boolean;
 }
@@ -23,7 +23,8 @@ const ShareClickBtn = (props: propsTp) => {
 
     setIntervalFn()
     
-    const {  setImagenumber , imgnumber , setChekDelay, setUsefectRerender, globalChildSection, setClickedSearch} = useGlobalContext ()
+    const {  setImagenumber , imgnumber , setChekDelay,
+             setUsefectRerender, globalChildSection, setClickedSearch } = useGlobalContext ()
 
     // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
  
@@ -77,7 +78,8 @@ const ShareClickBtn = (props: propsTp) => {
     
          {
             props.antIcon === 'share' ?  <ShareAltOutlined suppressHydrationWarning/> : props.antIcon === 'search' ? 
-            <SearchOutlined suppressHydrationWarning/> : props.antIcon === 'left' ?  <LeftOutlined suppressHydrationWarning/> : props.antIcon === 'right' ? 
+            <SearchOutlined suppressHydrationWarning/> : props.antIcon === 'left' ? 
+            <LeftOutlined suppressHydrationWarning/> : props.antIcon === 'right' ? 
             <RightOutlined suppressHydrationWarning/> : false
 
          }
@@ -111,6 +113,13 @@ const ShareClickBtn = (props: propsTp) => {
                         </Link>
                  </li>
                 </ul>
+                <ul className={styles.shareHoverUl}>
+                    <li> 
+                        <Link href={'https://github.com/Shmagi97/next-portfelio'} target='_blank'>
+                           <GithubOutlined/>
+                        </Link>
+                 </li>
+                </ul>
 
             </div>
              
@@ -118,7 +127,6 @@ const ShareClickBtn = (props: propsTp) => {
 
           ) : false
         
-    
         }
     
      </div>

@@ -2,6 +2,7 @@
 
 import Background from './components/background/background'
 import ShareClickBtn from './components/button/shareButtons/shareBrn'
+import { LogginModal } from './components/logginModal/loggin'
 
 import styles from './page.module.scss'
 
@@ -12,7 +13,7 @@ export default function Home() {
     <section className={styles.section}>
 
       <Background/>
-
+      <LogginModal/>
       <ShareClickBtn
       left={'left'}
       antIcon = {'left'}

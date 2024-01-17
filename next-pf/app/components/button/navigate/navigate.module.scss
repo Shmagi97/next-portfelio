@@ -39,3 +39,28 @@
   .leftElseInfo:active {
     color: $btnActiveClassColor ;
   }
+
+  .logginAntIcon{
+   
+    color: rgb(163, 233, 189);
+    cursor: pointer;
+    border-radius: 50%;
+    animation: ligginAntIconAnimate 2s  infinite ;
+  }
+
+  @keyframes ligginAntIconAnimate {
+
+    0%{
+      scale: 1;
+    }
+    
+     50%{
+      scale: 1.3;
+      color: $btnActiveClassColor;
+     
+     } 
+
+     100% {
+      scale: 1;
+    }
+  }

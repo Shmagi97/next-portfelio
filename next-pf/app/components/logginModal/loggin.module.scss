@@ -1,0 +1,173 @@
+@import '../../colors.scss';
+
+.modalSection{
+    position: absolute;
+    width: 40%;
+    z-index: 30;
+    left: 30%;
+    top: 15%;
+}
+
+.modalSection > div {
+    position: relative;
+    top: 3px;
+    width: 100%;
+    padding: 26px;
+    background:$logginModalBacground;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px black;
+    border-radius: 15px;
+   
+}
+
+.modalSection > div > h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color:$textColors;
+    text-align: center;
+}
+
+
+.formHtml > div {
+    position: relative;
+}
+
+.formHtml > div > input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color:$textColors;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid $btnTextColor;
+    outline: none;
+    background: transparent;
+}
+
+.formHtml > div > input:focus ~ label{
+    top: -25px;
+    left: 0;
+    color:$logginModalLabelText;
+    font-size: 14.5px;
+}
+
+.formHtml > div > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: $textColors  ;
+    pointer-events: none;
+    transition: 0.5s;
+}
+
+.formHtml > button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: $logginModalLabelText;
+    font-size: 16px;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: 0.5s;
+    letter-spacing: 4px;
+}
+
+.formHtml > button:hover{
+    background: $logginModalbuttonHoverBacground ;
+    color: rgb(80, 80, 80);
+    border-radius: 10px;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+      0 0 100px #03e9f4;
+}
+
+.formHtml > button > span {
+    position: absolute;
+    display: block;
+}
+
+.formHtml > button > span:nth-child(1){
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #03e9f4);
+    animation: line-run1 1s linear infinite;
+}
+
+@keyframes line-run1 {
+    0% {
+      left: -100%;
+    }
+  
+    50%,
+    100% {
+      left: 100%;
+    }
+  }
+
+  .formHtml > button > span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 70%;
+    background: linear-gradient(180deg, transparent, #03e9f4);
+    animation: line-run2 1s linear infinite;
+    animation-delay: 0.25s;
+  }
+  
+  @keyframes line-run2 {
+    0% {
+      top: -100px;
+    }
+    50%,
+    100% {
+      top: 100%;
+    }
+  }
+  
+  .formHtml > button > span:nth-child(3) {
+    right: -100%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, #03e9f4);
+    animation: line-run3 1s linear infinite;
+    animation-delay: 0.5s;
+  }
+  
+  @keyframes line-run3 {
+    0% {
+      right: -100%;
+    }
+  
+    50%,
+    100% {
+      right: 100%;
+    }
+  }
+  
+  .formHtml > button > span:nth-child(4) {
+    bottom: 0;
+    left: 0;
+    width: 2px;
+    height: 70%;
+    background: linear-gradient(360deg, transparent, #03e9f4);
+    animation: line-run4 1s linear infinite;
+    animation-delay: 0.6s;
+  }
+  
+  @keyframes line-run4 {
+    0% {
+      bottom: -100%;
+    }
+  
+    50%,
+    100% {
+      bottom: 100%;
+    }
+  }

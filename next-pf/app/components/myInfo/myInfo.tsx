@@ -14,7 +14,7 @@ import reziume from '@/public/reziume/reziume.png'
 const MyInfo = () => {
 
     const { globalChildSection  , setClickedFixedImage, clickBtnNumber } = useGlobalContext ()
-    
+     
     function clickBack () {
         globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
         setClickedFixedImage(false)

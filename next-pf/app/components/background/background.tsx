@@ -10,7 +10,7 @@ const Background = () => {
     const { imgnumber,  dataimg, } = useGlobalContext ()
     
    globalImageFn()
- 
+   
     return <>
 
 

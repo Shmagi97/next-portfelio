@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import style from './button.module.scss'
 import { useGlobalContext } from '@/app/context/context';
-
+import { useEffect, useState } from 'react';
 
 interface Service {
   service : string;
@@ -19,15 +19,29 @@ type propsTp = {
     activeClass? : boolean;
     globalDomPaint? : string; // ამ ეტაპზე არ ვიყენებ
     clickNumber? : number;
+    hrefProp? : string;
+    propGlobalSection? : boolean;
+    
 }
 
 const Button = (props : propsTp) => {
+  
+  const [href, setHref] = useState('')
+  const {  setClickBtnNumber, globalChildSection, setClickedFixedImage } = useGlobalContext()
 
-  const {  setClickBtnNumber } = useGlobalContext()
+  useEffect(()=> {
 
+      if ( props.hrefProp !== undefined){
+         
+        setHref( props.hrefProp)
+      }
+
+      return () => setHref('')
+    
+  }, [href])
 
     function getGlobalDomPaint () {
-
+  
       const forMasiv = [ 0, 0, 0, 0 ]
 
       function ubdateArray ( index : number ){
@@ -41,7 +55,15 @@ const Button = (props : propsTp) => {
         ubdateArray ( props.clickNumber )
         setClickBtnNumber (forMasiv)
         
-      }
+      } else ( undefined )
+
+      if ( props.propGlobalSection ){
+
+        globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
+        setClickedFixedImage(true)
+
+      } else {  false }
+      
     
       }
    
@@ -72,7 +94,6 @@ const Button = (props : propsTp) => {
 //   ))
 //   console.log(cda, 'ifshi');
 // }
-  
 
     return <section className={style.buttonsSection}>
         
@@ -80,7 +101,7 @@ const Button = (props : propsTp) => {
 
                 <span></span>
              
-                 <Link href={'/'} onClick={getGlobalDomPaint}  className={ `${style.buttonLink} 
+                 <Link href={ href } onClick={getGlobalDomPaint}  className={ `${style.buttonLink} 
 
                        ${props.activeClass ? style.buttonLinkActive : false }` }>
                        {props.title}

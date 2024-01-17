@@ -18,7 +18,7 @@
   
   .shareHoverDiv {
     position: absolute;
-    margin-top: 155.5px;
+    margin-top: 207px;
     width: 50px;
     visibility: hidden;
   }
@@ -50,7 +50,7 @@
   .shareHoverUl > li {
     display: flex;
     justify-content: center;
-    background-color: #8b8b8b;
+    background-color: $hoverLinkIconsBacground ;
     height: 50px;
     align-items: center;
   }

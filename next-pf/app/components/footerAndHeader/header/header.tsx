@@ -18,13 +18,14 @@ const Header = () => {
 
          <ShareClickBtn
           antIcon = {'share'}
-          hoverShare = {'active'}
+          hoverShare 
          
          />
            <ShareClickBtn
           clickSearch = {'active'}
           antIcon = {'search'}
           btnActiveClass
+         
          />
 
        </div>

@@ -3,7 +3,7 @@
 import { useGlobalContext } from "@/app/context/context"
 import Button from "../button"
 import style from './navigate.module.scss'
-import { LeftOutlined } from "@ant-design/icons"
+import { GlobalOutlined, LeftOutlined  } from "@ant-design/icons"
 
 const Navigate = () => {
 
@@ -17,12 +17,12 @@ const Navigate = () => {
 
  
     return <div className={style.cont}>
+     <GlobalOutlined className={style.logginAntIcon}/>
+     <Button title = 'მთავარი'   activeClass hrefProp = '/' />
+     <Button title = 'სერვისები' activeClass hrefProp = '/servisePage'  dropDown = 'first' getServises = {servises}/>
+     <Button title = 'სტატიები' activeClass   hrefProp = '/statiebiPage'  dropDown = 'second' getServises = {servises}/>
+     <Button title = 'პორტფელიო' activeClass  propGlobalSection   dropDown = 'Three' getServises = {servises}/>
     
-     <Button title = 'მთავარი'   activeClass   />
-     <Button title = 'სერვისები' activeClass   dropDown = 'first' getServises = {servises}/>
-     <Button title = 'სტატიები' activeClass    dropDown = 'second' getServises = {servises}/>
-     <Button title = 'პორტფელიო' activeClass    dropDown = 'Three' getServises = {servises}/>
-
     
     </div>
       

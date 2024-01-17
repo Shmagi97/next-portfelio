@@ -2,4 +2,5 @@
   min-height: 740px;
   overflow-x: hidden;
   position: relative;
+  user-select: none;
 }

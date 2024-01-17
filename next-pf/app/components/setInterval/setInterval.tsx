@@ -4,7 +4,7 @@ import { useGlobalContext } from "@/app/context/context";
 import { useEffect, useState } from "react";
 
 export const setIntervalFn = () => {
-  const [delay, setDelay] = useState(5);
+  const [delay, setDelay] = useState(15);
   const {  setImagenumber , chekDelay, usefectRerender } = useGlobalContext ()
 
   const limit = 8
@@ -34,7 +34,7 @@ export const setIntervalFn = () => {
 
 useEffect(()=> {
     if (chekDelay === true){
-        setDelay(10);
+        setDelay(25);
     }
 }, [chekDelay])
 
