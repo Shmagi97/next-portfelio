@@ -12,14 +12,15 @@ type fixedImageTP = {
 const FixedImage = (props : fixedImageTP) => {
 
     const {globalChildSection, setClickedFixedImage } = useGlobalContext()
-    
+  
     function clickImgFixed () {
       
         if (props.click) { 
             
             globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
             setClickedFixedImage(true)
-        }
+           
+        }  else { undefined }
     }
 
     return <div className={styles.fixedimagediv}  onClick={clickImgFixed}>

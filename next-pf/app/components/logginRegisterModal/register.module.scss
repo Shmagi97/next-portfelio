@@ -28,7 +28,8 @@
    
    ;
 
-   gap: 30px;
+//    row-gap: 10px;
+   gap: 10px 40px;
     
 }
 
@@ -55,13 +56,47 @@
     grid-area: div6;
 }
 
-.div7{
+.di7Agaim{
     grid-area: div7;
-    border: solid red;
+   
 }
 
 .registerForm > div {
     display: grid;
+    row-gap: 10px;
   
 }
 
+.article{
+
+    display: flex;
+    border: solid red;
+}
+
+.article > label {
+
+    position: relative;
+    user-select: none;
+    cursor: pointer;
+    margin-top: 6px;
+   
+}
+
+.article > label > input {
+
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    cursor: pointer;
+}
+
+.article > label > span {
+
+    position: absolute;
+    border: solid rgb(176, 141, 231);
+    left: 0;
+    top: 0;
+    height: 16px;
+    width: 16px;
+}

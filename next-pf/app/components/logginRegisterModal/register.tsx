@@ -67,15 +67,25 @@ export const Register = () => {
                  <span></span>
 
             </div>
-            <div  className={style.div7}>
+            <article  className={ `${style.article} ${style.di7Agaim}` }>
+
+                <label htmlFor="fromLabel7">
+                 
+                   <input type='checkbox' id='fromLabel7'/>
+                   <span></span>
+
+                </label>
+
+             <div>
                 <p>
                 ღილაკზე „რეგისტრაცია“ დაწკაპუნებით, თქვენ დაეთანხმებით ჩვენს
                 </p>
                 <Link href={'/'}>მოხმარების წესები</Link>
                  <span>"&"</span>
                  <Link href={'/'}>კონფიდენციალობის პოლიტიკა</Link>
+             </div>    
                  
-            </div>
+            </article>
              <button type='submit'>რეგისტრაცია</button>
          </form>
 

@@ -15,17 +15,18 @@ const Navigate = () => {
        {service: '3', statia: '6' , portfelio: '9'} ,
     ]
 
-    const {clickModal , setClickModal, globalModalSection , setGlobalModalSection } = useGlobalContext() 
+    const { clickModal , setClickModal, globalModalSection  } = useGlobalContext() 
 
-    function logginModalFn () {
-
+    function logginModalFn () { 
+      
       setClickModal(!clickModal)
-
+      
       if ( !clickModal ) {
-
+      
         globalModalSection.current?.classList.replace('logginModalSectionNone', 'logginModalSection')
+        
       } else { globalModalSection.current?.classList.replace('logginModalSection', 'logginModalSectionNone') }
-      console.log(clickModal);
+   
       
     }
 
