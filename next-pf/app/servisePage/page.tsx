@@ -1,7 +1,7 @@
 'use client'
 
-import { Register } from '../components/logginRegisterModal/register'
-import LoadingSpinner from '../components/sacdeli/sacdeli'
+
+import { RegisterAnt } from '../components/logginRegisterModal/registerAnt'
 import styles from './page.module.css'
 
 const HomePage = () => {
@@ -13,7 +13,7 @@ const HomePage = () => {
 
     {/* <LoadingSpinner/> */}
       
-      <div className={styles.main}><Register/></div>
+      <div className={styles.main}> <RegisterAnt/> </div>
        
      
     </>
