@@ -1,13 +1,13 @@
-
+@import '../../colors.scss';
 
 .registerSection{
 
     border: solid rgb(0, 255, 34);
-    display: flex;
-    flex-direction: column;
+
     width: 60%;
     margin: 0 auto;
     padding: 10px;
+    margin-top: -80px;
 }
 
 .registerSection > h2 {
@@ -28,8 +28,7 @@
    
    ;
 
-//    row-gap: 10px;
-   gap: 10px 40px;
+   column-gap: 30px ; 
     
 }
 
@@ -67,10 +66,30 @@
   
 }
 
+.registerForm > div > article{
+
+    display: flex;
+    column-gap: 10px;
+}
+
+.registerForm > div > article > span {
+
+  
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: $btnActiveClassColor;
+    opacity: 20%;
+}
+
+// chekbox styles
+
 .article{
 
     display: flex;
-    border: solid red;
+    align-items: center;
+   
+   
 }
 
 .article > label {
@@ -78,11 +97,11 @@
     position: relative;
     user-select: none;
     cursor: pointer;
-    margin-top: 6px;
+ 
    
 }
 
-.article > label > input {
+.checkbox {
 
     position: absolute;
     opacity: 0;
@@ -91,12 +110,91 @@
     cursor: pointer;
 }
 
-.article > label > span {
+.checkboxSpan {
 
     position: absolute;
-    border: solid rgb(176, 141, 231);
+    border: solid $buttonSubmitColor;
     left: 0;
     top: 0;
-    height: 16px;
-    width: 16px;
+    height: 13px;
+    width: 13px;
+}
+
+.checkboxSpan:hover{
+
+    background-color:$buttonSubmitColor;
+}
+
+.checkbox:checked ~ .checkboxSpan{
+
+    background-color: $buttonSubmitColor;
+}
+
+.checkboxSpan::after{
+
+    content: "";
+    position: absolute;
+    display: none;
+    left: 2.5px;
+    bottom: 4px;
+    width: 5px;
+    height: 5px;
+    border: solid red;
+    border-width: 0 3.5px 3.5px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox:checked ~ .checkboxSpan::after{
+
+    display: block;
+}
+
+.textDiv{
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    color: $hoverLinkIconsBacground ;
+}
+
+
+.linkDiv{
+
+    display: flex;
+    column-gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.linkDiv{
+
+  color: red;
+}
+
+.linkTeg{
+
+    text-decoration: none;
+    color: $hoverLinkIconsBacground;
+}
+
+.buttonSubmit {
+
+    background-color: $bottonBackgroundColor ;
+    color: rgb(184, 215, 240);
+    border: none;
+    cursor: pointer;
+    width: 100px;
+    height: 37px;
+    border: solid $buttonSubmitColor;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.buttonSubmit:hover {
+
+  background-color:$buttonSubmitColor;
+  transition: 0.3s;
+  color: black;
 }
