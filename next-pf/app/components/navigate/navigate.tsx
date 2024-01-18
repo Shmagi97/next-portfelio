@@ -1,7 +1,7 @@
 'use client'
 
 import { useGlobalContext } from "@/app/context/context"
-import Button from "../button"
+import Button from "../button/buttonLink/buttonLink"
 import style from './navigate.module.scss'
 import { GlobalOutlined, LeftOutlined  } from "@ant-design/icons"
 
@@ -15,18 +15,11 @@ const Navigate = () => {
        {service: '3', statia: '6' , portfelio: '9'} ,
     ]
 
-    const { clickModal , setClickModal, globalModalSection  } = useGlobalContext() 
+    const { clickModal , setClickModal,  } = useGlobalContext() 
 
     function logginModalFn () { 
       
       setClickModal(!clickModal)
-      
-      if ( !clickModal ) {
-      
-        globalModalSection.current?.classList.replace('logginModalSectionNone', 'logginModalSection')
-        
-      } else { globalModalSection.current?.classList.replace('logginModalSection', 'logginModalSectionNone') }
-   
       
     }
 

@@ -21,7 +21,7 @@ const GlobalDinamikChaild = () => {
 
 {
 
-   clickedFixedImage === true ? <MyInfo/> : clickedSearch === true ? <SearchComponent/> : false
+   clickedFixedImage ? <MyInfo/> : clickedSearch ? <SearchComponent/> : false
 
 }
 

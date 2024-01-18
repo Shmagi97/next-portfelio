@@ -1,26 +1,21 @@
 'use client'
 
-import { RefObject, useEffect, useRef } from 'react'
 import style from './loggin.module.scss'
-import { useGlobalContext } from '@/app/context/context'
 
 export const LogginModal = () => {
 
-    const {  globalModalSection, setGlobalModalSection } = useGlobalContext()
     
-    const useRefModalElement : RefObject < HTMLDivElement > = useRef (null)
+    return <div className='logginModalSection'  >
+          
+    
+            <div className={style.logginModalDiv}>
 
-    useEffect(()=> {
-        
-        setGlobalModalSection(useRefModalElement)
- 
-    }, [globalModalSection])
+               <div className={style.buttonsDiv}>
 
-    return <section className='logginModalSectionNone'  ref={ useRefModalElement }>
+            
+                </div>
 
-        <div className={style.logginModalDiv}>
-            <h2>შესვლა</h2>
-            <form action="#" method="#" className={style.formHtml}>
+               <form action="#" method="#" className={style.formHtml}>
                <div>
                    <input type="text" id="forLabel1"/>
                    <label htmlFor="forLabel1">მომხმარებელი</label>
@@ -39,6 +34,8 @@ export const LogginModal = () => {
             </form>
         </div>
 
-    </section>
+      
+
+    </div>
 }
 

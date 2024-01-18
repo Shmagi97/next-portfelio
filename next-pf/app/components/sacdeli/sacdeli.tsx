@@ -1,66 +1,30 @@
+'use client'
+
+import React from 'react';
+
+const Component1 = () => <div>Component 1</div>;
+const Component2 = () => <div>Component 2</div>;
+const Component3 = () => <div>Component 3</div>;
 
 
-// // GENERATE BY ./scripts/generate.ts
-// // DON NOT EDIT IT MANUALLY
+const Sacdeli = () => {
+  // Create an array of React components
+  const componentsArray = [Component1, Component2, Component3];
+  console.log(componentsArray);
 
-// import * as React from 'react'
-// import LoadingOutlinedSvg from '@ant-design/icons-svg/lib/asn/LoadingOutlined';
-// import AntdIcon, { AntdIconProps } from '../components/AntdIcon';
+  // Map over the array and render each component
+  const renderedComponents = componentsArray.map((Component, index) => (
+    <div key={index}>
+      <Component />
+    </div>
+  ));
 
-
-// const LoadingOutlined = (
-//   props: AntdIconProps,
-//   ref: React.MutableRefObject<HTMLSpanElement>,
-// ) => <AntdIcon {...props} ref={ref} icon={LoadingOutlinedSvg} />;
-
-// if (process.env.NODE_ENV !== 'production') {
-//   LoadingOutlined.displayName = 'LoadingOutlined';
-// }
-// export default React.forwardRef<HTMLSpanElement, AntdIconProps>(LoadingOutlined);
-
-
-
-
-import React from "react";
-
-const LoadingSpinner = () => {
   return (
-    <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center bg-gray-900 bg-opacity-60 z-50">
-      <div className="text-center text-white">
-        <svg
-          className="w-16 h-16 animate-spin text-blue-600"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 100 100"
-          preserveAspectRatio="xMidYMid"
-        >
-          <circle
-            cx="50"
-            cy="50"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="8"
-            r="35"
-            strokeDasharray="164.93361431346415 56.97787143782138"
-          >
-            <animateTransform
-              attributeName="transform"
-              type="rotate"
-              repeatCount="indefinite"
-              dur="1s"
-              keyTimes="0;1"
-              values="0 50 50;360 50 50"
-            ></animateTransform>
-          </circle>
-        </svg>
-        <p className="text-sky-400 text-2xl mt-3">Loading...</p>
-      </div>
+    <div>
+      <h1>Array of React Components</h1>
+      {renderedComponents}
     </div>
   );
 };
 
-
-
-
-
-
-export default LoadingSpinner;
+export default Sacdeli;

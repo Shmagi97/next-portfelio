@@ -35,8 +35,6 @@ interface ContextProps {
     setClickBtnNumber : Dispatch < SetStateAction < number []  > >
     clickModal : boolean,
     setClickModal : Dispatch < SetStateAction < boolean > >,
-    globalModalSection : RefObject < HTMLDivElement | null >,
-    setGlobalModalSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
     
 }
 
@@ -61,8 +59,7 @@ const GlobalContext = createContext<ContextProps>({
     setClickBtnNumber : () : number [] => [],
     clickModal : false,
     setClickModal : () : boolean => false,
-    globalModalSection : { current : null },
-    setGlobalModalSection : () : RefObject < HTMLDivElement | null > => ( { current : null } )
+  
 })
 
 
@@ -78,10 +75,9 @@ export const GlobalContextProvider = ({ children }) => {
     const [clickModal , setClickModal ] = useState (false)
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
-    const initialGlobalModalSection = useRef < HTMLDivElement | null  > (null)
 
     const [globalChildSection, setGlobalChildSection] = useState (initialGlobalChildSection);
-    const [ globalModalSection, setGlobalModalSection ] = useState (initialGlobalModalSection)
+
    
     return (
 
@@ -89,7 +85,8 @@ export const GlobalContextProvider = ({ children }) => {
             imgnumber, setImagenumber, dataimg, setDataimg , 
             chekDelay, setChekDelay, usefectRerender, setUsefectRerender, globalChildSection,
             setGlobalChildSection, clickedFixedImage, setClickedFixedImage, clickedSearch, setClickedSearch, 
-            clickBtnNumber, setClickBtnNumber, clickModal, setClickModal, globalModalSection, setGlobalModalSection,   
+            clickBtnNumber, setClickBtnNumber, clickModal, setClickModal, 
+            
             }}>
 
             {children}

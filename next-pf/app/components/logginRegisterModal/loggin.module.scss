@@ -165,3 +165,26 @@
       bottom: 100%;
     }
   }
+
+  .buttonsDiv{
+
+    display: flex;
+  }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  .loginModalLogikSection{
+    display: block;
+    height: 400px;
+    left: 30%;
+    width: 50%;
+    border: solid rgb(0, 13, 255);
+    position: absolute;
+    z-index: 100;
+  }
+
+.loginModalLogikSection2{
+
+  display: none;
+  border: solid red;
+}

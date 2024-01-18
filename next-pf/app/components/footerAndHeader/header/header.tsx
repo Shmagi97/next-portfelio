@@ -1,6 +1,6 @@
 'use client'
 
-import { Navigate } from "../../button/navigate/navigate"
+import { Navigate } from "../../navigate/navigate"
 import ShareClickBtn from "../../button/shareButtons/shareBrn"
 import FixedImage from "../../fixedImage/fixedImage"
 import style from './header.module.css'

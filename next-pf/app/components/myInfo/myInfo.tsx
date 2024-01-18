@@ -7,7 +7,7 @@ import { useGlobalContext } from '@/app/context/context'
 import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
 import style from './myInfo.module.scss'
-import { NavigateGlobalSection } from '../button/navigate/navigate'
+import { NavigateGlobalSection } from '../navigate/navigate'
 import mySertificate from '@/public/sertifikati/mySertificate.png'
 import reziume from '@/public/reziume/reziume.png'
 

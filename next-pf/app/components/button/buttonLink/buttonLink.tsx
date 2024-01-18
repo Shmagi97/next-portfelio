@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link';
-import style from './button.module.scss'
+import style from './buttonLink.module.scss'
 import { useGlobalContext } from '@/app/context/context';
 import { useEffect, useState } from 'react';
 
@@ -27,14 +27,17 @@ type propsTp = {
 const Button = (props : propsTp) => {
   
   const [href, setHref] = useState('')
-  const {  setClickBtnNumber, globalChildSection, setClickedFixedImage } = useGlobalContext()
+  const {  setClickBtnNumber, globalChildSection, setClickedFixedImage , } = useGlobalContext()
 
+
+  
   useEffect(()=> {
-
+   
       if ( props.hrefProp !== undefined){
          
         setHref( props.hrefProp)
-      }
+
+      } 
 
       return () => setHref('')
     
