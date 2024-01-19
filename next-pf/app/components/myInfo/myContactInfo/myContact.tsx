@@ -13,6 +13,8 @@ type antIqonTP = {
 
 }
 
+// gadaakete oncLick batonis msgavsad
+
 const MyContact = (props : antIqonTP ) => {
 
     return <div className={myContact.flexDiv}>

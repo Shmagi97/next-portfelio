@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 export const setIntervalFn = () => {
   const [delay, setDelay] = useState(15);
-  const {  setImagenumber , chekDelay, usefectRerender } = useGlobalContext ()
+  const {  setImagenumber , chekDelay, usefectRerender,  } = useGlobalContext ()
 
   const limit = 8
   let num = 0

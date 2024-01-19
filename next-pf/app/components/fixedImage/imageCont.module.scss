@@ -1,0 +1,25 @@
+
+
+.imageCont{
+
+   
+    border-bottom: solid red;
+    border-right: solid red ;
+    width: 130px ;
+    height: 130px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border-radius: 50%;
+    position: relative;
+}
+
+.myContact{
+
+    position: absolute;
+    right: 0;
+     bottom: 0;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}

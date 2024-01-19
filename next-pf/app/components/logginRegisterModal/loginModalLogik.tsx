@@ -38,8 +38,8 @@ export const LoginModalLogik = () => {
         return <section className={changeClas}>
             
              <div className={style.buttonsDiv}>
-                <OnclickBtn >შესვლა</OnclickBtn>
-                <OnclickBtn onClick={modalChaildCheing}>რეგისტრაცია</OnclickBtn>
+                <OnclickBtn className={style.onclickBtm}>შესვლა</OnclickBtn>
+                <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>რეგისტრაცია</OnclickBtn>
              </div>
               <LogginModal/>
    
@@ -53,8 +53,8 @@ export const LoginModalLogik = () => {
        return <section className={changeClas}>
                
                <div className={style.buttonsDiv}>
-                 <OnclickBtn onClick={takeRegister}>შესვლა</OnclickBtn>
-                 <OnclickBtn onClick={modalChaildCheing}>რეგისტრაცია</OnclickBtn>
+                 <OnclickBtn onClick={takeRegister}  className={style.onclickBtm}>შესვლა</OnclickBtn>
+                 <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>რეგისტრაცია</OnclickBtn>
               </div>
                 <RegisterAnt/>
 
