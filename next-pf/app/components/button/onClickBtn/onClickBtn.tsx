@@ -1,10 +1,11 @@
 'use client'
 
 import React, {  MouseEvent, ReactNode } from "react";
+import stylle from './onClickBtn.module.scss'
 
 interface CustomButtonProps  {
 
-    onClick?: ( Event : MouseEvent < HTMLButtonElement > ) => void;
+    onClick?: ( Event : MouseEvent < HTMLDivElement > ) => void;
     children: ReactNode;
 
 }
@@ -13,10 +14,10 @@ interface CustomButtonProps  {
 
     return (
 
-        <button onClick={ onClick } { ...restProps }>
+        <div onClick={ onClick } { ...restProps } className={stylle.onclickDiv}>
 
            {children}
-         </button>
+         </div>
     )
 
 }

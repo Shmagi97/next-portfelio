@@ -1,24 +1,12 @@
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 210, 255, 255;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
-
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-color: black;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
 }
 
 .sectionNone {
@@ -49,4 +37,33 @@ body {
   100% {
     scale: 1;
   }
+}
+
+.loginModalLogikSection {
+  display: block;
+  margin-top: 100px;
+  left: 25%;
+  width: 50%;
+  position: absolute;
+  z-index: 90;
+  height: 500px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: rgba(0, 0, 0, 0.5);
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px black;
+  border-radius: 15px;
+  min-width: 220px;
+}
+
+.loginModalLogikSection::-webkit-scrollbar {
+  width: 5px;
+}
+
+.loginModalLogikSection::-webkit-scrollbar-thumb {
+  background-color: rgb(163, 233, 189);
+}
+
+.loginModalLogikSection2 {
+  display: none;
 }

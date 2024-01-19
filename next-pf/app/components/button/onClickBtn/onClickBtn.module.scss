@@ -1,0 +1,25 @@
+@import '../../../colors.scss';
+
+.onclickDiv{
+    
+    background-color: $sahrClickButtonsBacgroundColor;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    opacity: 0.8;
+    padding: 4px 6px;
+    border-radius: 10px;
+}
+
+.onclickDiv:hover {
+
+    color: $hoverLinkIconsBacground;
+    background-color: $navigateBacground  ;
+}
+
+.onclickDiv:active{
+
+    color: $btnActiveClassColor;
+}

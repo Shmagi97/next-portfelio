@@ -1,7 +1,7 @@
 'use client'
 
 import { useGlobalContext } from "@/app/context/context"
-import style from './loggin.module.scss'
+import style from './logikModal.module.scss'
 import { LogginModal } from "./loggin"
 import { RegisterAnt } from "./registerAnt"
 import { useEffect, useState } from "react"
@@ -11,61 +11,54 @@ export const LoginModalLogik = () => {
 
     const { clickModal } = useGlobalContext()
      
-    const [changeClas, setChangeClass] = useState([style.loginModalLogikSection2])
+    const [changeClas, setChangeClass] = useState('loginModalLogikSection2')
     const [getRegister, setGetregister] = useState (true)
 
       
-    function ragaca () {  setGetregister(true)  }
+    function takeRegister () {  setGetregister(true)  }
 
     function modalChaildCheing () {  setGetregister(false) }
      
     useEffect(()=> {
       
         if (clickModal) {
-            setChangeClass([style.loginModalLogikSection])
+            setChangeClass('loginModalLogikSection')
         } else {
     
-            setChangeClass([style.loginModalLogikSection2])
+            setChangeClass('loginModalLogikSection2')
         }
 
-        return () => setChangeClass([])
+        return () => setChangeClass('')
 
     }, [clickModal])
 
        if ( clickModal && getRegister ) {
 
        
-        return <section className={changeClas.join()}>
-
-             <OnclickBtn >შესვლა</OnclickBtn>
-             <OnclickBtn onClick={modalChaildCheing}>რეგისტრაცია</OnclickBtn>
-
-              
-
-                 <LogginModal/>
-
-             
-        </section>
-        
-       }  else if ( !clickModal ) {
-   
-            return <section className={changeClas.join()}>
+        return <section className={changeClas}>
             
-      </section>   
+             <div className={style.buttonsDiv}>
+                <OnclickBtn >შესვლა</OnclickBtn>
+                <OnclickBtn onClick={modalChaildCheing}>რეგისტრაცია</OnclickBtn>
+             </div>
+              <LogginModal/>
+   
+              </section>
+        
+       }  else if ( !clickModal ) { return <section className={changeClas}> </section>   
 
        } else if ( !getRegister) {
        
        
-       return <section className={changeClas.join()}>
-
-             <OnclickBtn onClick={ragaca}>შესვლა</OnclickBtn>
-             <OnclickBtn onClick={modalChaildCheing}>რეგისტრაცია</OnclickBtn>
-              
-
+       return <section className={changeClas}>
+               
+               <div className={style.buttonsDiv}>
+                 <OnclickBtn onClick={takeRegister}>შესვლა</OnclickBtn>
+                 <OnclickBtn onClick={modalChaildCheing}>რეგისტრაცია</OnclickBtn>
+              </div>
                 <RegisterAnt/>
 
-             
-        </section>
+              </section>
        }
 
 

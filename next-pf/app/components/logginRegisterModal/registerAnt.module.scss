@@ -2,21 +2,18 @@
 
 .registerAnstSection {
 
-    border:  solid red;
-    display: flex;
-    justify-content: center;
-    width: 40%;
     margin: 0 auto;
     min-width: 200px;
+
 }
 
 .antForm {
 
-    border:  solid rgb(15, 25, 143);
     min-width: 200px;
     width: 100%;
- 
-    
+    display: grid;
+    margin: 0 auto;
+    justify-content: center; 
 }
 
 .formItemsInput{
