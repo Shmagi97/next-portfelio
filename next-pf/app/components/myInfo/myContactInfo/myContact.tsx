@@ -2,37 +2,32 @@
 
 import { CaretDownOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons"
 import myContact from './myContact.module.scss'
+import React, { MouseEvent, ReactNode } from "react"
 
-type antIqonTP = {
-    antIcon1? : string ;
-    antIcon2? : string ;
-    antIcon3? : string ;
-    antIcon1Span? : string;
-    antIcon2Span? : string;
-    antIcon3Span? : string;
 
+interface MyContactInterface {
+
+  className? : string;
+  onClick? : ( Event : MouseEvent < HTMLDivElement > ) => void ;
+  children : ReactNode;
+  url : string;
+  textIn : string;
 }
 
-// gadaakete oncLick batonis msgavsad
+const MyContact : React.FC < MyContactInterface > = ( {textIn, url, className, children, onClick, ...restProps } ) => {
 
-const MyContact = (props : antIqonTP ) => {
+  const clasChange = `${myContact.flexDiv} ${className || ''}`
 
-    return <div className={myContact.flexDiv}>
-              <div>
-                <a target="_blank" href = { props.antIcon1 ? props.antIcon1 : props.antIcon2 ? props.antIcon2 : 
-                           props.antIcon3 ?  props.antIcon3 : undefined }>
-                  { 
-                  
-                     props.antIcon1 ?  <PhoneOutlined suppressHydrationWarning/> : props.antIcon2 ? <MailOutlined suppressHydrationWarning/> :
-                     props.antIcon3 ? <CaretDownOutlined suppressHydrationWarning/> : false
-                  
-                  }  
-              
+    return <div className={clasChange}>
+           
+             <div>
+                <a target="_blank" href = { url }>
+
+                    {children}
+                    
                 </a>
-                <span>{ props.antIcon1Span ? props.antIcon1Span : props.antIcon2Span ? props.antIcon2Span 
-                        : props.antIcon3Span ? props.antIcon3Span : undefined }</span>
+                <span>{ textIn }</span>
               </div>
-          
            </div>
 
 }

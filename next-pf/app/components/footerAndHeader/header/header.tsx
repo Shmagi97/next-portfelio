@@ -27,7 +27,9 @@ const Header = () => {
        click = {'active'}
        /> */}
 
-         <ImageCont/>
+         <ImageCont
+         click = {'active'}
+         />
 
        <Navigate/>
 

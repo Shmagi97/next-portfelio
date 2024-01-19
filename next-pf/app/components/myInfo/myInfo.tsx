@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import myImage1 from '@/public/image/myImage1.jpg'
-import { LeftOutlined } from '@ant-design/icons'
+import { CaretDownOutlined, LeftOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons'
 import { useGlobalContext } from '@/app/context/context'
 import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
@@ -48,18 +48,17 @@ const MyInfo = () => {
              <MySkils/>
              
              <div className={style.myContactDiv}>
-               <MyContact
-               antIcon1 = {'tel:568 59 60 12'}
-               antIcon1Span = {'568 59 60 12'}
-               />
-               <MyContact
-               antIcon2 = {'mailto:sh.narsa1997@gmail.com'}
-               antIcon2Span = {'sh.narsa1997@gmail.com'}
-               />
-               <MyContact
-               antIcon3 = {`https://www.google.com/maps/place/43%C2%B002'12.3%22N+42%C2%B041'28.1%22E/@43.036742,42.691133,17z/data=!3m1!4b1!4m4!3m3!8m2!3d43.036742!4d42.691133?entry=ttu`}
-               antIcon3Span = {'Mestia / Fari'}
-               />
+          
+               <MyContact url ={'tel:568 59 60 12'} textIn = {'568 59 60 12'}>
+                 <PhoneOutlined/>
+               </MyContact>
+               <MyContact url={'mailto:sh.narsa1997@gmail.com'} textIn = {'sh.narsa1997@gmail.com'}>
+                 <MailOutlined/>
+               </MyContact>
+               <MyContact textIn = {' Mestia / Fari'} url={`https://www.google.com/maps/place/43%C2%B002'12.3%22N+42%C2%B041'28.1%22E/@43.036742,42.691133,17z/data=!3m1!4b1!4m4!3m3!8m2!3d43.036742!4d42.691133?entry=ttu`}>
+                  <CaretDownOutlined/>
+               </MyContact>
+               
              </div>
 
             </div>
