@@ -1,15 +1,14 @@
 'use client'
 
 import { useGlobalContext } from "@/app/context/context"
-
-import img2 from '@/public/image/img2.jpg'
-import images2 from '@/public/image/images2.jpg'
-import images3 from '@/public/image/images3.jpg'
-import images4 from '@/public/image/images4.jpg'
-import images5 from '@/public/image/images5.jpg'
-import images6 from '@/public/image/images6.jpg'
-import image7 from '@/public/image/image7.jpg'
-import images1 from '@/public/image/images1.jpg'
+import images1 from '@/public/image/images1.webp'
+import image7 from '@/public/image/image7.webp'
+import images6 from '@/public/image/images6.webp'
+import images5 from '@/public/image/images5.webp'
+import images4 from '@/public/image/images4.webp'
+import images3 from '@/public/image/images3.webp'
+import images2 from '@/public/image/images2.webp'
+import img2 from '@/public/image/img2.webp'
 
 import { useEffect } from "react"
 
@@ -30,6 +29,8 @@ export const globalImageFn = () => {
            { img : image7},
          
        ])
+
+       return () => setDataimg([])
 
    },[imgnumber])
    

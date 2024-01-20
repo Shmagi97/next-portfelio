@@ -17,7 +17,6 @@ type propsTp = {
     dropDown? : string;
     getServises? : Service[];
     activeClass? : boolean;
-    globalDomPaint? : string; // ამ ეტაპზე არ ვიყენებ
     clickNumber? : number;
     hrefProp? : string;
     propGlobalSection? : boolean;
@@ -37,7 +36,7 @@ const Button = (props : propsTp) => {
          
         setHref( props.hrefProp)
 
-      } 
+      } else { undefined }
 
       return () => setHref('')
     
@@ -46,7 +45,8 @@ const Button = (props : propsTp) => {
     function getGlobalDomPaint () {
   
       const forMasiv = [ 0, 0, 0, 0 ]
-
+      console.log('rame');
+      
       function ubdateArray ( index : number ){
   
         // forMasiv.fill(0)
@@ -104,7 +104,7 @@ const Button = (props : propsTp) => {
 
                 <span></span>
              
-                 <Link href={ href } onClick={getGlobalDomPaint}  className={ `${style.buttonLink} 
+                 <Link href={ href } onClick={  props.propGlobalSection ? getGlobalDomPaint : undefined}  className={ `${style.buttonLink} 
 
                        ${props.activeClass ? style.buttonLinkActive : false }` }>
                        {props.title}
@@ -126,7 +126,7 @@ const Button = (props : propsTp) => {
 
                      props.dropDown === 'first' ?  <p>{el.service}</p> 
                     :  props.dropDown === 'second' ?  <p>{el.statia}</p> 
-                    : <p>{el.portfelio}</p>
+                    : false
                     
                     }
             

@@ -33,8 +33,7 @@ export const LoginModalLogik = () => {
     }, [clickModal])
 
        if ( clickModal && getRegister ) {
-
-       
+ 
         return <section className={changeClas}>
             
              <div className={style.buttonsDiv}>
@@ -59,7 +58,8 @@ export const LoginModalLogik = () => {
                 <RegisterAnt/>
 
               </section>
-       }
+              
+       } else { false }
 
 
    

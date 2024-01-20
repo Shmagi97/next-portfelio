@@ -23,8 +23,6 @@ interface ContextProps {
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     chekDelay : boolean,
     setChekDelay : Dispatch <SetStateAction <boolean> >,
-    usefectRerender : number,
-    setUsefectRerender : Dispatch < SetStateAction < number > >,
     globalChildSection : RefObject < HTMLDivElement | null > ,
     setGlobalChildSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
     clickedFixedImage : boolean,
@@ -47,8 +45,6 @@ const GlobalContext = createContext<ContextProps>({
     setDataimg : () : DataType [] => [],
     chekDelay : false,
     setChekDelay : () : boolean => false,
-    usefectRerender : 0, 
-    setUsefectRerender : () : number => 0,
     globalChildSection : { current: null } ,
     setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
     clickedFixedImage : false ,
@@ -68,7 +64,6 @@ export const GlobalContextProvider = ({ children }) => {
     const [imgnumber, setImagenumber] = useState(0)
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
     const [chekDelay, setChekDelay] = useState (false)
-    const [usefectRerender, setUsefectRerender] = useState (0)
     const [clickedFixedImage, setClickedFixedImage] = useState (false)
     const [clickedSearch, setClickedSearch] = useState (false)
     const [clickBtnNumber, setClickBtnNumber ] = useState < [] | number []  > ([])
@@ -83,7 +78,7 @@ export const GlobalContextProvider = ({ children }) => {
 
         <GlobalContext.Provider value={{
             imgnumber, setImagenumber, dataimg, setDataimg , 
-            chekDelay, setChekDelay, usefectRerender, setUsefectRerender, globalChildSection,
+            chekDelay, setChekDelay, globalChildSection,
             setGlobalChildSection, clickedFixedImage, setClickedFixedImage, clickedSearch, setClickedSearch, 
             clickBtnNumber, setClickBtnNumber, clickModal, setClickModal, 
             

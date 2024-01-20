@@ -7,7 +7,6 @@ import OnclickBtn from "../../button/onClickBtn/onClickBtn"
 import { MyLink } from "../../button/hoverMyLink/myLink"
 import { SearchOutlined, ShareAltOutlined } from "@ant-design/icons"
 import { useGlobalContext } from "@/app/context/context"
-import { ImageCont } from "../../fixedImage/imageCont"
 
 const Header = () => {
     
@@ -23,13 +22,9 @@ const Header = () => {
 
     return <header className={style.layoutHeader}>
 
-       {/* <FixedImage
+       <FixedImage
        click = {'active'}
-       /> */}
-
-         <ImageCont
-         click = {'active'}
-         />
+       />
 
        <Navigate/>
 

@@ -1,6 +1,5 @@
 'use client'
 
-import { CaretDownOutlined, MailOutlined, PhoneOutlined } from "@ant-design/icons"
 import myContact from './myContact.module.scss'
 import React, { MouseEvent, ReactNode } from "react"
 
@@ -18,7 +17,7 @@ const MyContact : React.FC < MyContactInterface > = ( {textIn, url, className, c
 
   const clasChange = `${myContact.flexDiv} ${className || ''}`
 
-    return <div className={clasChange}>
+    return <div className={clasChange} { ...restProps }>
            
              <div>
                 <a target="_blank" href = { url }>

@@ -1,14 +1,14 @@
 'use client'
 
 import Image from 'next/image'
-import myImage1 from '@/public/image/myImage1.jpg'
+import myImage1 from '@/public/image/myImage1.webp'
 import { CaretDownOutlined, LeftOutlined, MailOutlined, PhoneOutlined } from '@ant-design/icons'
 import { useGlobalContext } from '@/app/context/context'
 import MySkils from './mySkils/mySkils'
 import MyContact from './myContactInfo/myContact'
 import style from './myInfo.module.scss'
 import { NavigateGlobalSection } from '../navigate/navigate'
-import mySertificate from '@/public/sertifikati/mySertificate.png'
+import mySertificate from '@/public/sertifikati/mySertificate.webp'
 import reziume from '@/public/reziume/reziume.png'
 
 const MyInfo = () => {
@@ -23,7 +23,6 @@ const MyInfo = () => {
  return <section className={style.hadSection}>
 
           <div className={style.hadSectionFirstDiv}>
-
 
              <div className={style.divWre}>
 

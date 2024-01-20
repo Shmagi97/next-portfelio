@@ -4,37 +4,27 @@ import { useGlobalContext } from "@/app/context/context";
 import { useEffect, useState } from "react";
 
 export const setIntervalFn = () => {
-  const [delay, setDelay] = useState(15);
-  const {  setImagenumber , chekDelay, usefectRerender,  } = useGlobalContext ()
+  const [delay, setDelay] = useState(10);
+  const {  setImagenumber , chekDelay, imgnumber } = useGlobalContext ()
 
-  const limit = 8
-  let num = 0
+  const limit = 7
 
   useEffect(() => {
     const clear = setInterval(() => {
 
-           
-              num += 1
-  
-             setImagenumber(num)
+             setImagenumber(imgnumber +1)
           
-          if ( num >= limit) {
-            
-              num = 0
-              setImagenumber(num)      
-  
-          }
-     
+          if ( imgnumber >= limit) { setImagenumber(0)  } 
      
     }, delay * 1000);
 
     return () => clearInterval(clear);
 
-  }, [delay, usefectRerender ]);
+  }, [delay, imgnumber ]);
 
 useEffect(()=> {
     if (chekDelay === true){
-        setDelay(25);
+        setDelay(15);
     }
 }, [chekDelay])
 

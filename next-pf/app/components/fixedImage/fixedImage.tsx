@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import styles from './fixedImage.module.css'
-import myImage1 from '@/public/image/myImage1.jpg'
+import myImage1 from '@/public/image/myImage1.webp'
 import { useGlobalContext } from '@/app/context/context';
 
 type fixedImageTP = {

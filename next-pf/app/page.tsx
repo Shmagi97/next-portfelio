@@ -13,35 +13,24 @@ export default function Home() {
  // event : MouseEvent <HTMLButtonElement>
  // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
 
-  const {  setImagenumber , imgnumber , setChekDelay,
-    setUsefectRerender, } = useGlobalContext ()
+  const {  setImagenumber , imgnumber , setChekDelay, } = useGlobalContext ()
 
 
  function lefClicked () {
   setChekDelay(true)  
 
-  if ( imgnumber > -1){
-       
-    setImagenumber((prevImgNumber) => prevImgNumber -1);
-    setUsefectRerender((prevImgNumber) => prevImgNumber -1);
+  if ( imgnumber > -1){ setImagenumber((prevImgNumber) => prevImgNumber -1);
 
-    if (imgnumber == 0){
-        setImagenumber(7);
-    }
+    if (imgnumber == 0){ setImagenumber(7); }
 } 
  }
 
  function rightClicked () {
   setChekDelay(true)
    
-  if (imgnumber < 8 ){
-
-    setImagenumber((prevImgNumber) => prevImgNumber +1)
-    setUsefectRerender((prevImgNumber) => prevImgNumber +1)
+  if (imgnumber < 8 ){ setImagenumber((prevImgNumber) => prevImgNumber +1)
     
-    if (imgnumber == 7){
-        setImagenumber(0);
-    }
+    if (imgnumber == 7){ setImagenumber(0); }
 }
  }
 
