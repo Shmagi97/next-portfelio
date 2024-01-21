@@ -7,7 +7,7 @@ export const setIntervalFn = () => {
   const [delay, setDelay] = useState(10);
   const {  setImagenumber , chekDelay, imgnumber } = useGlobalContext ()
 
-  const limit = 7
+  const limit = 6
 
   useEffect(() => {
     const clear = setInterval(() => {

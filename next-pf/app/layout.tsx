@@ -11,6 +11,7 @@ import Header from './components/footerAndHeader/header/header'
 
 import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
 import { LoginModalLogik } from './components/logginRegisterModal/loginModalLogik'
+import RecoilWrapper from './components/recoilWrapper/recoilWrapper'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -35,20 +36,24 @@ export default function RootLayout({
       <body className={inter.className}>
 
       <main className={style.layoutMain}>
- 
+    
       <GlobalContextProvider>
           {/* 1. GlobalDinamikChaild- ში ივენთზე დინამიურად იცვლება შვილი კომპპონენტები */}
            <GlobalDinamikChaild/>
            
            <LoginModalLogik/>
-           <Header/>
+             <Header/>
 
-                {children}
- 
+             <RecoilWrapper>
+
+                   {children}
+
+             </RecoilWrapper>
+
            <Footer/>
 
       </GlobalContextProvider>
-
+     
        </main>
       </body>
     </html>

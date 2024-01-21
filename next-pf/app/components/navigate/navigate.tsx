@@ -18,11 +18,11 @@ const Navigate = () => {
     function logginModalFn () {  setClickModal(!clickModal) }
 
     return <div className={style.cont} >
-     <GlobalOutlined className={style.logginAntIcon} onClick={logginModalFn}/>
+     <GlobalOutlined  className={style.logginAntIcon} onClick={logginModalFn} suppressHydrationWarning/>
      <Button title = 'მთავარი'   activeClass hrefProp = '/' />
      <Button title = 'სერვისები' activeClass hrefProp = '/servisePage'  dropDown = 'first' getServises = {servises}/>
      <Button title = 'სტატიები' activeClass   hrefProp = '/statiebiPage'  dropDown = 'second' getServises = {servises}/>
-     <Button title = 'პორტფელიო' activeClass  propGlobalSection  getServises = {servises}/>
+     <Button title = 'პორტფელიო' activeClass  getClickFunctionGlobalNavigate  propGlobalSection  getServises = {servises}/>
     
     
     </div>
@@ -42,10 +42,10 @@ const NavigateGlobalSection = () => {
     return <div className={style.contGlobalSection}>
 
     <LeftOutlined className={style.leftElseInfo} onClick={leftElseInfoFN} suppressHydrationWarning/>
-    <Button title = 'განათლება' activeClass  clickNumber = {0} propGlobalSection/>
-    <Button title = 'დიპლომი'   activeClass clickNumber = {1} propGlobalSection/>
-    <Button title = 'რეზიუმე'  activeClass clickNumber = {2} propGlobalSection/>
-    <Button title = 'გამოცდილება'  activeClass clickNumber = {3} propGlobalSection/>
+    <Button title = 'განათლება' activeClass  clickNumber = {0} getClickFunctionGlobalNavigate/>
+    <Button title = 'დიპლომი'   activeClass clickNumber = {1} getClickFunctionGlobalNavigate/>
+    <Button title = 'რეზიუმე'  activeClass clickNumber = {2} getClickFunctionGlobalNavigate/>
+    <Button title = 'გამოცდილება'  activeClass clickNumber = {3} getClickFunctionGlobalNavigate/>
 
    </div>
 }

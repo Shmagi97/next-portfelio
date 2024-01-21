@@ -4,6 +4,7 @@ import Link from 'next/link';
 import style from './buttonLink.module.scss'
 import { useGlobalContext } from '@/app/context/context';
 import { useEffect, useState } from 'react';
+import buttonClickNumber from './functions/buttonClickNumber';
 
 interface Service {
   service : string;
@@ -20,6 +21,7 @@ type propsTp = {
     clickNumber? : number;
     hrefProp? : string;
     propGlobalSection? : boolean;
+    getClickFunctionGlobalNavigate? : boolean
     
 }
 
@@ -28,8 +30,6 @@ const Button = (props : propsTp) => {
   const [href, setHref] = useState('')
   const {  setClickBtnNumber, globalChildSection, setClickedFixedImage , } = useGlobalContext()
 
-
-  
   useEffect(()=> {
    
       if ( props.hrefProp !== undefined){
@@ -42,32 +42,23 @@ const Button = (props : propsTp) => {
     
   }, [href])
 
-    function getGlobalDomPaint () {
-  
-      const forMasiv = [ 0, 0, 0, 0 ]
-      console.log('rame');
-      
-      function ubdateArray ( index : number ){
-  
-        // forMasiv.fill(0)
-        forMasiv[index] = 1
-      }    
-        
-      if ( props.clickNumber !== undefined ){
 
-        ubdateArray ( props.clickNumber )
-        setClickBtnNumber (forMasiv)
-        
-      } else ( undefined )
+    function getGlobalDomPaint () {
 
       if ( props.propGlobalSection ){
 
         globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
         setClickedFixedImage(true)
-
-      } else {  false }
+  
+      }  else { false }
       
-    
+      if ( props.clickNumber !== undefined){
+
+        const propNumber = props.clickNumber
+
+        buttonClickNumber( propNumber, setClickBtnNumber)
+      }  else { false }
+
       }
    
 
@@ -104,7 +95,7 @@ const Button = (props : propsTp) => {
 
                 <span></span>
              
-                 <Link href={ href } onClick={  props.propGlobalSection ? getGlobalDomPaint : undefined}  className={ `${style.buttonLink} 
+                 <Link href={ href } onClick={  props.getClickFunctionGlobalNavigate ? getGlobalDomPaint : undefined}  className={ `${style.buttonLink} 
 
                        ${props.activeClass ? style.buttonLinkActive : false }` }>
                        {props.title}

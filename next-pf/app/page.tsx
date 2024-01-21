@@ -15,13 +15,14 @@ export default function Home() {
 
   const {  setImagenumber , imgnumber , setChekDelay, } = useGlobalContext ()
 
+  const limit = 6;
 
  function lefClicked () {
   setChekDelay(true)  
 
   if ( imgnumber > -1){ setImagenumber((prevImgNumber) => prevImgNumber -1);
 
-    if (imgnumber == 0){ setImagenumber(7); }
+    if (imgnumber == 0){ setImagenumber(limit); }
 } 
  }
 
@@ -30,7 +31,7 @@ export default function Home() {
    
   if (imgnumber < 8 ){ setImagenumber((prevImgNumber) => prevImgNumber +1)
     
-    if (imgnumber == 7){ setImagenumber(0); }
+    if (imgnumber == limit){ setImagenumber(0); }
 }
  }
 

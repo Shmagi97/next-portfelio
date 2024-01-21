@@ -27,6 +27,7 @@ export const MyLink : React.FC < myLinkInterface > = ( { className, ...restProps
                  alt='facebook'
                  src={facebook}
                  width={20}
+                 suppressHydrationWarning
                 />
              </Link>
          </li>
@@ -39,6 +40,7 @@ export const MyLink : React.FC < myLinkInterface > = ( { className, ...restProps
                 alt='linkedln'
                 src={linkedin}
                 width={20}
+                suppressHydrationWarning
                 />
             </Link>
      </li>

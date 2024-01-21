@@ -17,14 +17,6 @@
    
 }
 
-.logginModalDiv > h2 {
-    margin: 0 0 30px;
-    padding: 0;
-    color:$textColors;
-    text-align: center;
-}
-
-
 .formHtml > div {
     position: relative;
 }
@@ -39,13 +31,31 @@
     border-bottom: 1px solid $btnTextColor;
     outline: none;
     background: transparent;
+
+}
+
+.inputFocus ~ label {
+
+  top: -25px !important;
+  left: 0 !important;
+  color:$logginModalLabelText;
+  font-size: 12px !important;
+ 
+}
+
+.inputFocus2 ~ label {
+
+  top: -25px !important;
+  left: 0 !important;
+  color:$logginModalLabelText;
+  font-size: 12px !important;
 }
 
 .formHtml > div > input:focus ~ label{
     top: -25px;
     left: 0;
     color:$logginModalLabelText;
-    font-size: 14.5px;
+    font-size: 12px;
 }
 
 .formHtml > div > label {

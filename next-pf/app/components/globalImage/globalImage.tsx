@@ -1,7 +1,6 @@
 'use client'
 
 import { useGlobalContext } from "@/app/context/context"
-import images1 from '@/public/image/images1.webp'
 import image7 from '@/public/image/image7.webp'
 import images6 from '@/public/image/images6.webp'
 import images5 from '@/public/image/images5.webp'
@@ -20,7 +19,6 @@ export const globalImageFn = () => {
     useEffect(()=> {
        setDataimg ([
            { img : img2},
-           { img : images1},
            { img : images2},
            { img : images3},
            { img : images4},

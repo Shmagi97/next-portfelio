@@ -9,6 +9,7 @@ import {
   useState,
   useRef,
   RefObject,
+  ReactNode,
 } from "react";
 
 type DataType = {
@@ -18,7 +19,7 @@ type DataType = {
 interface ContextProps {
 
     imgnumber: number,
-    setImagenumber: Dispatch <SetStateAction <number> >
+    setImagenumber: Dispatch <SetStateAction <number> >,
     dataimg : DataType [],
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     chekDelay : boolean,
@@ -30,7 +31,7 @@ interface ContextProps {
     clickedSearch: boolean,
     setClickedSearch : Dispatch < SetStateAction < boolean > >,
     clickBtnNumber : number [] ,
-    setClickBtnNumber : Dispatch < SetStateAction < number []  > >
+    setClickBtnNumber : Dispatch < SetStateAction < number []  > >,
     clickModal : boolean,
     setClickModal : Dispatch < SetStateAction < boolean > >,
     
@@ -51,8 +52,8 @@ const GlobalContext = createContext<ContextProps>({
     setClickedFixedImage : () : boolean => false ,
     clickedSearch : false ,
     setClickedSearch : () : boolean => false ,
-    clickBtnNumber : [],
-    setClickBtnNumber : () : number [] => [],
+    clickBtnNumber : [0,0,0,0],
+    setClickBtnNumber : () : number [] => [0,0,0,0],
     clickModal : false,
     setClickModal : () : boolean => false,
   
@@ -60,13 +61,13 @@ const GlobalContext = createContext<ContextProps>({
 
 
 
-export const GlobalContextProvider = ({ children }) => {
+export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [imgnumber, setImagenumber] = useState(0)
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
     const [chekDelay, setChekDelay] = useState (false)
     const [clickedFixedImage, setClickedFixedImage] = useState (false)
     const [clickedSearch, setClickedSearch] = useState (false)
-    const [clickBtnNumber, setClickBtnNumber ] = useState < [] | number []  > ([])
+    const [clickBtnNumber, setClickBtnNumber ] = useState < [] | number []  > ([0,0,0,0])
     const [clickModal , setClickModal ] = useState (false)
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
@@ -84,7 +85,7 @@ export const GlobalContextProvider = ({ children }) => {
             
             }}>
 
-            {children}
+            {props.children}
 
         </GlobalContext.Provider>
     )
