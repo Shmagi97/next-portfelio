@@ -65,3 +65,44 @@
       scale: 1;
     }
   }
+
+  // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+
+  .buttonLink {
+    text-decoration: none;
+    color: $btnTextColor;
+    user-select: none;
+  }
+
+  .buttonLink:active{
+    color: $btnActiveClassColor ;
+  }
+
+  .articlePortfelio{
+    color: $btnTextColor;
+    user-select: none;
+    cursor: pointer;
+  }
+
+  .articlePortfelio:active{
+    color: $btnActiveClassColor ;
+  }
+
+  // global section navigate
+
+
+  .buttonGlobalNavigate{
+    color: $btnTextColor;
+    cursor: pointer;
+
+  }
+
+  .buttonGlobalNavigate:active{
+    color: $btnActiveClassColor ;
+  }
+
+
+
+
+   // @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@

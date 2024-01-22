@@ -1,4 +1,15 @@
-@import '../../../colors.scss';
+
+
+.buttonsSection {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .buttonsSection:hover > .dropDown {
+    display: block;
+  }
+  
 
 .buttonDiv {
     display: flex;
@@ -7,6 +18,9 @@
     align-items: center;
     position: relative;
     height: 50px;
+    border: none;
+    background: none;
+    font-size: 17px;
   }
   
   .buttonDiv > span {
@@ -14,27 +28,13 @@
     position: absolute;
     top: 0;
   }
-  
-  .buttonLink {
-    text-decoration: none;
-    color: $btnTextColor;
-    user-select: none;
-  }
 
-  .buttonLinkActive:active{
-    color: $btnActiveClassColor ;
-  }
-  
   .buttonDiv:hover > span {
     border: 0.1px solid red;
   }
-  
-  .buttonsSection {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-  }
-  
+
+  // dropdown
+
   .dropDown {
     position: absolute;
     padding: 10px 10px;
@@ -55,8 +55,3 @@
     border-bottom: 1px solid red;
     cursor: pointer;
   }
-  
-  .buttonsSection:hover > .dropDown {
-    display: block;
-  }
-  

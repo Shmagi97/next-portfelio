@@ -1,28 +1,57 @@
 'use client'
 
 import { useGlobalContext } from "@/app/context/context"
-import Button from "../button/buttonLink/buttonLink"
 import style from './navigate.module.scss'
 import { GlobalOutlined, LeftOutlined  } from "@ant-design/icons"
+import OnclickButtonLink from "../button/buttonLink/onClickButtonLink"
+import Link from "next/link"
+import buttonClickNumber from "../button/buttonLink/functions/buttonClickNumber"
+import { MouseEvent } from "react"
 
 const Navigate = () => {
 
     const servises = [
-       { service: '1', statia: '4' , portfelio: '7'} ,
-       { service: '2', statia: '5' , portfelio: '8'} ,
-       {service: '3', statia: '6' , portfelio: '9'} ,
+       { service: '1', statia: '4' } ,
+       { service: '2', statia: '5' } ,
+       {service: '3', statia: '6' } ,
     ]
 
-    const { clickModal , setClickModal,  } = useGlobalContext() 
+    const { clickModal , setClickModal, globalChildSection, setClickedFixedImage } = useGlobalContext() 
 
     function logginModalFn () {  setClickModal(!clickModal) }
 
+    function clickPortfelio () {
+
+        globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
+        setClickedFixedImage(true)
+   
+    }
+
+
     return <div className={style.cont} >
      <GlobalOutlined  className={style.logginAntIcon} onClick={logginModalFn} suppressHydrationWarning/>
-     <Button title = 'მთავარი'   activeClass hrefProp = '/' />
-     <Button title = 'სერვისები' activeClass hrefProp = '/servisePage'  dropDown = 'first' getServises = {servises}/>
-     <Button title = 'სტატიები' activeClass   hrefProp = '/statiebiPage'  dropDown = 'second' getServises = {servises}/>
-     <Button title = 'პორტფელიო' activeClass  getClickFunctionGlobalNavigate  propGlobalSection  getServises = {servises}/>
+
+     <OnclickButtonLink >
+         <Link href={'/'}  className={style.buttonLink}>
+            მთავარი
+         </Link>
+     </OnclickButtonLink>
+
+     <OnclickButtonLink getServises = {servises} dropDown = 'servisebi'>
+         <Link href={'/servisePage'}  className={style.buttonLink}>
+         სერვისები
+         </Link>
+     </OnclickButtonLink>
+
+     <OnclickButtonLink  getServises = {servises} dropDown = 'statiebi'>
+         <Link href={'/statiebiPage'}  className={style.buttonLink}>
+         სტატიები
+         </Link>
+     </OnclickButtonLink>
+    
+     <OnclickButtonLink onClick={clickPortfelio}>
+           <article className={style.articlePortfelio}>პორტფელიო</article>
+     </OnclickButtonLink>
     
     
     </div>
@@ -39,13 +68,33 @@ const NavigateGlobalSection = () => {
         setClickBtnNumber(getElseNumbers)
     }
 
+    function getValue (event : MouseEvent < HTMLButtonElement >) {
+     
+     const valueNumber =  event.currentTarget.getAttribute('data-value')
+     
+      if(valueNumber) buttonClickNumber(parseInt(valueNumber) , setClickBtnNumber)
+     
+    }
+
     return <div className={style.contGlobalSection}>
 
     <LeftOutlined className={style.leftElseInfo} onClick={leftElseInfoFN} suppressHydrationWarning/>
-    <Button title = 'განათლება' activeClass  clickNumber = {0} getClickFunctionGlobalNavigate/>
-    <Button title = 'დიპლომი'   activeClass clickNumber = {1} getClickFunctionGlobalNavigate/>
-    <Button title = 'რეზიუმე'  activeClass clickNumber = {2} getClickFunctionGlobalNavigate/>
-    <Button title = 'გამოცდილება'  activeClass clickNumber = {3} getClickFunctionGlobalNavigate/>
+
+    <OnclickButtonLink className={style.buttonGlobalNavigate} data-value = {'0'} onClick={getValue} >
+        განათლება
+    </OnclickButtonLink>
+
+    <OnclickButtonLink className={style.buttonGlobalNavigate} data-value = {'1'}  onClick={getValue}>
+       დიპლომი
+    </OnclickButtonLink>
+
+    <OnclickButtonLink className={style.buttonGlobalNavigate} data-value = {'2'}  onClick={getValue}>
+       რეზიუმე
+    </OnclickButtonLink>
+
+    <OnclickButtonLink className={style.buttonGlobalNavigate} data-value = {'3'}  onClick={getValue}>
+       გამოცდილება
+    </OnclickButtonLink>
 
    </div>
 }
