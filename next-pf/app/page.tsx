@@ -9,6 +9,7 @@ import { useGlobalContext } from './context/context'
 
 export default function Home() {
 
+
   // ტაიპსკრიპტში ბათონზე კლიკისას აზუსტებს ევენთის ტიპს
  // event : MouseEvent <HTMLButtonElement>
  // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
@@ -38,7 +39,7 @@ export default function Home() {
   return (
  
     <section className={styles.section}>
-
+   
       <Background/>
 
       <OnclickBtn className={styles.btnInpage} onClick={lefClicked}>
@@ -50,7 +51,7 @@ export default function Home() {
       <OnclickBtn className={styles.btnInpage} onClick={rightClicked}>
          <RightOutlined/>
       </OnclickBtn>
-
+   
     </section>
  
   )
