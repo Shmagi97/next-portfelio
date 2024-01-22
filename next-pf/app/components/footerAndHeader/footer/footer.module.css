@@ -6,7 +6,8 @@
 
 .footerSection {
   height: 100px;
-  background-color: #d50032;
+  background: rgba(0, 0, 0, 0.5);
+  box-shadow: 0 15px 25px black;
   text-align: center;
   opacity: 0.8;
 }

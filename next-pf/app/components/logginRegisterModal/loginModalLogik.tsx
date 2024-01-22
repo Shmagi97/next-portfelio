@@ -6,60 +6,51 @@ import { LogginModal } from "./loggin"
 import { RegisterAnt } from "./registerAnt"
 import { useEffect, useState } from "react"
 import OnclickBtn from "../button/onClickBtn/onClickBtn"
+import { LeftOutlined, RightOutlined } from "@ant-design/icons"
 
 export const LoginModalLogik = () => {
 
     const { clickModal } = useGlobalContext()
      
-    const [changeClas, setChangeClass] = useState('loginModalLogikSection2')
-    const [getRegister, setGetregister] = useState (true)
+    const [changeClas, setChangeClass] = useState(style.loginModalLogikSection2)
+    const [getRegister, setGetregister] = useState (false)
 
-      
-    function takeRegister () {  setGetregister(true)  }
-
-    function modalChaildCheing () {  setGetregister(false) }
+    function modalChaildCheing () {  setGetregister(!getRegister)
+        console.log(getRegister, 'registracia');
+    }
      
     useEffect(()=> {
       
         if (clickModal) {
-            setChangeClass('loginModalLogikSection')
+            setChangeClass(style.loginModalLogikSection)
         } else {
     
-            setChangeClass('loginModalLogikSection2')
+            setChangeClass(style.loginModalLogikSection2)
         }
 
         return () => setChangeClass('')
 
     }, [clickModal])
 
-       if ( clickModal && getRegister ) {
- 
-        return <section className={changeClas}>
+     return <section className={changeClas}>
             
-             <div className={style.buttonsDiv}>
-                <OnclickBtn className={style.onclickBtm}>შესვლა</OnclickBtn>
-                <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>რეგისტრაცია</OnclickBtn>
-             </div>
-              <LogginModal/>
-   
-              </section>
-        
-       }  else if ( !clickModal ) { return <section className={changeClas}> </section>   
-
-       } else if ( !getRegister) {
-       
-       
-       return <section className={changeClas}>
-               
                <div className={style.buttonsDiv}>
-                 <OnclickBtn onClick={takeRegister}  className={style.onclickBtm}>შესვლა</OnclickBtn>
-                 <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>რეგისტრაცია</OnclickBtn>
-              </div>
-                <RegisterAnt/>
 
-              </section>
-              
-       } else { false }
+                 <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>
+                    {
+                        !getRegister ? <>რეგისტრაცია <RightOutlined className={style.antLeftRight}/> </> 
+                        : <> <LeftOutlined className={style.antLeftRight}/> შესვლა</>
+                    } 
+                   
+                 </OnclickBtn>
+
+               </div>
+               
+              { 
+                !getRegister ? <LogginModal/> :  <RegisterAnt/>
+              }
+
+          </section>
 
 
    

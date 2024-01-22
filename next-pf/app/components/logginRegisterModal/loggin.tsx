@@ -22,10 +22,7 @@ export const LogginModal = () => {
     }
 
     
-    return <div className='logginModalSection'  >
-          
-    
-            <div className={style.logginModalDiv}>
+    return <div className={style.logginModalDiv}>
 
             <form action="#" method="#" className={style.formHtml}>
                  <div>
@@ -48,6 +45,6 @@ export const LogginModal = () => {
 
       
 
-    </div>
+   
 }
 
