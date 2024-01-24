@@ -1,0 +1,39 @@
+
+
+.pagServiseDiv{
+
+    // border: solid red;
+    // height: 300px;
+    // width: 90%;
+    // margin: 150px auto 0px auto;
+    
+    
+    width: 190px;
+    height: 360px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    background: #ececec;
+    padding: 0px 10px;
+    // transform: translateX(390%);
+   
+    animation: run1 15s linear infinite;
+}
+
+
+
+@keyframes run1 {
+    0% {
+        // left: 100%;
+        transform: translateX(390%);
+    }
+    
+    50%, 100% {
+        // left: -100%;
+        transform: translateX(-390%);
+    }
+}

@@ -26,6 +26,7 @@ useEffect(()=> {
     if (chekDelay === true){
         setDelay(15);
     }
+
 }, [chekDelay])
 
 

@@ -15,9 +15,7 @@ export const LoginModalLogik = () => {
     const [changeClas, setChangeClass] = useState(style.loginModalLogikSection2)
     const [getRegister, setGetregister] = useState (false)
 
-    function modalChaildCheing () {  setGetregister(!getRegister)
-        console.log(getRegister, 'registracia');
-    }
+    function modalChaildCheing () {  setGetregister(!getRegister) }
      
     useEffect(()=> {
       

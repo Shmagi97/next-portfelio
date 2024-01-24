@@ -24,8 +24,10 @@ interface ContextProps {
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     chekDelay : boolean,
     setChekDelay : Dispatch <SetStateAction <boolean> >,
+
     globalChildSection : RefObject < HTMLDivElement | null > ,
     setGlobalChildSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
+
     clickedFixedImage : boolean,
     setClickedFixedImage : Dispatch < SetStateAction < boolean > >,
     clickedSearch: boolean,
@@ -34,6 +36,9 @@ interface ContextProps {
     setClickBtnNumber : Dispatch < SetStateAction < number []  > >,
     clickModal : boolean,
     setClickModal : Dispatch < SetStateAction < boolean > >,
+
+    globalNodelistArray : HTMLDivElement[],
+    setGlobalNodelistArray : Dispatch < SetStateAction < HTMLDivElement[] > >
     
 }
 
@@ -46,8 +51,10 @@ const GlobalContext = createContext<ContextProps>({
     setDataimg : () : DataType [] => [],
     chekDelay : false,
     setChekDelay : () : boolean => false,
+
     globalChildSection : { current: null } ,
     setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
+
     clickedFixedImage : false ,
     setClickedFixedImage : () : boolean => false ,
     clickedSearch : false ,
@@ -56,6 +63,9 @@ const GlobalContext = createContext<ContextProps>({
     setClickBtnNumber : () : number [] => [0,0,0,0],
     clickModal : false,
     setClickModal : () : boolean => false,
+
+    globalNodelistArray : [],
+    setGlobalNodelistArray : () : HTMLDivElement[]  => [],
   
 })
 
@@ -69,10 +79,12 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [clickedSearch, setClickedSearch] = useState (false)
     const [clickBtnNumber, setClickBtnNumber ] = useState < [] | number []  > ([0,0,0,0])
     const [clickModal , setClickModal ] = useState (false)
+
+    const [globalNodelistArray , setGlobalNodelistArray] = useState < HTMLDivElement[] > ([])
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
-
     const [globalChildSection, setGlobalChildSection] = useState (initialGlobalChildSection);
+    
 
    
     return (
@@ -81,7 +93,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             imgnumber, setImagenumber, dataimg, setDataimg , 
             chekDelay, setChekDelay, globalChildSection,
             setGlobalChildSection, clickedFixedImage, setClickedFixedImage, clickedSearch, setClickedSearch, 
-            clickBtnNumber, setClickBtnNumber, clickModal, setClickModal, 
+            clickBtnNumber, setClickBtnNumber, clickModal, setClickModal, globalNodelistArray, setGlobalNodelistArray, 
             
             }}>
 
