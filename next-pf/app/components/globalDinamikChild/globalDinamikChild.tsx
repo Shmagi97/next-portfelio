@@ -8,7 +8,7 @@ import SearchComponent from '../serach/search';
 
 const GlobalDinamikChaild = () => {
 
-    const { setGlobalChildSection, clickedFixedImage, clickedSearch} = useGlobalContext()
+    const { setGlobalChildSection, clickGlobalDinamikChild} = useGlobalContext()
 
     const useRefElement : RefObject < HTMLDivElement > = useRef(null)
 
@@ -21,7 +21,7 @@ const GlobalDinamikChaild = () => {
 
 {
 
-   clickedFixedImage ? <MyInfo/> : clickedSearch ? <SearchComponent/> : false
+  clickGlobalDinamikChild[0]==1 ? <MyInfo/> :  clickGlobalDinamikChild[1]==1 ? <SearchComponent/> : false
 
 }
 

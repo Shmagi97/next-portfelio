@@ -3,27 +3,14 @@
 import Image from 'next/image'
 import styles from './fixedImage.module.css'
 import myImage1 from '@/public/image/myImage1.webp'
-import { useGlobalContext } from '@/app/context/context';
 
 type fixedImageTP = {
-    click? : string;
+    onClick? : () => void;
 }
 
 const FixedImage = (props : fixedImageTP) => {
 
-    const {globalChildSection, setClickedFixedImage } = useGlobalContext()
-  
-    function clickImgFixed () {
-      
-        if (props.click) { 
-            
-            globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
-            setClickedFixedImage(true)
-           
-        }  else { undefined }
-    }
-
-    return <div className={styles.fixedimagediv}  onClick={clickImgFixed}>
+    return <div className={styles.fixedimagediv}  onClick={props.onClick}>
        <Image
        
        alt='imageFixed'

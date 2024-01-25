@@ -18,13 +18,13 @@ import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 
 const SearchComponent : React.FC < AntdIconProps > = () => {
 
-    const {globalChildSection, setClickedSearch } = useGlobalContext()
+    const {globalChildSection } = useGlobalContext()
     
     function clickSearchLogaut () {
 
       if (globalChildSection.current){
         globalChildSection.current.classList.replace('searchSection', 'sectionNone')
-        setClickedSearch(false)
+
        }
     
     }

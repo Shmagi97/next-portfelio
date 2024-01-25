@@ -38,11 +38,3 @@ body::-webkit-scrollbar {
     scale: 1;
   }
 }
-
-.pagServiseDivAbsolute2 {
-  position: relative;
-}
-
-.pagServiseDivAbsolute {
-  position: absolute;
-}

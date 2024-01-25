@@ -1,4 +1,5 @@
 .section {
+  
   border: solid rgb(0, 255, 4);
   width: 90%;
   margin: 150px auto 0px auto;
@@ -13,25 +14,3 @@
   
 }
 
-// .section > div{
-//   position: absolute;
-//   border: solid red;
-//   width: 90%;
-//   display: flex;
-//   justify-content: center;
-//   column-gap: 20px;
-
-//   // left: 100%;
-//   // animation: run1 16s linear infinite;
-// }
-
-
-// @keyframes run1 {
-//   0% {
-//       left: 100%;
-//   }
-  
-//   50%, 100% {
-//       left: -100%;
-//   }
-// }

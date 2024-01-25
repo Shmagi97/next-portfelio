@@ -7,15 +7,16 @@ import OnclickBtn from "../../button/onClickBtn/onClickBtn"
 import { MyLink } from "../../button/hoverMyLink/myLink"
 import { SearchOutlined, ShareAltOutlined } from "@ant-design/icons"
 import { useGlobalContext } from "@/app/context/context"
+import { numberGlobalSection } from "../../functionsFN/numberGlobalSection"
 
 const Header = () => {
     
-   const {globalChildSection, setClickedSearch} = useGlobalContext()
+   const {globalChildSection, setClickGlobalDinamikChild  } = useGlobalContext()
 
-     const clickFn = () => {
+     const clickSearchFn = () => {
 
       globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
-      setClickedSearch(true)    
+      numberGlobalSection(1, setClickGlobalDinamikChild)
    
        }
   
@@ -23,7 +24,12 @@ const Header = () => {
     return <header className={style.layoutHeader}>
 
        <FixedImage
-       click = {'active'}
+       onClick = { ()=> {
+           
+         globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
+         numberGlobalSection(0, setClickGlobalDinamikChild)
+        
+       } }
        />
 
        <Navigate/>
@@ -35,7 +41,7 @@ const Header = () => {
             <MyLink className={style.myLink}/>
          </OnclickBtn>
 
-        <OnclickBtn className={style.btnHeader} onClick={clickFn}> 
+        <OnclickBtn className={style.btnHeader} onClick={clickSearchFn}> 
            <SearchOutlined/>
         </OnclickBtn>
   

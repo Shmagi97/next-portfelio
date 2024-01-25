@@ -11,13 +11,15 @@ import { NavigateGlobalSection } from '../navigate/navigate'
 import mySertificate from '@/public/sertifikati/mySertificate.webp'
 import reziume from '@/public/reziume/reziume.png'
 
+
 const MyInfo = () => {
 
-    const { globalChildSection  , setClickedFixedImage, clickBtnNumber } = useGlobalContext ()
+    const { globalChildSection ,  clickBtnNumber } = useGlobalContext ()
      
     function clickBack () {
         globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
-        setClickedFixedImage(false)
+
+      
     }
 
  return <section className={style.hadSection}>

@@ -7,6 +7,7 @@ import OnclickButtonLink from "../button/buttonLink/onClickButtonLink"
 import Link from "next/link"
 import buttonClickNumber from "../button/buttonLink/functions/buttonClickNumber"
 import { MouseEvent } from "react"
+import { numberGlobalSection } from "../functionsFN/numberGlobalSection"
 
 const Navigate = () => {
 
@@ -16,14 +17,14 @@ const Navigate = () => {
        {service: '3', statia: '6' } ,
     ]
 
-    const { clickModal , setClickModal, globalChildSection, setClickedFixedImage } = useGlobalContext() 
+    const { clickModal , setClickModal, globalChildSection, setClickGlobalDinamikChild } = useGlobalContext() 
 
     function logginModalFn () {  setClickModal(!clickModal) }
 
     function clickPortfelio () {
 
         globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
-        setClickedFixedImage(true)
+        numberGlobalSection(0, setClickGlobalDinamikChild)
    
     }
 

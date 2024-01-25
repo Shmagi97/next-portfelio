@@ -2,12 +2,6 @@
 
 .pagServiseDiv{
 
-    // border: solid red;
-    // height: 300px;
-    // width: 90%;
-    // margin: 150px auto 0px auto;
-    
-    
     width: 190px;
     height: 360px;
     display: flex;
@@ -19,21 +13,19 @@
     cursor: pointer;
     background: #ececec;
     padding: 0px 10px;
-    // transform: translateX(390%);
-   
-    animation: run1 15s linear infinite;
+    animation: run1 6s linear ;
 }
 
 
 
 @keyframes run1 {
     0% {
-        // left: 100%;
+     
         transform: translateX(390%);
     }
     
     50%, 100% {
-        // left: -100%;
-        transform: translateX(-390%);
+       
+        transform: translateX(0);
     }
 }
