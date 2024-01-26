@@ -8,33 +8,25 @@ import { globalImageFn } from "../globalImage/globalImage";
 const Background = () => {
 
     const { imgnumber,  dataimg, } = useGlobalContext ()
+
+    const selectImage = dataimg.find(( el , index )=> index == imgnumber)
     
    globalImageFn()
-   
+
     return <>
 
-
-      {dataimg.map((el, index)=> {
-
-       if ( (index == imgnumber)  ){
-
-           return <>
-    
-            <Image
+      {
+        
+        selectImage &&  <Image
+        
+           className={style.backgroundImage}
+           alt="imageBackground"
+           src={selectImage.img} 
             
-               key={index}
-               className={style.backgroundImage}
-               alt="imageBackground"
-                src={el.img} 
-                
-             />
-    
-           </>
+         />
 
-          }
-    
-       })}
-    
+      }
+
     </>
 }
 

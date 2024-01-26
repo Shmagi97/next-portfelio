@@ -1,5 +1,7 @@
 'use client'
 
+import { Dispatch, SetStateAction } from "react"
+
 export const numberGlobalSection = ( value : number, getFunction : Function ) => {
 
     getFunction ((prevNumber : number [] )=> {
@@ -14,5 +16,30 @@ export const numberGlobalSection = ( value : number, getFunction : Function ) =>
         }
     } )
 
+}
+
+type GlobalNumber = {
+    globalNavigateNumber : number [] ,
+    globalSectionChildren :  number [] ,
+}
+
+type DataGlobalClickNumber = [GlobalNumber, GlobalNumber]
+
+export const globalNumberSection = (index : number, key : keyof GlobalNumber,
+  value : number, getFN : Function ) => {
+
+   
+
+    getFN((prevNumber : DataGlobalClickNumber)=> {
+         
+        const UbdateArray = [ ...prevNumber ]
+
+        UbdateArray[index][key].fill(0)
+        
+        if( value !== undefined ){
+            UbdateArray[index][key][value]=1
+            return UbdateArray
+        }
+    })
 }
 

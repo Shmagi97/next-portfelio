@@ -8,18 +8,19 @@ import { MyLink } from "../../button/hoverMyLink/myLink"
 import { SearchOutlined, ShareAltOutlined } from "@ant-design/icons"
 import { useGlobalContext } from "@/app/context/context"
 import { numberGlobalSection } from "../../functionsFN/numberGlobalSection"
+import { useEffect } from "react"
+import { globalNumberSection } from "../../functionsFN/numberGlobalSection"
 
 const Header = () => {
     
-   const {globalChildSection, setClickGlobalDinamikChild  } = useGlobalContext()
+   const {globalChildSection, setClickGlobaldNumber,  } = useGlobalContext()
 
      const clickSearchFn = () => {
 
       globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
-      numberGlobalSection(1, setClickGlobalDinamikChild)
+      globalNumberSection(1, 'globalSectionChildren', 1, setClickGlobaldNumber)
    
        }
-  
 
     return <header className={style.layoutHeader}>
 
@@ -27,8 +28,8 @@ const Header = () => {
        onClick = { ()=> {
            
          globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
-         numberGlobalSection(0, setClickGlobalDinamikChild)
-        
+         globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
+
        } }
        />
 

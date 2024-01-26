@@ -14,7 +14,7 @@ import reziume from '@/public/reziume/reziume.png'
 
 const MyInfo = () => {
 
-    const { globalChildSection ,  clickBtnNumber } = useGlobalContext ()
+    const { globalChildSection , clickGlobaldNumber } = useGlobalContext ()
      
     function clickBack () {
         globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
@@ -74,7 +74,7 @@ const MyInfo = () => {
                 
                 {
 
-                   clickBtnNumber[0] == 1  ? ( <>
+                  clickGlobaldNumber[0].globalNavigateNumber[0] == 1  ? ( <>
 
                     <h2 className={style.h2}> ჩემს შესახებ </h2>
                      <span className={style.spanLine}></span>
@@ -130,7 +130,7 @@ const MyInfo = () => {
 
                    </p>
                    </>
-                   ) :  clickBtnNumber[1] == 1 ? (
+                   ) :  clickGlobaldNumber[0].globalNavigateNumber[1] == 1  ? (
                     
                    <Image
                    className={style.mySertificate}
@@ -140,7 +140,7 @@ const MyInfo = () => {
                    />
                     
                     ) :
-                   clickBtnNumber[2] == 1 ? (
+                    clickGlobaldNumber[0].globalNavigateNumber[2] == 1 ? (
 
                     <Image
                     alt='pdfReziume'
@@ -151,7 +151,7 @@ const MyInfo = () => {
                     />
                     
                     
-                    ) : clickBtnNumber[3] == 1 ? (
+                    ) :  clickGlobaldNumber[0].globalNavigateNumber[3] == 1 ? (
                       
                       <p className={style.pHtml}>ამჟამად ცარიელი</p> 
                       

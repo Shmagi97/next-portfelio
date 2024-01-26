@@ -5,9 +5,9 @@ import style from './navigate.module.scss'
 import { GlobalOutlined, LeftOutlined  } from "@ant-design/icons"
 import OnclickButtonLink from "../button/buttonLink/onClickButtonLink"
 import Link from "next/link"
-import buttonClickNumber from "../button/buttonLink/functions/buttonClickNumber"
 import { MouseEvent } from "react"
 import { numberGlobalSection } from "../functionsFN/numberGlobalSection"
+import { globalNumberSection } from "../functionsFN/numberGlobalSection"
 
 const Navigate = () => {
 
@@ -17,14 +17,14 @@ const Navigate = () => {
        {service: '3', statia: '6' } ,
     ]
 
-    const { clickModal , setClickModal, globalChildSection, setClickGlobalDinamikChild } = useGlobalContext() 
+    const { clickModal , setClickModal, globalChildSection, setClickGlobaldNumber } = useGlobalContext() 
 
     function logginModalFn () {  setClickModal(!clickModal) }
 
     function clickPortfelio () {
 
         globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
-        numberGlobalSection(0, setClickGlobalDinamikChild)
+        globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
    
     }
 
@@ -62,18 +62,26 @@ const Navigate = () => {
 const NavigateGlobalSection = () => {
 
     
-  const {  setClickBtnNumber } = useGlobalContext()
+  const {  setClickGlobaldNumber, clickGlobaldNumber } = useGlobalContext()
+
+  type DataGlobalClickNumber = [
+    {globalNavigateNumber : number []} ,
+    { globalSectionChildren :  number []} ,
+];
 
     function leftElseInfoFN () {
-         const getElseNumbers = [0, 0, 0, 0]
-        setClickBtnNumber(getElseNumbers)
+         const getElseNumbers : DataGlobalClickNumber = [ ...clickGlobaldNumber ]
+         getElseNumbers[0].globalNavigateNumber = [0, 0, 0, 0]
+         setClickGlobaldNumber(getElseNumbers)
+         
     }
 
     function getValue (event : MouseEvent < HTMLButtonElement >) {
      
      const valueNumber =  event.currentTarget.getAttribute('data-value')
      
-      if(valueNumber) buttonClickNumber(parseInt(valueNumber) , setClickBtnNumber)
+      if(valueNumber) globalNumberSection(0, 'globalNavigateNumber', parseInt(valueNumber), setClickGlobaldNumber )
+
      
     }
 
