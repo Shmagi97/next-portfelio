@@ -1,23 +1,5 @@
 'use client'
 
-import { Dispatch, SetStateAction } from "react"
-
-export const numberGlobalSection = ( value : number, getFunction : Function ) => {
-
-    getFunction ((prevNumber : number [] )=> {
-
-        const UbdateArray = [ ...prevNumber ]
-
-        UbdateArray.fill(0)
-
-        if (value !== undefined) {
-            UbdateArray[value]=1
-            return UbdateArray
-        }
-    } )
-
-}
-
 type GlobalNumber = {
     globalNavigateNumber : number [] ,
     globalSectionChildren :  number [] ,
@@ -25,7 +7,7 @@ type GlobalNumber = {
 
 type DataGlobalClickNumber = [GlobalNumber, GlobalNumber]
 
-export const globalNumberSection = (index : number, key : keyof GlobalNumber,
+export default (index : number, key : keyof GlobalNumber,
   value : number, getFN : Function ) => {
 
    

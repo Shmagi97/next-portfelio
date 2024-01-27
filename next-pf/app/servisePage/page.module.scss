@@ -1,16 +1,23 @@
-.section {
-  
-  border: solid rgb(0, 255, 4);
-  width: 90%;
-  margin: 150px auto 0px auto;
+@import '../colors.scss';
+
+.homeSection{
+
+}
+
+.flexDiv{
+
+  height: 200px;
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
-  column-gap: 20px;
-  height: 400px;
-  overflow: hidden;
-
-   
+  background: black;
   
 }
 
+.paginationComponent{
+
+  margin: 120px 0px 0px 0px;
+  
+}

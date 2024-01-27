@@ -6,8 +6,7 @@ import { GlobalOutlined, LeftOutlined  } from "@ant-design/icons"
 import OnclickButtonLink from "../button/buttonLink/onClickButtonLink"
 import Link from "next/link"
 import { MouseEvent } from "react"
-import { numberGlobalSection } from "../functionsFN/numberGlobalSection"
-import { globalNumberSection } from "../functionsFN/numberGlobalSection"
+import  globalNumberSection  from "../functionsFN/numberGlobalSection"
 
 const Navigate = () => {
 
@@ -59,7 +58,11 @@ const Navigate = () => {
       
 }
 
-const NavigateGlobalSection = () => {
+type propsTP = {
+    clasName : string;
+}
+
+const NavigateGlobalSection = (props : propsTP) => {
 
     
   const {  setClickGlobaldNumber, clickGlobaldNumber } = useGlobalContext()
@@ -85,7 +88,9 @@ const NavigateGlobalSection = () => {
      
     }
 
-    return <div className={style.contGlobalSection}>
+    const dinamikClasName = `${style.contGlobalSection} ${props.clasName}`
+
+    return <div className={dinamikClasName}>
 
     <LeftOutlined className={style.leftElseInfo} onClick={leftElseInfoFN} suppressHydrationWarning/>
 

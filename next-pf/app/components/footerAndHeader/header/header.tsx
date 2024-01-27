@@ -7,9 +7,7 @@ import OnclickBtn from "../../button/onClickBtn/onClickBtn"
 import { MyLink } from "../../button/hoverMyLink/myLink"
 import { SearchOutlined, ShareAltOutlined } from "@ant-design/icons"
 import { useGlobalContext } from "@/app/context/context"
-import { numberGlobalSection } from "../../functionsFN/numberGlobalSection"
-import { useEffect } from "react"
-import { globalNumberSection } from "../../functionsFN/numberGlobalSection"
+import  globalNumberSection  from "../../functionsFN/numberGlobalSection"
 
 const Header = () => {
     

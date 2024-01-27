@@ -14,7 +14,7 @@ import { useEffect } from "react"
 
 export const globalImageFn = () => {
 
-    const {setDataimg, imgnumber} = useGlobalContext()
+    const {setDataimg} = useGlobalContext()
 
     useEffect(()=> {
        setDataimg ([
@@ -30,7 +30,7 @@ export const globalImageFn = () => {
 
        return () => setDataimg([])
 
-   },[imgnumber])
+   },[])
    
    return null
 

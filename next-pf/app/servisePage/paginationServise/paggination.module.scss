@@ -1,31 +1,56 @@
+@import '../../colors.scss';
 
+.tagList {
+  
+    width: 90%;
+    position: relative;
+    overflow: hidden;
+    padding: 13px 0px 0px 0px;
+    border-radius: 10px;
 
-.pagServiseDiv{
-
-    width: 190px;
-    height: 360px;
+  
+    background: linear-gradient(90deg, 
+    rgb(105, 101, 101) , transparent 0%,
+     transparent 10%, rgb(105, 101, 101) 
+    );
+    // inset: 0;
+    // position: absolute;
+  }
+  
+//   .inner{
+  
+//     width: fit-content;
+//     display: flex;
+//     gap: 1rem;
+//     animation: loop 15s linear infinite;
+   
+//   }
+  
+  .tag{
+  
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    row-gap: 15px;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    background: black;
+    padding: 4px;
+    border-radius: 0.4rem;
+    box-shadow: 
+      0 1px 2px $textColors,
+      0 1px 3px $textColors,
+      0 2px 5px $textColors, 
+    ;
+    width: 250px;
     cursor: pointer;
-    background: #ececec;
-    padding: 0px 10px;
-    animation: run1 6s linear ;
-}
+  }
+  
+  .tag > span {
+  
+    font-size: 17px;
+    color:$textColors;
+   
+  }
+  
 
-
-
-@keyframes run1 {
-    0% {
-     
-        transform: translateX(390%);
-    }
-    
-    50%, 100% {
-       
-        transform: translateX(0);
-    }
-}
+  
+  

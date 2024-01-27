@@ -11,16 +11,11 @@ import { NavigateGlobalSection } from '../navigate/navigate'
 import mySertificate from '@/public/sertifikati/mySertificate.webp'
 import reziume from '@/public/reziume/reziume.png'
 
-
 const MyInfo = () => {
 
     const { globalChildSection , clickGlobaldNumber } = useGlobalContext ()
-     
-    function clickBack () {
-        globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
-
-      
-    }
+    
+    function clickBack () { globalChildSection.current?.classList.replace('searchSection', 'sectionNone')}
 
  return <section className={style.hadSection}>
 
@@ -66,9 +61,7 @@ const MyInfo = () => {
 
             <section className={style.myInfoTextSection}>
 
-              <div className={style.navigateDiv}>
-                <NavigateGlobalSection/>
-               </div>
+                <NavigateGlobalSection clasName = {style.navigateDiv}/>
 
                <div className={style.infoTextDiv}>
                 
@@ -156,7 +149,7 @@ const MyInfo = () => {
                       <p className={style.pHtml}>ამჟამად ცარიელი</p> 
                       
                       ) : ( 
-                      
+                        
                       <p className={style.pHtml}>დეტალები იხილეთ აქ</p>
                       
                       )

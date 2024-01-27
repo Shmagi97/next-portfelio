@@ -12,11 +12,6 @@ const MySkils = () => {
     </div>
 
     <div>
-        <span>HTML <span> ( 100% )</span> </span>
-        <div> <span className={mySkils.spanWidth2}></span> </div>
-    </div>
-
-    <div>
         <span>CSS  <span>  ( 65% )</span> </span>
         <div> <span className={mySkils.spanWidth3}></span> </div>
     </div>

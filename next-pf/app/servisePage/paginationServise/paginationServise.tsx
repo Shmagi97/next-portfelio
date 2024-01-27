@@ -1,32 +1,94 @@
 'use client'
 
-import style from './paggination.module.scss'
+import React from 'react';
+import styles from './paggination.module.scss'
 
-export const PaginationSerivise = () => {
+type propsTP = {
+
+  clasName : string,
+  mouseEnter? : ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
+  mouseLeave? : ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
+  mouseMove? :   ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
+}
+
+export const PaginationSerivise = (props : propsTP) => {
     
-
-
-    const masivElements = ['rame1', 'rame2', 'rame3']
-
-
-    
+  const dinamikClass = `${styles.tagList} ${props.clasName}`
   
-    return(  
+    return <div className={dinamikClass} onMouseEnter={props.mouseEnter} onMouseMove={props.mouseMove}
+                                          onMouseLeave={props.mouseLeave}>
+           
+    <div className='innerServisPageNavigate'>
 
-      masivElements.map((el, index)=> {
+       <div className={styles.tag}>
+        <span>საპასუხო ვებ დიზაინი </span>
+       </div>
 
+        <div className={styles.tag}>
+          <span>მომხმარებელზე ორიენტირებული მიდგომა </span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>ჯვარედინი ბრაუზერის თავსებადობა </span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>ოპტიმიზებული შესრულება</span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>თანამედროვე ვებ ტექნოლოგიები</span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>კოდის ხარისხი და შენარჩუნება</span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>დიზაინერებთან თანამშრომლობა </span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>პრობლემების გადაჭრის უნარები </span>
+        </div>
+
+        <div className={styles.tag}>
+        <span>საპასუხო ვებ დიზაინი </span>
+       </div>
+
+        <div className={styles.tag}>
+          <span>მომხმარებელზე ორიენტირებული მიდგომა </span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>ჯვარედინი ბრაუზერის თავსებადობა </span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>ოპტიმიზებული შესრულება</span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>თანამედროვე ვებ ტექნოლოგიები</span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>კოდის ხარისხი და შენარჩუნება</span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>დიზაინერებთან თანამშრომლობა </span>
+        </div>
+
+        <div className={styles.tag}>
+          <span>პრობლემების გადაჭრის უნარები </span>
+        </div>
         
-        return <div key={index}  className={ style.pagServiseDiv }  >
-      
-        <span>{el} </span>
-        <p>
-          mesame
-        </p>
 
-      </div>
+    </div>
+    
+        
+</div>
 
-      })
-
-    )
 }
 
