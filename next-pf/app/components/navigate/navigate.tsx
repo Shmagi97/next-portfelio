@@ -70,6 +70,7 @@ const NavigateGlobalSection = (props : propsTP) => {
   type DataGlobalClickNumber = [
     {globalNavigateNumber : number []} ,
     { globalSectionChildren :  number []} ,
+    { servisPageAnimNavigate :  number []} ,
 ];
 
     function leftElseInfoFN () {
@@ -94,7 +95,7 @@ const NavigateGlobalSection = (props : propsTP) => {
 
     <LeftOutlined className={style.leftElseInfo} onClick={leftElseInfoFN} suppressHydrationWarning/>
 
-    <OnclickButtonLink className={style.buttonGlobalNavigate} data-value = {'0'} onClick={getValue} >
+    <OnclickButtonLink className={style.buttonGlobalNavigate}  data-value = {'0'} onClick={getValue} >
         განათლება
     </OnclickButtonLink>
 

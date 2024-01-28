@@ -16,7 +16,7 @@ const FixedImage = (props : fixedImageTP) => {
        alt='imageFixed'
        src={myImage1}
        width={100}
-       suppressHydrationWarning 
+       priority
        />
     </div>
 }

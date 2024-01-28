@@ -1,18 +1,8 @@
 @import '../colors.scss';
 
-.homeSection{
-
-}
-
 .flexDiv{
-
-  height: 200px;
-  position: fixed;
-  margin: 0 auto;
-  width: 100%;
   display: flex;
   justify-content: center;
-  background: black;
   
 }
 
@@ -20,4 +10,9 @@
 
   margin: 120px 0px 0px 0px;
   
+}
+
+.contentComponent{
+
+  margin: 200px 0px 0px 0px;
 }

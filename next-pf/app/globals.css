@@ -38,28 +38,3 @@ body::-webkit-scrollbar {
     scale: 1;
   }
 }
-
-/* innerServisPageNavigate */
-
-.innerServisPageNavigate {
-  width: fit-content;
-  display: flex;
-  gap: 1rem;
-  animation: loop 15s linear infinite;
-}
-
-.innerServisPageNavigateAnimateNone {
-  width: fit-content;
-  display: flex;
-  gap: 1rem;
-}
-
-@keyframes loop {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-50%);
-  }
-}

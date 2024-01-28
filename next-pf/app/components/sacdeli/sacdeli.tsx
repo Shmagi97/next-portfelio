@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { globalImageFn } from '../globalImage/globalImage';
 import { useGlobalContext } from '@/app/context/context';
 import style from './sacdeli.module.scss'
+import styled from 'styled-components';
 
 const apiUrl = 'https://api.unsplash.com/photos/random/';
 const apiKey = 'your_unsplash_api_key';
@@ -91,7 +92,7 @@ const Sacdeli: React.FC = () => {
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
-      if (ready && window.innerHeight + window.scrollY >= document.body.offsetHeight -300) {
+      if (ready && window.innerHeight + window.scrollY >= document.body.offsetHeight ) {
         setReady(false);
         // getPhotos();
         setImagesLoaded((prev)=> prev+1);
@@ -134,4 +135,7 @@ const Sacdeli: React.FC = () => {
 };
 
 export default Sacdeli;
+
+
+
 

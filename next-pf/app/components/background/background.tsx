@@ -22,7 +22,7 @@ const Background = () => {
            className={style.backgroundImage}
            alt="imageBackground"
            src={selectImage.img} 
-            
+           priority
          />
 
       }

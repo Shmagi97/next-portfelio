@@ -19,6 +19,7 @@ type DataType = {
 type DataGlobalClickNumber = [
     {globalNavigateNumber : number []} ,
     { globalSectionChildren :  number []} ,
+    { servisPageAnimNavigate :  number []} ,
 ];
 
 interface ContextProps {
@@ -50,8 +51,8 @@ const GlobalContext = createContext<ContextProps>({
 
     dataimg : [],
     setDataimg : () : DataType [] => [],
-    clickGlobaldNumber : [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] } ],
-    setClickGlobaldNumber : () : DataGlobalClickNumber [] => [ [{globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }] ],
+    clickGlobaldNumber : [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0,0,0] } ],
+    setClickGlobaldNumber : () : DataGlobalClickNumber [] => [ [{globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0,0,0] }] ],
 
     chekDelay : false,
     setChekDelay : () : boolean => false,
@@ -73,7 +74,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [clickModal , setClickModal ] = useState (false)
 
     const [clickGlobaldNumber, setClickGlobaldNumber] = useState < DataGlobalClickNumber > 
-    ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] } ] )
+    ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0,0,0] } ] )
 
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);

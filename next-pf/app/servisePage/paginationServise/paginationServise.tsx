@@ -1,93 +1,76 @@
 'use client'
 
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './paggination.module.scss'
+import styled from 'styled-components';
+import OnclickBtn from '@/app/components/button/onClickBtn/onClickBtn';
+import { LeftOutlined, RightOutlined } from '@ant-design/icons';
+import AnimateDivChild from './AnimateDivChild';
+
+
+
 
 type propsTP = {
 
   clasName : string,
-  mouseEnter? : ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
-  mouseLeave? : ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
-  mouseMove? :   ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
+  // mouseEnter? : ( event : React.MouseEvent < HTMLDivElement , MouseEvent > ) => void,
+
 }
 
+ const AnimatedDiv = styled.div<{ $stop: string, $transform: number }>`
+  width: fit-content;
+  display: flex;
+  gap: 1rem;
+
+  animation: loop 15s linear ${(props) => props.$stop} ;
+
+  transform: translateX(${(props) => props.$transform}px);
+
+  @keyframes loop {
+      0% {
+        transform: translateX(0);
+      }
+    
+      100% {
+        transform: translateX(-50%);
+      }
+`;
+
+
+
 export const PaginationSerivise = (props : propsTP) => {
+
+  const [animStop, setAnimStop] = useState('infinite')
+  const [animtransform, setAnimtransform] = useState (0)
+
+  function getEnter(){ setAnimStop('stop')} 
+
+   function getLeave(){ setAnimStop('infinite') } 
+
+     const dinamikClass = `${styles.tagList} ${props.clasName}`
     
-  const dinamikClass = `${styles.tagList} ${props.clasName}`
-  
-    return <div className={dinamikClass} onMouseEnter={props.mouseEnter} onMouseMove={props.mouseMove}
-                                          onMouseLeave={props.mouseLeave}>
+    return <div className={dinamikClass} onMouseEnter={getEnter} onMouseLeave={getLeave}>
+     
+     <OnclickBtn className={styles.onClickLeft}
+                  onClick={ animtransform < 100? 
+                 ()=>setAnimtransform(animtransform +100) 
+                 : ()=>setAnimtransform(-3400)}>
+        <LeftOutlined/>
+     </OnclickBtn>
            
-    <div className='innerServisPageNavigate'>
+    <AnimatedDiv  $stop = {animStop} $transform = {animtransform}>
 
-       <div className={styles.tag}>
-        <span>საპასუხო ვებ დიზაინი </span>
-       </div>
+       <AnimateDivChild/>
 
-        <div className={styles.tag}>
-          <span>მომხმარებელზე ორიენტირებული მიდგომა </span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>ჯვარედინი ბრაუზერის თავსებადობა </span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>ოპტიმიზებული შესრულება</span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>თანამედროვე ვებ ტექნოლოგიები</span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>კოდის ხარისხი და შენარჩუნება</span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>დიზაინერებთან თანამშრომლობა </span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>პრობლემების გადაჭრის უნარები </span>
-        </div>
-
-        <div className={styles.tag}>
-        <span>საპასუხო ვებ დიზაინი </span>
-       </div>
-
-        <div className={styles.tag}>
-          <span>მომხმარებელზე ორიენტირებული მიდგომა </span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>ჯვარედინი ბრაუზერის თავსებადობა </span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>ოპტიმიზებული შესრულება</span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>თანამედროვე ვებ ტექნოლოგიები</span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>კოდის ხარისხი და შენარჩუნება</span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>დიზაინერებთან თანამშრომლობა </span>
-        </div>
-
-        <div className={styles.tag}>
-          <span>პრობლემების გადაჭრის უნარები </span>
-        </div>
-        
-
-    </div>
+    </AnimatedDiv>
     
-        
+    <OnclickBtn className={styles.onClickRight} 
+                 onClick={ animtransform > -3400? 
+                  ()=>setAnimtransform(animtransform -100)
+               : ()=>setAnimtransform(100)}>
+        <RightOutlined/>
+    </OnclickBtn> 
+       
 </div>
 
 }

@@ -3,6 +3,7 @@
 type GlobalNumber = {
     globalNavigateNumber : number [] ,
     globalSectionChildren :  number [] ,
+    servisPageAnimNavigate :  number [] ,
 }
 
 type DataGlobalClickNumber = [GlobalNumber, GlobalNumber]
