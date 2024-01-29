@@ -7,8 +7,7 @@ import numberGlobalSection from '@/app/components/functionsFN/numberGlobalSectio
 
 export default ()=> {
 
-  const { clickGlobaldNumber, setClickGlobaldNumber } = useGlobalContext()
-  // console.log(clickGlobaldNumber);
+  const {  setClickGlobaldNumber } = useGlobalContext()
 
   function getValue (event : React.MouseEvent < HTMLDivElement > ){
 
@@ -43,12 +42,28 @@ export default ()=> {
           <span>კოდის ხარისხი და შენარჩუნება</span>
         </div>
 
-        <div className={styles.tag} aria-valuetext='6' onClick={getValue}>
-          <span>დიზაინერებთან თანამშრომლობა </span>
+        <div className={styles.tag}  aria-valuetext='0' onClick={getValue}>
+        <span>საპასუხო ვებ დიზაინი </span>
+       </div>
+
+        <div className={styles.tag} aria-valuetext='1' onClick={getValue}>
+          <span>მომხმარებელზე ორიენტირებული მიდგომა </span>
         </div>
 
-        <div className={styles.tag}  aria-valuetext='7' onClick={getValue}>
-          <span>პრობლემების გადაჭრის უნარები </span>
+        <div className={styles.tag}  aria-valuetext='2' onClick={getValue}>
+          <span>ჯვარედინი ბრაუზერის თავსებადობა </span>
+        </div>
+
+        <div className={styles.tag}  aria-valuetext='3' onClick={getValue}>
+          <span>ოპტიმიზებული შესრულება</span>
+        </div>
+
+        <div className={styles.tag}  aria-valuetext='4' onClick={getValue}>
+          <span>თანამედროვე ვებ ტექნოლოგიები</span>
+        </div>
+
+        <div className={styles.tag}  aria-valuetext='5' onClick={getValue}>
+          <span>კოდის ხარისხი და შენარჩუნება</span>
         </div>
 
         <div className={styles.tag}  aria-valuetext='0' onClick={getValue}>
@@ -75,13 +90,6 @@ export default ()=> {
           <span>კოდის ხარისხი და შენარჩუნება</span>
         </div>
 
-        <div className={styles.tag}  aria-valuetext='6' onClick={getValue}>
-          <span>დიზაინერებთან თანამშრომლობა </span>
-        </div>
-
-        <div className={styles.tag}  aria-valuetext='7' onClick={getValue}>
-          <span>პრობლემების გადაჭრის უნარები </span>
-        </div>
        
     </>
 }

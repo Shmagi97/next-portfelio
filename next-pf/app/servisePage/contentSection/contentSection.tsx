@@ -1,23 +1,13 @@
 'use client'
 
-import style from './content.module.scss';
-import { contentMasiv } from './contentMasiv/contentMasiv';
+import ContentMap from './ContentMapComponent/contentMap';
+import style from './contentSection.module.scss';
 
+export default ()=> {
+ 
+    return <section className={style.contentSection}>
 
-type propsTP = {
-
-    clasName? : string;
-}
-
-export default (props : propsTP)=> {
-
-    // console.log(contentMasiv[0].img);
-    
-    const dinamikClass = `${style.contentSection} ${props.clasName}`
-   
-    return <section className={dinamikClass}>
-
-      {/* { contentMasiv.map((el, index) => el ) } */}
+       <ContentMap/>
          
     </section>
 }

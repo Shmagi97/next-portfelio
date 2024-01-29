@@ -1,22 +1,76 @@
 @import '../../colors.scss';
 @import '../../mixins';
 
-.tagList {
+.tagListHidden {
   
-    width: 90%;
-    overflow: hidden;
-    padding: 2px 0px 0px 0px;
+    min-width: 290px;
+    max-width: 300px;
+    height: 700px;
+    padding: 0px 10px 0px 0px;
     border-radius: 10px;
+    overflow: hidden;
     position: fixed;
-    height: 55.5px;
+    top: -10px;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(0px);
+    margin: 120px 0px 0px 0px;
 
-    background: linear-gradient(90deg, 
-    rgb(105, 101, 101) , transparent 0%,
-     transparent 10%, rgb(105, 101, 101) 
-    );
+    animation: tagListAnimHidden 0.8s  ease 1;
+
+    // background: linear-gradient(90deg, 
+    // rgb(105, 101, 101) , transparent 0%,
+    //  transparent 10%, rgb(105, 101, 101) 
+    // );
     // inset: 0;
     // position: absolute;
   }
+
+  @keyframes tagListAnimHidden{
+
+    0%{
+      transform:translateX(270px);
+    }
+
+    100%{
+
+      transform: translateX(0px);
+    }
+  }
+
+
+
+  .tagListVisible{
+
+    min-width: 290px;
+    max-width: 300px;
+    height: 700px;
+    padding: 0px 10px 0px 0px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: fixed;
+    top: -10px;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    transform: translateX(270px);
+    margin: 120px 0px 0px 0px;
+    animation: tagListAnimVisible 0.8s  ease 1 ;
+  }
+
+  @keyframes tagListAnimVisible{
+
+    0%{
+      transform: translateX(0px);
+    }
+
+    100%{
+
+      transform: translateX(270px);
+    }
+  }
+
   
   .tag{
   
@@ -45,22 +99,45 @@
 
   .onClickLeft{
     position: absolute;
+    rotate: 90deg;
     z-index: 10;
-    left: 0;
-    top:  3.5px;
+    left: 35px;
+    top: 50%;
 
-    @include btnGlobalStyle
+    @include btnServisPageAnimNavigate
     
   }
 
   .onClickRight{
 
     position: absolute;
+    rotate: 90deg;
     z-index: 10;
-    right: 0;
-    top: 3.5px;
+    right: 10px;
+    top: 50%;
 
-    @include btnGlobalStyle
+    @include btnServisPageAnimNavigate
   }
+
+  .paginLeft{
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+
+    @include btnServisPageAnimNavigate
+  }
+
+  .paginRight{
+
+    position: absolute;
+    left: 0;
+    top: 50%;
+    rotate: 180deg;
+     
+    @include btnServisPageAnimNavigate
+  }
+
+
   
   

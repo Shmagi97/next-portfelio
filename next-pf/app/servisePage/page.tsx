@@ -10,13 +10,10 @@ const HomePage = () => {
 
     return <section className={styles.homeSection}>
 
-              <div className={styles.flexDiv} >
-           
-                <PaginationSerivise clasName = {styles.paginationComponent}/>
-           
-              </div>
+            <div className={styles.fixedHeaderDiv}></div>
+            <PaginationSerivise />
 
-             <ContentSection clasName = {styles.contentComponent}/>
+             <ContentSection />
 
            </section>   
     
