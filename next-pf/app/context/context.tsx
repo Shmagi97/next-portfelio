@@ -30,16 +30,15 @@ interface ContextProps {
     dataimg : DataType [],
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     clickGlobaldNumber : DataGlobalClickNumber ,
-    setClickGlobaldNumber : Dispatch < SetStateAction < DataGlobalClickNumber > >
+    setClickGlobaldNumber : Dispatch < SetStateAction < DataGlobalClickNumber > >,
 
     chekDelay : boolean,
     setChekDelay : Dispatch <SetStateAction <boolean> >,
+    clickModal : boolean,
+    setClickModal : Dispatch < SetStateAction < boolean > >,
 
     globalChildSection : RefObject < HTMLDivElement | null > ,
     setGlobalChildSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
-
-    clickModal : boolean,
-    setClickModal : Dispatch < SetStateAction < boolean > >,
     
 }
 
@@ -56,12 +55,11 @@ const GlobalContext = createContext<ContextProps>({
 
     chekDelay : false,
     setChekDelay : () : boolean => false,
+    clickModal : false,
+    setClickModal : () : boolean => false,
 
     globalChildSection : { current: null } ,
     setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
-
-    clickModal : false,
-    setClickModal : () : boolean => false,
   
 })
 

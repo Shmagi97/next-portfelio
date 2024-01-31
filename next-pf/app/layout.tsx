@@ -12,6 +12,8 @@ import Header from './components/footerAndHeader/header/header'
 import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
 import { LoginModalLogik } from './components/logginRegisterModal/loginModalLogik'
 import RecoilWrapper from './components/recoilWrapper/recoilWrapper'
+import ReduxWrapper from './components/reduxWrapper/reduxWrapper'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -26,23 +28,23 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
+
  
   return (
 
   
-    
     <html lang="en">
       
       <body className={inter.className}>
 
       <main className={style.layoutMain}>
-    
+    <ReduxWrapper>
       <GlobalContextProvider>
           {/* 1. GlobalDinamikChaild- ში ივენთზე დინამიურად იცვლება შვილი კომპპონენტები */}
            <GlobalDinamikChaild/>
            
-           <LoginModalLogik/>
-             <Header/>
+           <LoginModalLogik />
+             <Header />
 
              <RecoilWrapper>
 
@@ -53,7 +55,7 @@ export default function RootLayout({
            <Footer/>
 
       </GlobalContextProvider>
-     
+    </ReduxWrapper>
        </main>
       </body>
     </html>

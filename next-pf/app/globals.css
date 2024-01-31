@@ -14,7 +14,7 @@ body::-webkit-scrollbar {
 }
 
 .searchSection {
-  position: absolute;
+  position: fixed;
   min-height: 740px;
   width: 100%;
   z-index: 100;

@@ -5,9 +5,9 @@ import style from './contentSection.module.scss';
 
 export default ()=> {
  
-    return <section className={style.contentSection}>
+    return <>
 
        <ContentMap/>
          
-    </section>
+    </>
 }

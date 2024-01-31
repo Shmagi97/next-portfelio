@@ -3,7 +3,7 @@
 
 .tagListHidden {
   
-    min-width: 290px;
+    min-width: 210px;
     max-width: 300px;
     height: 700px;
     padding: 0px 10px 0px 0px;
@@ -16,8 +16,7 @@
     justify-content: flex-end;
     transform: translateX(0px);
     margin: 120px 0px 0px 0px;
-
-    animation: tagListAnimHidden 0.8s  ease 1;
+    animation: tagListAnimHidden 0.5s  ease 1;
 
     // background: linear-gradient(90deg, 
     // rgb(105, 101, 101) , transparent 0%,
@@ -56,7 +55,7 @@
     justify-content: flex-end;
     transform: translateX(270px);
     margin: 120px 0px 0px 0px;
-    animation: tagListAnimVisible 0.8s  ease 1 ;
+    animation: tagListAnimVisible 0.5s  ease 1 ;
   }
 
   @keyframes tagListAnimVisible{
@@ -86,13 +85,13 @@
       0 1px 3px $textColors,
       0 2px 5px $textColors, 
     ;
-    width: 250px;
+    width: 170px;
     cursor: pointer;
   }
   
   .tag > span {
   
-    font-size: 17px;
+    font-size: 16px;
     color:$textColors;
    
   }
@@ -102,7 +101,7 @@
     rotate: 90deg;
     z-index: 10;
     left: 35px;
-    top: 50%;
+    top: 45%;
 
     @include btnServisPageAnimNavigate
     
@@ -113,8 +112,8 @@
     position: absolute;
     rotate: 90deg;
     z-index: 10;
-    right: 10px;
-    top: 50%;
+    left: 35px;
+    top: 55%;
 
     @include btnServisPageAnimNavigate
   }

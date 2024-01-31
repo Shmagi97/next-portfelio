@@ -6,13 +6,14 @@ import styled from 'styled-components';
 import OnclickBtn from '@/app/components/button/onClickBtn/onClickBtn';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import AnimateDivChild from './AnimateDivChild';
+import { useRecoilState } from 'recoil';
+import { servisPageMapWidthState } from '@/app/recoil/recoilGlobalState';
 
  const AnimatedDiv = styled.div<{ $stop: string, $transform: number }>`
   width: fit-content;
   row-gap: 5px;
   display: grid;
   animation: loop 15s linear ${(props) => props.$stop} ;
-  
   transform: translateY(${(props) => props.$transform}px);
 
   @keyframes loop {
@@ -28,15 +29,17 @@ import AnimateDivChild from './AnimateDivChild';
 
 export const PaginationSerivise = () => {
 
+  const [servisPageMapWidth, setServisPageMapWidth] = useRecoilState(servisPageMapWidthState)
+    
   const [animStop, setAnimStop] = useState('infinite')
   const [animtransform, setAnimtransform] = useState (0)
-  const [animHiden, setAnimHiden] = useState(false)
   
   function getEnter(){ setAnimStop('stop')} 
 
    function getLeave(){ setAnimStop('infinite') } 
  
-    return <div className={!animHiden? styles.tagListHidden : styles.tagListVisible} onMouseEnter={getEnter} onMouseLeave={getLeave}>
+    return <div className={!servisPageMapWidth? styles.tagListHidden : styles.tagListVisible} 
+                          onMouseEnter={getEnter} onMouseLeave={getLeave}>
      
      <OnclickBtn className={styles.onClickLeft}
                   onClick={ animtransform > -210? 
@@ -57,7 +60,9 @@ export const PaginationSerivise = () => {
                : ()=>setAnimtransform(-210)}>
         <RightOutlined/>
     </OnclickBtn> 
-    <OnclickBtn className={ animHiden? styles.paginLeft : styles.paginRight} onClick={()=> setAnimHiden(!animHiden)}>
+
+    <OnclickBtn className={ servisPageMapWidth? styles.paginLeft : styles.paginRight} 
+                 onClick={ ()=> setServisPageMapWidth(!servisPageMapWidth)}>
       <LeftOutlined/>
     </OnclickBtn>
 

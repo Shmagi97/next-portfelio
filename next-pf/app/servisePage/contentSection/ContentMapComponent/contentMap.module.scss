@@ -1,17 +1,62 @@
-
+@import '../../../colors.scss';
 
 
 .returnDiv{
 
-    border: solid red;
-    width: 90%;
-    padding: 0px 0px 0px 10px;
 
-    // display: flex;
+    padding: 0px 0px 300px 0px;
+    margin-top: 150px;
+    margin: 150px auto 0px auto;
+    width: 60%;
+    
+}
+
+.returnDivWidthChange{
+
+
+  
+    padding: 0px 0px 300px 0px;
+    margin-top: 150px;
+    width: calc(100% - 230px);
+  
 }
 
 
 .mapDiv{
 
-    border: solid yellow;
+    padding: 0px 10px 0px 10px;
+    text-align: center;
+
+}
+
+.mapDiv > p {
+    color: $textColors ;
+    font-size: 18px;
+    line-height: 35px;
+}
+
+.imgDiv{
+   text-align: center;
+
+}
+
+.imgDiv > h1 {
+
+     color:  $btnTextColor ; 
+    
+    font-size: 25px;
+}
+
+.getImage {
+    
+    min-width: 300px;
+    max-width: 600px;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+
+.spanLoading{
+
+    color:  $btnTextColor ;
 }

@@ -23,21 +23,13 @@ export const vcadeFunqcia = selector({
     default : Array(4).fill(0)
   })
 
-//   export const functionClickglobalNavigate  = selector ({
+  // children page global states
 
-//     key : 'functionClickglobalNavigate',
-//     get : ({ get })=> {
+  export const servisPageMapWidthState = atom( { 
+   
+    key : 'servisPageMapWidthKey',
+    default : false,
 
-//         const getClickFn = get(clickGlobalNavigate)
-        
-//         // console.log(getClickFn, 'getClickFn');
-        
-      
-//         return getClickFn
-//     },
+   } )
 
- 
-    
-    
-//   })
 

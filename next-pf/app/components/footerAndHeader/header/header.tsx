@@ -8,11 +8,12 @@ import { MyLink } from "../../button/hoverMyLink/myLink"
 import { SearchOutlined, ShareAltOutlined } from "@ant-design/icons"
 import { useGlobalContext } from "@/app/context/context"
 import  globalNumberSection  from "../../functionsFN/numberGlobalSection"
+import { useState } from "react"
 
 const Header = () => {
     
    const {globalChildSection, setClickGlobaldNumber,  } = useGlobalContext()
-
+   const [propFn, setPropFn] = useState()
      const clickSearchFn = () => {
 
       globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
@@ -20,15 +21,17 @@ const Header = () => {
    
        }
 
+       const clickFixedImage = () => {
+
+         globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
+         globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
+         
+       }
+
     return <header className={style.layoutHeader}>
 
        <FixedImage
-       onClick = { ()=> {
-           
-         globalChildSection.current?.classList.replace('sectionNone', 'searchSection') 
-         globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
-
-       } }
+       onClick = { clickFixedImage }
        />
 
        <Navigate/>

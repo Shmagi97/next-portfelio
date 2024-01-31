@@ -6,7 +6,7 @@ type GlobalNumber = {
     servisPageAnimNavigate :  number [] ,
 }
 
-type DataGlobalClickNumber = [GlobalNumber, GlobalNumber]
+type DataGlobalClickNumber = [GlobalNumber, GlobalNumber, GlobalNumber]
 
 export default (index : number, key : keyof GlobalNumber,
   value : number, getFN : Function ) => {

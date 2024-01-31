@@ -11,9 +11,10 @@ import getButtonsNumber from "./functions/getButtonsNumber"
 const Statiebi = () => {
     
     const [sacdeli, setSacdeli] = useRecoilState(recoilSacdeli)
-
+    // console.log(sacdeli);
+    
     const count = useRecoilValue(vcadeFunqcia) 
-
+    // console.log(count);
     const [ globalnavigateClick, setGlobalnavigateClick ] = useRecoilState(clickGlobalNavigate)
 
     function rame (e : any) {
