@@ -7,14 +7,9 @@ import OnclickButtonLink from "../button/buttonLink/onClickButtonLink"
 import Link from "next/link"
 import { MouseEvent } from "react"
 import  globalNumberSection  from "../functionsFN/numberGlobalSection"
+import { servises } from "./servises/servises"
 
 const Navigate = () => {
-
-    const servises = [
-       { service: '1', statia: '4' } ,
-       { service: '2', statia: '5' } ,
-       {service: '3', statia: '6' } ,
-    ]
 
     const { clickModal , setClickModal, globalChildSection, setClickGlobaldNumber } = useGlobalContext() 
 
@@ -24,8 +19,11 @@ const Navigate = () => {
 
         globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
         globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
-   
+        document.body.classList.add( 'bodyOverflovHidden')
+        setClickModal(false)
     }
+
+    function loginModalFolse() { setClickModal(false) }
 
 
     return <div className={style.cont} >
@@ -37,13 +35,13 @@ const Navigate = () => {
          </Link>
      </OnclickButtonLink>
 
-     <OnclickButtonLink getServises = {servises} dropDown = 'servisebi'>
+     <OnclickButtonLink getServises = {servises} dropDown = 'servisebi' onClick={loginModalFolse}>
          <Link href={'/servisePage'}  className={style.buttonLink}>
          სერვისები
          </Link>
      </OnclickButtonLink>
 
-     <OnclickButtonLink  getServises = {servises} dropDown = 'statiebi'>
+     <OnclickButtonLink  getServises = {servises} dropDown = 'statiebi' onClick={loginModalFolse}>
          <Link href={'/statiebiPage'}  className={style.buttonLink}>
          სტატიები
          </Link>

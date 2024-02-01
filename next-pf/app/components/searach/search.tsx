@@ -22,12 +22,9 @@ const SearchComponent : React.FC < AntdIconProps > = () => {
     
     function clickSearchLogaut () {
 
-      if (globalChildSection.current){
-        globalChildSection.current.classList.replace('searchSection', 'sectionNone')
-
-       }
-    
-    }
+        globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
+        document.body.classList.remove( 'bodyOverflovHidden')
+    }  
 
 
 const { Search } = Input;

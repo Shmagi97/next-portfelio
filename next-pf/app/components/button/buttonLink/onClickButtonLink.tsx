@@ -2,10 +2,13 @@
 
 import React, { MouseEvent, ReactNode } from "react"
 import style from './btnLink.module.scss'
+import Link from "next/link";
+import numberGlobalSection from "../../functionsFN/numberGlobalSection";
+import { useGlobalContext } from "@/app/context/context";
 
 interface Service {
-    service : string;
-    statia : string;
+    service? : string;
+    statia? : string;
    
   }
 
@@ -19,6 +22,14 @@ interface BtnLink {
 }
 
  const OnclickButtonLink : React.FC < BtnLink  > = ( { onClick, children, className, getServises, dropDown, value, ...restProps } ) => {
+    
+    const {  setClickGlobaldNumber } = useGlobalContext()
+
+    function getValueLI(event : React.MouseEvent < HTMLLIElement >){
+
+      const getValue = event.currentTarget.value
+      numberGlobalSection(2, 'servisPageAnimNavigate', getValue, setClickGlobaldNumber)  
+    }
 
     const dinamikClasName = `${style.buttonDiv} ${className || ''}`
    
@@ -42,12 +53,20 @@ interface BtnLink {
  
               {getServises?.map((el, index)=> (
    
-                 <li key={index}>
+                 <li key={index} value={index} onClick={getValueLI}>
 
                  { 
 
-                   dropDown === 'servisebi' ?  <p>{el.service}</p> 
-                   : dropDown === 'statiebi' ?  <p>{el.statia}</p> 
+                   dropDown === 'servisebi' ?  
+                   <Link href={'/servisePage'} className={style.dropDownLink}>
+                     {el.service} 
+                     </Link>
+
+                   : dropDown === 'statiebi' && el.statia !== undefined ?  
+                    <Link href={'/'} className={style.dropDownLink}> 
+                    {el.statia} 
+                    </Link> 
+
                    : false
      
                   }

@@ -1,4 +1,4 @@
-
+@import '../../../colors.scss';
 
 .buttonsSection {
     display: flex;
@@ -43,15 +43,23 @@
     margin-top: 50px;
     text-align: center;
     display: none;
+    font-size: 17px;
   }
   
   .dropDown > ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
+  
+  }
+
+  .dropDownLink {
+    text-decoration: none;
+    color: $btnTextColor;
+    user-select: none;
+    display: inline-block;
+    border-bottom: 1px solid red;
+    padding: 10px ;
+   
   }
   
-  .dropDown > ul > li {
-    border-bottom: 1px solid red;
-    cursor: pointer;
-  }

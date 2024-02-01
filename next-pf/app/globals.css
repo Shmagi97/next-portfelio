@@ -5,6 +5,10 @@ body {
   background-color: black;
 }
 
+.bodyOverflovHidden {
+  overflow: hidden;
+}
+
 body::-webkit-scrollbar {
   width: 10px;
 }

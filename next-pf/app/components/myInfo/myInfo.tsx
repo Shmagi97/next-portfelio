@@ -15,7 +15,10 @@ const MyInfo = () => {
 
     const { globalChildSection , clickGlobaldNumber } = useGlobalContext ()
     
-    function clickBack () { globalChildSection.current?.classList.replace('searchSection', 'sectionNone')}
+    function clickBack () {
+       globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
+       document.body.classList.remove( 'bodyOverflovHidden')
+      }
 
  return <section className={style.hadSection}>
 
