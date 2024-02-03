@@ -1,0 +1,68 @@
+@import '../../../colors.scss';
+
+.registerAnstSection {
+
+    margin: 0 auto;
+    min-width: 200px;
+
+}
+
+.antForm {
+
+    min-width: 200px;
+    width: 100%;
+    // display: grid;
+    // margin: 0 auto;
+    // justify-content: center; 
+}
+
+.formItems{
+
+    width: 100% !important;
+
+}
+
+.formItems > div{
+
+    display: flex;
+    flex-direction: column !important;
+    align-items: center !important ;
+
+}
+
+.formItems > div > div:first-child > label{
+
+    color: $textColors !important;
+}
+
+.formItems > div > div:last-child > div > div > input {
+
+background-color:  $logginModalBacground  !important;
+color: $textColors !important;
+}
+
+.formItems > div > div:last-child > div > div > span {
+
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;  
+}
+
+.formItems > div > div:last-child > div > div > span > span > span:first-child{
+    
+    color: $textColors !important;
+
+}
+
+.formItems > div > div:last-child > div > div > span > span > span:first-child:hover{
+
+    color: $OkColor !important;
+}
+
+// .formItems > div > div:last-child > div > div > span > span > span {
+
+//     border: solid red !important;
+// }
+
+.formItemsInput{
+    width: 100%;
+}

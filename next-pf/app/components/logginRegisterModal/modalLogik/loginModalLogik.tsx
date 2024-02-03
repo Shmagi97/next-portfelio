@@ -2,10 +2,10 @@
 
 import { useGlobalContext } from "@/app/context/context"
 import style from './logikModal.module.scss'
-import { LogginModal } from "./loggin"
-import { RegisterAnt } from "./registerAnt"
+import { LogginModal } from "../login/loggin"
+import { RegisterAnt } from "../antRegister/registerAnt"
 import { useEffect, useState } from "react"
-import OnclickBtn from "../button/onClickBtn/onClickBtn"
+import OnclickBtn from "../../button/onClickBtn/onClickBtn"
 import { LeftOutlined, RightOutlined } from "@ant-design/icons"
 
 export const LoginModalLogik = () => {

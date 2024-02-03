@@ -10,7 +10,7 @@ import Header from './components/footerAndHeader/header/header'
 
 
 import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
-import { LoginModalLogik } from './components/logginRegisterModal/loginModalLogik'
+import { LoginModalLogik } from './components/logginRegisterModal/modalLogik/loginModalLogik'
 import RecoilWrapper from './components/recoilWrapper/recoilWrapper'
 import ReduxWrapper from './components/reduxWrapper/reduxWrapper'
 

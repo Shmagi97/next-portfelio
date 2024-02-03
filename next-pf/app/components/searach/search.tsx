@@ -38,7 +38,8 @@ const onSearch: SearchProps['onSearch'] = (value, _e, info) => console.log(info?
 
     <div className={styleSearch.searchSectionDiv} >
 
-    <Search suppressHydrationWarning  placeholder="input search text" onSearch={onSearch} enterButton />
+    <Search suppressHydrationWarning  placeholder="input search text" onSearch={onSearch} enterButton
+      className={styleSearch.searchBacground}  />
 
     <div className={styleSearch.searchLogaut}  onClick={clickSearchLogaut}>
     <LogoutOutlined suppressHydrationWarning/>

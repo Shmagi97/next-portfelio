@@ -124,6 +124,7 @@ export const RegisterAnt: React.FC = () => {
             message: 'Please input your E-mail!',
           },
         ]}
+        className={style.formItems}
       >
         <Input   className={style.formItemsInput} />
 
@@ -139,6 +140,7 @@ export const RegisterAnt: React.FC = () => {
           },
         ]}
         hasFeedback
+        className={style.formItems}
       >
         <Input.Password />
 
@@ -163,6 +165,7 @@ export const RegisterAnt: React.FC = () => {
             },
           }),
         ]}
+        className={style.formItems}
       >
 
         <Input.Password />
@@ -174,6 +177,7 @@ export const RegisterAnt: React.FC = () => {
         label="Nickname"
         tooltip="What do you want others to call you?"
         rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
+        className={style.formItems}
       >
         <Input />
       </Form.Item>
@@ -183,6 +187,7 @@ export const RegisterAnt: React.FC = () => {
         name="phone"
         label="Phone Number"
         rules={[{ required: true, message: 'Please input your phone number!' }]}
+        className={style.formItems}
       >
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
@@ -200,6 +205,7 @@ export const RegisterAnt: React.FC = () => {
         ]}
         {...tailFormItemLayout}
         wrapperCol={ { offset: 0 } }
+        className={style.formItems}
       >
         <Checkbox>
           I have read the <a href="">agreement</a>
@@ -207,7 +213,7 @@ export const RegisterAnt: React.FC = () => {
       </Form.Item>
 
 
-      <Form.Item {...tailFormItemLayout} wrapperCol={ { offset : 6 } }>
+      <Form.Item {...tailFormItemLayout} wrapperCol={ { offset : 6 } }  className={style.formItems}>
         <Button type="primary" htmlType="submit">
           Register
         </Button>
