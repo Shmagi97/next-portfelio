@@ -27,7 +27,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "app/statiebiPage/rame.tsx"
+    "app/statiebiPage/animNavigate/animNavigate.tsx"
   ],
   "exclude": ["node_modules"]
 }
