@@ -11,9 +11,7 @@
 
     min-width: 200px;
     width: 100%;
-    // display: grid;
-    // margin: 0 auto;
-    // justify-content: center; 
+    margin:  0 auto !important;
 }
 
 .formItems{
@@ -58,10 +56,31 @@ color: $textColors !important;
     color: $OkColor !important;
 }
 
-// .formItems > div > div:last-child > div > div > span > span > span {
 
-//     border: solid red !important;
-// }
+.formItems > div > div:last-child > div > div > span > span > span > div > div  {
+
+  color: $textColors !important;
+}
+
+.formItems > div > div:last-child > div > div > span > span > input {
+
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+}
+
+.formItemsCheckbox {
+    
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+.formItemsRegister {
+
+    display: flex !important;
+    justify-content:  center !important;
+    align-items: center !important;
+}
 
 .formItemsInput{
     width: 100%;

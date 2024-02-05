@@ -10,6 +10,7 @@ type fixedImageTP = {
 
 const FixedImage = (props : fixedImageTP) => {
 
+
     return <div className={styles.fixedimagediv}  onClick={props.onClick}>
        <Image
        

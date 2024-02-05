@@ -205,7 +205,7 @@ export const RegisterAnt: React.FC = () => {
         ]}
         {...tailFormItemLayout}
         wrapperCol={ { offset: 0 } }
-        className={style.formItems}
+        className={style.formItemsCheckbox}
       >
         <Checkbox>
           I have read the <a href="">agreement</a>
@@ -213,7 +213,7 @@ export const RegisterAnt: React.FC = () => {
       </Form.Item>
 
 
-      <Form.Item {...tailFormItemLayout} wrapperCol={ { offset : 6 } }  className={style.formItems}>
+      <Form.Item {...tailFormItemLayout} wrapperCol={ { offset : 6 } }   className={style.formItemsRegister}>
         <Button type="primary" htmlType="submit">
           Register
         </Button>

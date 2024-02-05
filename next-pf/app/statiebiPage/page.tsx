@@ -1,41 +1,29 @@
 'use client'
 
-import Sacdeli from "../components/sacdeli/sacdeli"
-import { recoilSacdeli, vcadeFunqcia } from "../recoil/recoilGlobalState"
-import { useEffect } from "react"
-import style from './page.module.css'
-import { useRecoilState, useRecoilValue } from 'recoil';
-import { clickGlobalNavigate } from '@/app/recoil/recoilGlobalState';
-import getButtonsNumber from "./functions/getButtonsNumber"
+import Image from 'next/image'
+import style from  './page.module.scss'
+import { useEffect, useState } from 'react'
+import Sacdeli from './rame'
+
+
+
+// import image7 from '@/public/image/image7.webp'
+// import images6 from '@/public/image/images6.webp'
+// import images5 from '@/public/image/images5.webp'
+// import images4 from '@/public/image/images4.webp'
+// import images3 from '@/public/image/images3.webp'
+// import images2 from '@/public/image/images2.webp'
+// import img2 from '@/public/image/img2.webp'
+
 
 const Statiebi = () => {
-    
-    const [sacdeli, setSacdeli] = useRecoilState(recoilSacdeli)
-    // console.log(sacdeli);
-    
-    const count = useRecoilValue(vcadeFunqcia) 
-    // console.log(count);
-    const [ globalnavigateClick, setGlobalnavigateClick ] = useRecoilState(clickGlobalNavigate)
 
-    function rame (e : any) {
 
-        const takeValue = e.target.value
 
-        getButtonsNumber(takeValue, setGlobalnavigateClick)
-
-    }
 
     return <section className={style.section}>
-
-           <input type="text" value={sacdeli} onChange={ (e)=> setSacdeli(e.target.value)} />
-
-         <div> sacdeli : {sacdeli}</div> 
-          <div> count : {count}</div> 
-          <button onClick={rame} value={0} >click me</button>
-          <button onClick={rame}  value={1} >click me</button>
-          <button onClick={rame}  value={2} >click me</button>
-          <button onClick={rame}  value={3} >click me</button>
-
+     
+        <Sacdeli/>
        
     </section>
 } 
