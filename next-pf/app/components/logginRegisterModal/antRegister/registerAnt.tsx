@@ -84,8 +84,27 @@ const tailFormItemLayout = {
 export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
 
-  const onFinish = (values: any) => {
+  const onFinish = async (values: any) => {
     console.log('Received values of form: ', values);
+
+    const response = await fetch(" http://localhost:4000/register ", {
+     method: "POST",
+
+     headers: {
+      'Content-Type': 'application/json',
+     },
+
+     body: JSON.stringify({values: values})
+
+    });
+
+    if (response.ok){
+      console.log('sucess');
+      
+    } else {
+      console.log('error');
+      
+    }
   };
 
   const prefixSelector = (

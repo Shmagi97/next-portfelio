@@ -11,7 +11,7 @@ const AnimNavigate = () => {
 
     const [animStop, setAnimStop ] = useState(true)
     const [usefectRerender, setUsefectRerender] = useState(0)
-    const [click , setClick] = useState(true)
+    const [clickImage , setClickImage] = useState(true)
 
     function stopAnimFN () { setAnimStop(false) }
     function startAnim () {  setAnimStop(true) }
@@ -43,10 +43,10 @@ const AnimNavigate = () => {
 
 
 
-    function clickMe(){
-      setClick(!click)
-       click && userefObject.current?.classList.replace( style.anim3dDivAbsolute ,  style.anim3dDivAbsoluteChange )
-       !click && userefObject.current?.classList.replace( style.anim3dDivAbsoluteChange ,  style.anim3dDivAbsolute )
+    function clickMeImage(){
+      setClickImage(!clickImage)
+      if ( clickImage ) userefObject.current?.classList.replace( style.anim3dDivAbsolute ,  style.anim3dDivAbsoluteChange )
+       else userefObject.current?.classList.replace( style.anim3dDivAbsoluteChange ,  style.anim3dDivAbsolute )
     }
 
 
@@ -81,7 +81,7 @@ const AnimNavigate = () => {
         </div>
 
         <div className={style.anim3dDivRelative}>
-            <div className={style.anim3dDivAbsolute} ref={userefObject} onClick={ clickMe }>
+            <div className={style.anim3dDivAbsolute} ref={userefObject} onClick={ clickMeImage }>
               <Image
               alt={'imageLeft3d'}
               src={image1}
