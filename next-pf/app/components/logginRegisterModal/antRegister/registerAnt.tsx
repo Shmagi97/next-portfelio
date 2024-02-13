@@ -8,52 +8,54 @@ import {
   Form,
   Input,
   Select,
+  notification,
 } from 'antd';
 
 import style from './registerAnt.module.scss'
+import axios from 'axios';
 
 const { Option } = Select;
 
-interface DataNodeType {
-  value: string;
-  label: string;
-  children?: DataNodeType[];
-}
+// interface DataNodeType {
+//   value: string;
+//   label: string;
+//   children?: DataNodeType[];
+// }
 
-const residences: CascaderProps<DataNodeType>['options'] = [
-  {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  },
-];
+// const residences: CascaderProps<DataNodeType>['options'] = [
+//   {
+//     value: 'zhejiang',
+//     label: 'Zhejiang',
+//     children: [
+//       {
+//         value: 'hangzhou',
+//         label: 'Hangzhou',
+//         children: [
+//           {
+//             value: 'xihu',
+//             label: 'West Lake',
+//           },
+//         ],
+//       },
+//     ],
+//   },
+//   {
+//     value: 'jiangsu',
+//     label: 'Jiangsu',
+//     children: [
+//       {
+//         value: 'nanjing',
+//         label: 'Nanjing',
+//         children: [
+//           {
+//             value: 'zhonghuamen',
+//             label: 'Zhong Hua Men',
+//           },
+//         ],
+//       },
+//     ],
+//   },
+// ];
 
 const formItemLayout = {
   labelCol: {
@@ -85,7 +87,15 @@ export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
 
   const onFinish = async (values: any) => {
-    console.log('Received values of form: ', values);
+
+   
+    const email = values.email
+    const password = values.password
+    const confirm = values.confirm
+    const nickname = values.nickname
+    const prefix = values.prefix
+    const phone = values.phone
+    const agreement = values.agreement
 
     const response = await fetch(" http://localhost:4000/register ", {
      method: "POST",
@@ -94,15 +104,26 @@ export const RegisterAnt: React.FC = () => {
       'Content-Type': 'application/json',
      },
 
-     body: JSON.stringify({values: values})
+     body: JSON.stringify( {email, password, confirm, nickname, prefix, phone , agreement } )
 
     });
 
     if (response.ok){
-      console.log('sucess');
+      console.log('succes');
+      
+      const errorData = await response.json()
+      notification.success({
+      message: 'წარმატებული რეგისტრაცია',
+      description:`გილოცავთ ${errorData.message}` ,
+     })
       
     } else {
       console.log('error');
+     const errorRespons = await response.json()
+      notification.error({
+        message: 'წარუმატებელი რეგისტრაცია',
+        description: `${errorRespons.error}. გთხოვთ ცადოთ ხელახლა.`,
+      })
       
     }
   };
@@ -111,7 +132,7 @@ export const RegisterAnt: React.FC = () => {
     <Form.Item name="prefix" noStyle>
       <Select style={{ width: 70 }}>
         <Option value="995">+995</Option>
-        <Option value="87">+87</Option>
+        <Option value="557">+557</Option>
       </Select>
     </Form.Item>
   );
@@ -120,9 +141,11 @@ export const RegisterAnt: React.FC = () => {
     <Form
       {...formItemLayout}
       form={form}
+      action={'/register'}
+      method='post'
       name="register"
       onFinish={onFinish}
-      initialValues={{ residence: ['zhejiang', 'hangzhou', 'xihu'], prefix: '86' }}
+      initialValues={{ residence: ['zhejiang', 'hangzhou', 'xihu'], prefix: '557' }}
       style={{ maxWidth: 600 }}
       scrollToFirstError
       layout='vertical'
@@ -136,11 +159,16 @@ export const RegisterAnt: React.FC = () => {
         rules={[
           {
             type: 'email',
-            message: 'The input is not valid E-mail!',
+            message: 'ეს არ არის სწორი ფორმატი',
           },
           {
             required: true,
-            message: 'Please input your E-mail!',
+            message: 'გთხოვთ შეიყვანეთ ტქვენი გიმეილი',
+          },
+
+          {
+            pattern: /^[a-zA-Z0-9._%+-]+@(mail|gmail)\.[a-zA-Z]{2,}/,
+            message: 'სავალდებულოა: (mail | gmail) და ინგლისური ასოები ',
           },
         ]}
         className={style.formItems}
@@ -155,7 +183,15 @@ export const RegisterAnt: React.FC = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: 'გთხოვთ შეიყვანეთ პაროლი',
+          },
+          {
+            min: 10,
+            message: 'მინიმუმ 10 სიმბოლო',
+          },
+          {
+            pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/,
+            message: 'აუცილენელია მინიმუმ ერთი: ასობგეგა, ციფრი და დიდი ასობგეგა',
           },
         ]}
         hasFeedback
@@ -173,14 +209,16 @@ export const RegisterAnt: React.FC = () => {
         rules={[
           {
             required: true,
-            message: 'Please confirm your password!',
+            message: 'გაიმეორეთ პაროლი',
           },
+
+      
           ({ getFieldValue }) => ({
             validator(_, value) {
               if (!value || getFieldValue('password') === value) {
                 return Promise.resolve();
               }
-              return Promise.reject(new Error('The new password that you entered do not match!'));
+              return Promise.reject(new Error('პაროლი არ ემთხვევა'));
             },
           }),
         ]}
@@ -194,8 +232,16 @@ export const RegisterAnt: React.FC = () => {
       <Form.Item
         name="nickname"
         label="Nickname"
-        tooltip="What do you want others to call you?"
-        rules={[{ required: true, message: 'Please input your nickname!', whitespace: true }]}
+        tooltip="როგორც გინდათ რომ გამოჩნდეს თქვენი სახელი"
+        rules={[
+          { 
+            required: true, message: 'გთხოვთ შეიყვანეთ სახელი', whitespace: true
+          },
+          {
+            min: 7,
+            message: 'მინიმუმ 7 სიმბოლო',
+          },
+        ]}
         className={style.formItems}
       >
         <Input />
@@ -205,7 +251,15 @@ export const RegisterAnt: React.FC = () => {
       <Form.Item
         name="phone"
         label="Phone Number"
-        rules={[{ required: true, message: 'Please input your phone number!' }]}
+        rules={[
+          
+           { 
+            required: true, message: 'გთხოვთ შეიყვანეთ ტელეფონის ნომერი' 
+           } ,
+       
+          
+          ]}
+        
         className={style.formItems}
       >
         <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
