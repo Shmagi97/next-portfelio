@@ -36,8 +36,8 @@ interface ContextProps {
     setChekDelay : Dispatch <SetStateAction <boolean> >,
     clickModal : boolean,
     setClickModal : Dispatch < SetStateAction < boolean > >,
-    // responsLogin : boolean,
-    // setResponsLogin : Dispatch < SetStateAction < boolean > >,
+    getRegister : boolean,
+    setGetregister : Dispatch < SetStateAction < boolean > >,
 
     globalChildSection : RefObject < HTMLDivElement | null > ,
     setGlobalChildSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
@@ -59,8 +59,8 @@ const GlobalContext = createContext<ContextProps>({
     setChekDelay : () : boolean => false,
     clickModal : false,
     setClickModal : () : boolean => false,
-    // responsLogin : false,
-    // setResponsLogin : () : boolean => false,
+    getRegister : false,
+    setGetregister : () : boolean => false,
 
     globalChildSection : { current: null } ,
     setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
@@ -74,7 +74,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
     const [chekDelay, setChekDelay] = useState (false)
     const [clickModal , setClickModal ] = useState (false)
-    // const [responsLogin, setResponsLogin] = useState (false)
+    const [getRegister, setGetregister] = useState (false)
 
     const [clickGlobaldNumber, setClickGlobaldNumber] = useState < DataGlobalClickNumber > 
     ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] } ] )
@@ -92,7 +92,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             chekDelay, setChekDelay, globalChildSection,
             setGlobalChildSection,  clickModal, setClickModal, 
             clickGlobaldNumber, setClickGlobaldNumber, 
-            // responsLogin, setResponsLogin,
+            getRegister, setGetregister,
             
             }}>
 

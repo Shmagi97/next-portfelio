@@ -1,7 +1,6 @@
 'use client'
 
 import React, { useState } from 'react';
-import type { CascaderProps } from 'antd';
 import {
   Button,
   Checkbox,
@@ -12,50 +11,9 @@ import {
 } from 'antd';
 
 import style from './registerAnt.module.scss'
-import axios from 'axios';
+import { useGlobalContext } from '@/app/context/context';
 
 const { Option } = Select;
-
-// interface DataNodeType {
-//   value: string;
-//   label: string;
-//   children?: DataNodeType[];
-// }
-
-// const residences: CascaderProps<DataNodeType>['options'] = [
-//   {
-//     value: 'zhejiang',
-//     label: 'Zhejiang',
-//     children: [
-//       {
-//         value: 'hangzhou',
-//         label: 'Hangzhou',
-//         children: [
-//           {
-//             value: 'xihu',
-//             label: 'West Lake',
-//           },
-//         ],
-//       },
-//     ],
-//   },
-//   {
-//     value: 'jiangsu',
-//     label: 'Jiangsu',
-//     children: [
-//       {
-//         value: 'nanjing',
-//         label: 'Nanjing',
-//         children: [
-//           {
-//             value: 'zhonghuamen',
-//             label: 'Zhong Hua Men',
-//           },
-//         ],
-//       },
-//     ],
-//   },
-// ];
 
 const formItemLayout = {
   labelCol: {
@@ -85,6 +43,9 @@ const tailFormItemLayout = {
 
 export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
+  const [inputNoValid, setInputNoValid] = useState('')
+  
+  const {setGetregister} = useGlobalContext()
 
   const onFinish = async (values: any) => {
 
@@ -109,17 +70,20 @@ export const RegisterAnt: React.FC = () => {
     });
 
     if (response.ok){
-      console.log('succes');
-      
+    
       const errorData = await response.json()
       notification.success({
       message: 'წარმატებული რეგისტრაცია',
-      description:`გილოცავთ ${errorData.message}` ,
+      description:`გილოცავთ ${errorData.message}` , 
      })
+     form.resetFields();
+     setGetregister(false)
       
     } else {
-      console.log('error');
+     
      const errorRespons = await response.json()
+     setInputNoValid(errorRespons.error.slice(2,9).trim())
+     
       notification.error({
         message: 'წარუმატებელი რეგისტრაცია',
         description: `${errorRespons.error}. გთხოვთ ცადოთ ხელახლა.`,
@@ -173,7 +137,9 @@ export const RegisterAnt: React.FC = () => {
         ]}
         className={style.formItems}
       >
-        <Input   className={style.formItemsInput} />
+    
+        <Input  disabled = {inputNoValid === 'მეილით' || inputNoValid === '' ? false 
+          : true}   className={style.formItemsInput} />
 
       </Form.Item>
 
@@ -244,7 +210,7 @@ export const RegisterAnt: React.FC = () => {
         ]}
         className={style.formItems}
       >
-        <Input />
+        <Input  disabled = {inputNoValid === 'სახელი' || inputNoValid === '' ? false : true} />
       </Form.Item>
 
 
@@ -262,7 +228,8 @@ export const RegisterAnt: React.FC = () => {
         
         className={style.formItems}
       >
-        <Input addonBefore={prefixSelector} style={{ width: '100%' }} />
+        <Input  disabled = {inputNoValid === 'ნომრით' || inputNoValid === '' ? false 
+           : true} addonBefore={prefixSelector} style={{ width: '100%' }} />
       </Form.Item>
 
 

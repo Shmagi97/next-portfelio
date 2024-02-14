@@ -2,38 +2,61 @@
 
 import { useState } from 'react'
 import style from './loggin.module.scss'
+import { notification } from 'antd'
 
 export const LogginModal = () => {
 
-    const [stringLenght, setStringLenght] = useState(0)
-    const [stringLenght2, setStringLenght2] = useState(0)
+    const [nameValue, setNameValue] = useState('')
+    const [paswordValue, setPaswordValue] = useState('')
+   
+    const submitUser = async (e : any) => {
+     e.preventDefault()
+       
+      const getUserResponse = await fetch(" http://localhost:4000/register ", {
 
-    function inputFocus (event : React.ChangeEvent < HTMLInputElement >){  
-      
-      const unputLengs = event.target.value
-      setStringLenght(unputLengs.length)
-     
-    }
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+       },
+       body: JSON.stringify({ nameValue, paswordValue })
+      })
 
-    function inputFocus2 (event : React.ChangeEvent < HTMLInputElement > ){
+      const getUser = await getUserResponse.json()
 
-        const unputLengs2 = event.target.value
-        setStringLenght2(unputLengs2.length)
+      if(getUserResponse.ok){
+        
+        console.log(getUser.loggin);
+        notification.success({
+          message: 'შესვლა ნებადართულია',
+          description: `${getUser.loggin}`
+        })
+        
+      } else {
+        console.log(getUser.loggin);
+        notification.error({
+          message: 'შესვლა უარყოფილია',
+          description: `${getUser.loggin}`
+        })
+        
+      }
+
     }
 
     
     return <div className={style.logginModalDiv}>
 
-            <form action="#" method="#" className={style.formHtml}>
+            <form action="/register" method="post" className={style.formHtml}>
                  <div>
-                   <input type="text" id="forLabel1" onChange={inputFocus} className={stringLenght > 0 ? style.inputFocus : undefined}/>
+                   <input type="text" id="forLabel1" value={nameValue} onChange={(e)=> setNameValue(e.target.value)}
+                    className={nameValue.length > 0 ? style.inputFocus : undefined}/>
                    <label htmlFor="forLabel1">მომხმარებელი</label>
                  </div>
                  <div>
-                   <input type="text" id="forLabel2" onChange={inputFocus2} className={stringLenght2 > 0 ? style.inputFocus2 : undefined}/>
+                   <input type='password' id="forLabel2" value={paswordValue} onChange={(e)=> setPaswordValue(e.target.value)} 
+                   className={paswordValue.length > 0 ? style.inputFocus2 : undefined}/>
                    <label htmlFor="forLabel2">პაროლი</label>
                  </div>
-                 <button type="submit">
+                 <button  onClick={submitUser}>
                   <span></span>
                   <span></span>
                   <span></span>

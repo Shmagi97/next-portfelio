@@ -10,10 +10,9 @@ import { LeftOutlined, RightOutlined } from "@ant-design/icons"
 
 export const LoginModalLogik = () => {
 
-    const { clickModal } = useGlobalContext()
+    const { clickModal, getRegister, setGetregister } = useGlobalContext()
      
     const [changeClas, setChangeClass] = useState(style.loginModalLogikSection2)
-    const [getRegister, setGetregister] = useState (false)
 
     function modalChaildCheing () {  setGetregister(!getRegister) }
      
