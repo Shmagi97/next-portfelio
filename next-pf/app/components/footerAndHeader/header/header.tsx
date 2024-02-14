@@ -11,7 +11,8 @@ import  globalNumberSection  from "../../functionsFN/numberGlobalSection"
 
 const Header = () => {
     
-   const {globalChildSection, setClickGlobaldNumber,  setClickModal } = useGlobalContext()
+   const {globalChildSection, setClickGlobaldNumber,  setClickModal, setHeaderFooter } = useGlobalContext()
+   
      const clickSearchFn = () => {
 
       globalChildSection.current?.classList.replace('sectionNone', 'searchSection')
@@ -26,6 +27,8 @@ const Header = () => {
          globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
          document.body.classList.add( 'bodyOverflovHidden')
          setClickModal(false)
+         setHeaderFooter(false)
+         
        }
 
     return <header className={style.layoutHeader}>

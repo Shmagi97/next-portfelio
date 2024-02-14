@@ -18,12 +18,13 @@ import { AntdIconProps } from '@ant-design/icons/lib/components/AntdIcon';
 
 const SearchComponent : React.FC < AntdIconProps > = () => {
 
-    const {globalChildSection } = useGlobalContext()
+    const {globalChildSection, setHeaderFooter } = useGlobalContext()
     
     function clickSearchLogaut () {
 
         globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
         document.body.classList.remove( 'bodyOverflovHidden')
+        setHeaderFooter(true)
     }  
 
 

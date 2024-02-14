@@ -4,7 +4,7 @@
 import { useGlobalContext } from '@/app/context/context';
 import { RefObject, useEffect, useRef } from 'react';
 import MyInfo from '../myInfo/myInfo';
-import SearchComponent from '../searach/search';
+import SearchComponent from '../search/search';
 
 const GlobalDinamikChaild = () => {
 

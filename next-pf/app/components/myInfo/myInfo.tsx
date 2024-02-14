@@ -13,11 +13,12 @@ import reziume from '@/public/reziume/reziume.png'
 
 const MyInfo = () => {
 
-    const { globalChildSection , clickGlobaldNumber } = useGlobalContext ()
+    const { globalChildSection , clickGlobaldNumber, setHeaderFooter } = useGlobalContext ()
     
     function clickBack () {
        globalChildSection.current?.classList.replace('searchSection', 'sectionNone')
        document.body.classList.remove( 'bodyOverflovHidden')
+       setHeaderFooter(true)
       }
 
  return <section className={style.hadSection}>

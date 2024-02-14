@@ -38,6 +38,8 @@ interface ContextProps {
     setClickModal : Dispatch < SetStateAction < boolean > >,
     getRegister : boolean,
     setGetregister : Dispatch < SetStateAction < boolean > >,
+    headerFooter: boolean,
+    setHeaderFooter: Dispatch < SetStateAction < boolean > >,
 
     globalChildSection : RefObject < HTMLDivElement | null > ,
     setGlobalChildSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
@@ -61,6 +63,8 @@ const GlobalContext = createContext<ContextProps>({
     setClickModal : () : boolean => false,
     getRegister : false,
     setGetregister : () : boolean => false,
+    headerFooter: true,
+    setHeaderFooter : () : boolean => true,
 
     globalChildSection : { current: null } ,
     setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
@@ -75,6 +79,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [chekDelay, setChekDelay] = useState (false)
     const [clickModal , setClickModal ] = useState (false)
     const [getRegister, setGetregister] = useState (false)
+    const [headerFooter, setHeaderFooter] = useState (true)
 
     const [clickGlobaldNumber, setClickGlobaldNumber] = useState < DataGlobalClickNumber > 
     ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] } ] )
@@ -92,7 +97,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             chekDelay, setChekDelay, globalChildSection,
             setGlobalChildSection,  clickModal, setClickModal, 
             clickGlobaldNumber, setClickGlobaldNumber, 
-            getRegister, setGetregister,
+            getRegister, setGetregister, headerFooter, setHeaderFooter,
             
             }}>
 

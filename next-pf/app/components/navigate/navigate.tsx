@@ -11,7 +11,7 @@ import { servises } from "./servises/servises"
 
 const Navigate = () => {
 
-    const { clickModal , setClickModal, globalChildSection, setClickGlobaldNumber } = useGlobalContext() 
+    const { clickModal , setClickModal, globalChildSection, setClickGlobaldNumber, setHeaderFooter } = useGlobalContext() 
 
     function logginModalFn () {  setClickModal(!clickModal) }
 
@@ -21,6 +21,7 @@ const Navigate = () => {
         globalNumberSection(1, 'globalSectionChildren', 0, setClickGlobaldNumber)
         document.body.classList.add( 'bodyOverflovHidden')
         setClickModal(false)
+        setHeaderFooter(false)
     }
 
     function loginModalFolse() { setClickModal(false) }

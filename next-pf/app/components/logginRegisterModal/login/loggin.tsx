@@ -25,14 +25,13 @@ export const LogginModal = () => {
 
       if(getUserResponse.ok){
         
-        console.log(getUser.loggin);
         notification.success({
           message: 'შესვლა ნებადართულია',
           description: `${getUser.loggin}`
         })
         
       } else {
-        console.log(getUser.loggin);
+     
         notification.error({
           message: 'შესვლა უარყოფილია',
           description: `${getUser.loggin}`

@@ -45,7 +45,7 @@ export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
   const [inputNoValid, setInputNoValid] = useState('')
   
-  const {setGetregister} = useGlobalContext()
+  const { setHeaderFooter} = useGlobalContext()
 
   const onFinish = async (values: any) => {
 
@@ -76,8 +76,10 @@ export const RegisterAnt: React.FC = () => {
       message: 'წარმატებული რეგისტრაცია',
       description:`გილოცავთ ${errorData.message}` , 
      })
-     form.resetFields();
-     setGetregister(false)
+    //  form.resetFields();
+    //roca registracia warmatebulia loginmodalShi gaiweros piradi informaciisatvis 
+    //asatvirti informaciebis interfeisi anu calke komponenti shemova
+     setHeaderFooter(false)
       
     } else {
      

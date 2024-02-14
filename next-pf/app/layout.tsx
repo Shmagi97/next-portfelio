@@ -8,11 +8,11 @@ import Footer from './components/footerAndHeader/footer/footer'
 import { GlobalContextProvider } from './context/context'
 import Header from './components/footerAndHeader/header/header'
 
-
 import GlobalDinamikChaild from './components/globalDinamikChild/globalDinamikChild'
 import { LoginModalLogik } from './components/logginRegisterModal/modalLogik/loginModalLogik'
 import RecoilWrapper from './components/recoilWrapper/recoilWrapper'
 import ReduxWrapper from './components/reduxWrapper/reduxWrapper'
+import { WrapperFooter, WrapperHeader } from './components/wrapperHeaderAndFooter/wrapperHedAndFot'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
 
-
+ 
  
   return (
 
@@ -44,15 +44,19 @@ export default function RootLayout({
            <GlobalDinamikChaild/>
            
            <LoginModalLogik />
-             <Header />
+             
+             <WrapperHeader>
+               <Header />
+             </WrapperHeader>
 
              <RecoilWrapper>
 
                    {children}
 
              </RecoilWrapper>
-
-           <Footer/>
+           <WrapperFooter>
+             <Footer/>
+           </WrapperFooter>
 
       </GlobalContextProvider>
     </ReduxWrapper>
