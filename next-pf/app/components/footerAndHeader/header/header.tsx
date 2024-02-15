@@ -19,6 +19,7 @@ const Header = () => {
       globalNumberSection(1, 'globalSectionChildren', 1, setClickGlobaldNumber)
       document.body.classList.add( 'bodyOverflovHidden')
       setClickModal(false) 
+      setHeaderFooter(false)
        }
 
        const clickFixedImage = () => {

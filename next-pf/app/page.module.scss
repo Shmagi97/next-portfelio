@@ -15,8 +15,16 @@
     color: $textColors; 
     position: relative;
   }
+
+  .h1None{
+    display: none
+  }
   
   .btnInpage{
 
     @include btnGlobalStyle;
+  }
+
+  .btnInpageNone{
+    display: none;
   }

@@ -14,7 +14,7 @@ export default function Home() {
  // event : MouseEvent <HTMLButtonElement>
  // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
 
-  const {  setImagenumber , imgnumber , setChekDelay, } = useGlobalContext ()
+  const {  setImagenumber , imgnumber , setChekDelay, headerFooter, } = useGlobalContext ()
 
   const limit = 6;
 
@@ -42,13 +42,13 @@ export default function Home() {
    
       <Background/>
 
-      <OnclickBtn className={styles.btnInpage} onClick={lefClicked}>
+      <OnclickBtn className={ headerFooter ? styles.btnInpage : styles.btnInpageNone} onClick={lefClicked}>
          <LeftOutlined/>
       </OnclickBtn>
       
-          <h1 className={styles.h1}>Web Development `Next.js and TypeScript` </h1>
+          <h1 className={headerFooter ? styles.h1 : styles.h1None}>Web Development `Next.js and TypeScript` </h1>
 
-      <OnclickBtn className={styles.btnInpage} onClick={rightClicked}>
+      <OnclickBtn className={ headerFooter ? styles.btnInpage : styles.btnInpageNone} onClick={rightClicked}>
          <RightOutlined/>
       </OnclickBtn>
    

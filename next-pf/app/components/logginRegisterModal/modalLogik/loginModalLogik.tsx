@@ -4,34 +4,21 @@ import { useGlobalContext } from "@/app/context/context"
 import style from './logikModal.module.scss'
 import { LogginModal } from "../login/loggin"
 import { RegisterAnt } from "../antRegister/registerAnt"
-import { useEffect, useState } from "react"
 import OnclickBtn from "../../button/onClickBtn/onClickBtn"
 import { LeftOutlined, RightOutlined } from "@ant-design/icons"
+import { UserInfo } from "../../registerUserInfo/userInfo"
 
 export const LoginModalLogik = () => {
 
-    const { clickModal, getRegister, setGetregister } = useGlobalContext()
-     
-    const [changeClas, setChangeClass] = useState(style.loginModalLogikSection2)
+    const { clickModal, getRegister, setGetregister , registerUserInfo} = useGlobalContext()
 
     function modalChaildCheing () {  setGetregister(!getRegister) }
-     
-    useEffect(()=> {
-      
-        if (clickModal) {
-            setChangeClass(style.loginModalLogikSection)
-        } else {
-    
-            setChangeClass(style.loginModalLogikSection2)
-        }
 
-        return () => setChangeClass('')
-
-    }, [clickModal])
-
-     return <section className={changeClas}>
+     return <section className={ clickModal  && !registerUserInfo ? style.loginModalLogikSection 
+            : !clickModal && !registerUserInfo ? style.loginModalLogikSectionNone : style.loginModalUserRegister }>
             
-               <div className={style.buttonsDiv}>
+               <div className={ (clickModal  && !registerUserInfo )|| (!clickModal && !registerUserInfo) 
+                    ? style.buttonsDiv : style.buttonsDivNone}>
 
                  <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>
                     {
@@ -44,7 +31,9 @@ export const LoginModalLogik = () => {
                </div>
                
               { 
-                !getRegister ? <LogginModal/> :  <RegisterAnt/>
+                !getRegister ? <LogginModal/> : getRegister && !registerUserInfo ? <RegisterAnt/> 
+                : registerUserInfo && getRegister ?  <UserInfo/> : false
+                
               }
 
           </section>
