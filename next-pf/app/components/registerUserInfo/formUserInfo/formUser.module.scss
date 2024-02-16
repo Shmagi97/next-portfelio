@@ -1,0 +1,121 @@
+
+@import '../../../colors.scss';
+
+.position{
+    text-align: center;
+   
+}
+
+.myClass > div > div:first-child{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.myClass > div > div:first-child > label{
+    color: $textColors !important;
+}
+
+.myClass > div > div:last-child{
+    margin: 0 auto;
+}
+
+.myClass > div > div:last-child > div > div > div > label{
+    color: $textColors !important;
+}
+
+.myClass > div > div:last-child > div > div > input{
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+
+}
+
+.myClass > div > div:last-child > div > div > div > div {
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+}
+
+.myClass > div > div:last-child > div > div > textarea{
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+}
+
+.birthday > div > div:last-child > div > div > div{
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+}
+
+.birthday > div > div:first-child{
+    text-align: center ;
+    margin: 0 auto;
+}
+
+.birthday > div > div:last-child{
+    margin: 0 auto;
+   
+}
+
+.birthday > div > div:last-child > div > div > div {
+    width: 100%;
+}
+
+.birthday > div > div:first-child > label{
+    color: $textColors !important;
+}
+
+.chekidChangDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+
+.working > div > div:last-child > div > div {
+    display: flex;
+    justify-content: center;
+    transform: translateX(-5px);
+}
+
+.working > div > div:first-child  {
+    max-width: 170px;
+    padding: 0px 3px 0px 3px;
+  
+
+}
+
+.working > div {
+    display: flex;
+    align-items: center;
+}
+
+.working > div > div:first-child > label{
+    color: $textColors !important;
+}
+
+.workingSpan{
+    color: $textColors !important;
+}
+
+
+.upload{
+   margin-top: 30px;
+}
+
+.upload > div > div:last-child{
+  align-items: center;
+}
+
+.fileUpload{
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.skilss{
+   
+    display: grid;
+    justify-content: center;
+    text-align: center;
+}
+
+.skilssFormItem > div > div > div:first-child {
+    width: 200px;
+}

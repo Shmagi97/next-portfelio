@@ -78,7 +78,7 @@ export const RegisterAnt: React.FC = () => {
      })
     //  form.resetFields();
 
-     setHeaderFooter(false)
+    //  setHeaderFooter(false)
      setRegisterUserInfo(true)
       
     } else {

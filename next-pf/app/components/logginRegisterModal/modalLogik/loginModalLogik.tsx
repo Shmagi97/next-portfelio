@@ -14,8 +14,7 @@ export const LoginModalLogik = () => {
 
     function modalChaildCheing () {  setGetregister(!getRegister) }
 
-     return <section className={ clickModal  && !registerUserInfo ? style.loginModalLogikSection 
-            : !clickModal && !registerUserInfo ? style.loginModalLogikSectionNone : style.loginModalUserRegister }>
+     return <section className={ clickModal  ? style.loginModalLogikSection : style.loginModalLogikSectionNone  }>
             
                <div className={ (clickModal  && !registerUserInfo )|| (!clickModal && !registerUserInfo) 
                     ? style.buttonsDiv : style.buttonsDivNone}>
@@ -29,9 +28,9 @@ export const LoginModalLogik = () => {
                  </OnclickBtn>
 
                </div>
-               
+               {/* <LogginModal/> */}
               { 
-                !getRegister ? <LogginModal/> : getRegister && !registerUserInfo ? <RegisterAnt/> 
+                !getRegister ? <UserInfo/> : getRegister && !registerUserInfo ? <RegisterAnt/> 
                 : registerUserInfo && getRegister ?  <UserInfo/> : false
                 
               }
