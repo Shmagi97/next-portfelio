@@ -119,3 +119,20 @@
 .skilssFormItem > div > div > div:first-child {
     width: 200px;
 }
+
+.skillInput{
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+}
+
+.skillInput::placeholder{
+    color: $textColors !important;
+    text-align: center;
+    opacity: 40%;
+}
+
+.contactLinkDiv{
+    display: flex;
+    column-gap: 10px;
+    margin-top: 20px;
+}

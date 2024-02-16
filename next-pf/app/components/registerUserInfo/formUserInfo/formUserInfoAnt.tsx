@@ -3,7 +3,7 @@
 import style from './formUser.module.scss'
 
 import React, { useState } from 'react';
-import { PlusOutlined } from '@ant-design/icons';
+import { FacebookFilled, GithubOutlined, LinkOutlined, LinkedinOutlined, PlusOutlined } from '@ant-design/icons';
 import {
   Button,
   Cascader,
@@ -34,6 +34,7 @@ const FormDisabledDemo: React.FC = () => {
 
   const [nowWorking, setNowWorking] = useState ('თავისუფალი')
   const [sliderNumber, setSliderNumber] = useState(1)
+  
   const positionClass = `${style.myClass} ${style.position}`
   const upload = `${style.myClass} ${style.upload}`
 
@@ -120,7 +121,7 @@ const FormDisabledDemo: React.FC = () => {
           <DatePicker />
         </Form.Item>
 
-        <Form.Item label="გამოცდილების ხაბგრძლივობა" className={style.birthday}>
+        <Form.Item label="გამოცდილების ხანგრძლივობა" className={style.birthday}>
           <RangePicker />
         </Form.Item>
 
@@ -161,10 +162,10 @@ const FormDisabledDemo: React.FC = () => {
         <p className={style.workingSpan}>შენი უნარები</p>
           {
             [...Array(sliderNumber)].map((_, index)=> (
-
+            
             <div key={index}>
 
-             <Input placeholder='უნარის სახელი' style={{background:' rgba(0, 0, 0, 0.5)', color:'#809ab9'}}/>
+             <Input placeholder='უნარის დასახელება' className={style.skillInput}/>
 
               <Form.Item  className={style.skilssFormItem}>
                 <Slider />
@@ -177,8 +178,32 @@ const FormDisabledDemo: React.FC = () => {
         <Button  onClick={clickSlider} style={{background:' rgba(0, 0, 0, 0.5)', color:'#809ab9'}}>უნარის დამატება</Button>
         </div>
 
+        <div  className={style.skilss} >
+
+          <p className={style.workingSpan}>სოციალური საიტები</p>
+          
+            <div className={style.contactLinkDiv}>
+            <FacebookFilled style={{fontSize: '25px', color: '#69B1FF'}}/>
+            <LinkOutlined style={{color: ' #809ab9'}}/>
+            <Input style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}/>
+            </div >
+
+            <div className={style.contactLinkDiv}>
+              <LinkedinOutlined style={{fontSize: '25px', color: '#69B1FF' }}/>
+              <LinkOutlined style={{color: ' #809ab9'}}/>
+              <Input style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9' }}/>
+            </div>
+
+            <div className={style.contactLinkDiv}>
+              <GithubOutlined style={{fontSize: '25px', color: '#69B1FF'}}/>
+              <LinkOutlined style={{color: ' #809ab9'}}/>
+              <Input style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}/>
+            </div>
+         
+        </div>
+
         <Form.Item className={style.myClass} style={{marginTop:'30px'}}>
-          <Button style={{background:' rgba(0, 0, 0, 0.5)', color:'#809ab9'}}> დასრულება </Button>
+          <Button style={{background:' rgba(0, 0, 0, 0.5)', color:'#69B1FF'}}> დასრულება </Button>
         </Form.Item>
 
         {/* <Form.Item label="ColorPicker">
