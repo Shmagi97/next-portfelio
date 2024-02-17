@@ -2,16 +2,14 @@
 
 import style from './formUser.module.scss'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FacebookFilled, GithubOutlined, LinkOutlined, LinkedinOutlined, PlusOutlined } from '@ant-design/icons';
 import {
   Button,
   Cascader,
-  ColorPicker,
   DatePicker,
   Form,
   Input,
-  InputNumber,
   Radio,
   Select,
   Slider,
@@ -20,6 +18,7 @@ import {
 } from 'antd';
 import FileUpload from '../fileUpload/fileUpload';
 import SelectProfesion from '../selectProfesion/selectProfesion';
+import { useGlobalContext } from '@/app/context/context';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -33,15 +32,23 @@ const normFile = (e: any) => {
 
 const FormDisabledDemo: React.FC = () => {
 
+  const { sendRegisterUserInNode } = useGlobalContext()
+
   const [nowWorking, setNowWorking] = useState ('თავისუფალი')
-  const [sliderNumber, setSliderNumber] = useState(1)
   const [radioInfo, setRadioInfo] = useState ('employable')
+  const [sliderSkills, setSliderSkills] = useState ( [ { name: '', value: 1 } ] )
+
+  // useEffect(()=> {
+
+  //   console.log(sendRegisterUserInNode);
+  // })
 
   const positionClass = `${style.myClass} ${style.position}`
   const upload = `${style.myClass} ${style.upload}`
 
   const getFromChangeValue = (changeValues: any, allValues: any) => {
-   
+     console.log(allValues);
+     
     if ('workingValueChange' in changeValues){
 
       setNowWorking( changeValues.workingValueChange ? 'დასაქმებული' : 'თავისუფალი' )
@@ -50,13 +57,10 @@ const FormDisabledDemo: React.FC = () => {
      
       setRadioInfo(changeValues.radioInfo == 'employable'  ? 'employable' : 'employer')
 
-      
-    }
+    } 
   }
 
-  function clickSlider (){
-    setSliderNumber((prev)=> prev+1)
-  }
+  function clickSlider () { setSliderSkills( [ ...sliderSkills, { name: '', value: 1 } ] ) }
 
   return (
     <>
@@ -74,23 +78,23 @@ const FormDisabledDemo: React.FC = () => {
           </Radio.Group>
         </Form.Item>
 
-        <Form.Item label="სახელი და გვარი" className={style.myClass}>
+        <Form.Item label="სახელი და გვარი" className={style.myClass} name="nameAndSurname">
           <Input />
         </Form.Item>
 
         {radioInfo == 'employer' ? (
-            <Form.Item label="კომპანიის სახელი" className={style.myClass}>
+            <Form.Item label="კომპანიის სახელი" className={style.myClass} name="companyName">
               <Input />
             </Form.Item> ) : false
         }
 
-        <Form.Item label="მისამართი" className={style.myClass}>
+        <Form.Item label="მისამართი" className={style.myClass} name="address">
           <Input />
         </Form.Item>
        
        {radioInfo == 'employer' ? (
 
-        <Form.Item label="კომპანიის საქმიანობა" className={style.myClass}>
+        <Form.Item label="კომპანიის საქმიანობა" className={style.myClass} name="CompanyActivity">
           <Select>
             <Select.Option value="Tech Startups">Tech Startups</Select.Option>
             <Select.Option value="Software Development Companies">Software Development Companies</Select.Option>
@@ -121,7 +125,8 @@ const FormDisabledDemo: React.FC = () => {
 
          ) : ( <div className={style.selectProfesionDiv}>
          <p className={style.workingSpan}>აირჩიეთ პროფესია</p>
-           <SelectProfesion  />
+        
+           <SelectProfesion  /> 
          </div> )
         } 
         {/* <Form.Item label="Cascader">
@@ -141,24 +146,25 @@ const FormDisabledDemo: React.FC = () => {
           />
         </Form.Item> */}
 
-        <Form.Item label="დაბადების თარიღი" className={style.birthday}>
+        <Form.Item label="დაბადების თარიღი" className={style.birthday} name="dateOfBirth">
           <DatePicker />
         </Form.Item>
 
-        <Form.Item label={ radioInfo == 'employer' ? "კომპანიის არსებობის ხანგრძლივობა" : "გამოცდილების ხანგრძლივობა"} className={style.birthday}>
+        <Form.Item label={ radioInfo == 'employer' ? "კომპანიის არსებობის ხანგრძლივობა" 
+                         : "გამოცდილების ხანგრძლივობა"} className={style.birthday} name="CompanyExperienceDuration">
           <RangePicker />
         </Form.Item>
  
        { radioInfo == 'employer' ? (
-          <Form.Item label="კომპანიის სესახებ" className={style.myClass}>
+          <Form.Item label="კომპანიის შესახებ" className={style.myClass} name="CompanyLoans">
             <TextArea rows={4} />
           </Form.Item>) : (
          <>
-          <Form.Item label="განათლება" className={style.myClass}>
+          <Form.Item label="განათლება" className={style.myClass} name="education">
           <TextArea rows={4} />
           </Form.Item>
 
-          <Form.Item label="გამოცდილება" className={style.myClass}>
+          <Form.Item label="გამოცდილება" className={style.myClass} name="experience">
           <TextArea rows={4} />
           </Form.Item>
 
@@ -173,23 +179,43 @@ const FormDisabledDemo: React.FC = () => {
         <div className={style.skilss}>
         <p className={style.workingSpan}>შენი უნარები</p>
           {
-            [...Array(sliderNumber)].map((_, index)=> (
-            
-            <div key={index}>
+            // [...Array(sliderNumber)].map((_, index)=> (
 
-             <Input placeholder='უნარის დასახელება' className={style.skillInput}/>
+            sliderSkills.map((slider, index)=> (
+             
+              <div key={index}>
+               <Input 
+                  placeholder='უნარის დასახელება' 
+                  className={style.skillInput}
+                  value={slider.name}
+                  onChange={
+                    (e)=> {
+                      const ubdateSkills = [...sliderSkills]
+                      ubdateSkills[index].name = e.target.value
+                      setSliderSkills(ubdateSkills)
+                    }
+                  }   
+                />
 
-              <Form.Item  className={style.skilssFormItem}>
-                <Slider />
-              </Form.Item>
+               <Form.Item  className={style.skilssFormItem} >
+                <Slider value={slider.value} onChange={
 
-            </div>
-
+                    (e)=> {
+                      const ubdateSkills = [...sliderSkills]
+                      ubdateSkills[index].value = e
+                      setSliderSkills(ubdateSkills)
+                    }
+                 }   
+                 
+                 />
+  
+               </Form.Item>
+              </div>
             ))
           }
         <Button  onClick={clickSlider} style={{background:' rgba(0, 0, 0, 0.5)', color:'#809ab9'}}>უნარის დამატება</Button>
         </div>
-
+          {/* aqamde movedi  @@@@@@@@@@@@@@@@@@@@@*/}
         <div  className={style.skilss} >
 
           <p className={style.workingSpan}>სოციალური საიტები</p>
@@ -217,7 +243,7 @@ const FormDisabledDemo: React.FC = () => {
           )
        }
 
-        <Form.Item label="პროფილის ფოტო" valuePropName="fileList" getValueFromEvent={normFile} className={upload}>
+        <Form.Item label="პროფილის ფოტო" valuePropName="fileList" getValueFromEvent={normFile} className={upload} name="uploadPhoto">
           <Upload action="/upload.do" listType="picture-card">
             <button style={{ border: 0, background: 'none' }} type="button">
               <PlusOutlined />

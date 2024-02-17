@@ -45,7 +45,7 @@ export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
   const [inputNoValid, setInputNoValid] = useState('')
   
-  const { setHeaderFooter,  setRegisterUserInfo} = useGlobalContext()
+  const { setRegisterUserInfo} = useGlobalContext()
 
   const onFinish = async (values: any) => {
 
@@ -57,6 +57,8 @@ export const RegisterAnt: React.FC = () => {
     const prefix = values.prefix
     const phone = values.phone
     const agreement = values.agreement
+   // const registerUserInfo
+    // რეგისტრაციის მეორე პუნქტიოსთვის ვამატებ ობიექტს 
 
     const response = await fetch(" http://localhost:4000/register ", {
      method: "POST",
@@ -78,7 +80,6 @@ export const RegisterAnt: React.FC = () => {
      })
     //  form.resetFields();
 
-    //  setHeaderFooter(false)
      setRegisterUserInfo(true)
       
     } else {

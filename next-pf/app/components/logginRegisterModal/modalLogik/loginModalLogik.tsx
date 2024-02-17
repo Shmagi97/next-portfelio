@@ -10,14 +10,25 @@ import { UserInfo } from "../../registerUserInfo/userInfo"
 
 export const LoginModalLogik = () => {
 
-    const { clickModal, getRegister, setGetregister , registerUserInfo} = useGlobalContext()
+    const { clickModal, getRegister, setGetregister , registerUserInfo, registerUserInfoSucces, serRegisterUserInfoSucces} = useGlobalContext()
 
-    function modalChaildCheing () {  setGetregister(!getRegister) }
+    function modalChaildCheing () { 
+      
+      setGetregister(!getRegister) 
+
+      if (registerUserInfo && getRegister && !registerUserInfoSucces) {
+
+        const leaveUserRegister = window.confirm('პერსონალური ინფორმაციის დარეგისტრირება აუცილებელია თუმცა შესაძლებელია მოგვიანებით, ნამდვილად გსურთ გამოტოვება')
+        if(!leaveUserRegister){
+          setGetregister(true) 
+        } else  false
+      } else false
+    
+    }
 
      return <section className={ clickModal  ? style.loginModalLogikSection : style.loginModalLogikSectionNone  }>
             
-               <div className={ (clickModal  && !registerUserInfo )|| (!clickModal && !registerUserInfo) 
-                    ? style.buttonsDiv : style.buttonsDivNone}>
+               <div className={ style.buttonsDiv }>
 
                  <OnclickBtn onClick={modalChaildCheing}  className={style.onclickBtm}>
                     {
@@ -28,9 +39,9 @@ export const LoginModalLogik = () => {
                  </OnclickBtn>
 
                </div>
-               {/* <LogginModal/> */}
+               {/* <LogginModal/>  */}
               { 
-                !getRegister ? <UserInfo/> : getRegister && !registerUserInfo ? <RegisterAnt/> 
+                !getRegister ? <UserInfo/>  : getRegister && !registerUserInfo ? <RegisterAnt/> 
                 : registerUserInfo && getRegister ?  <UserInfo/> : false
                 
               }
