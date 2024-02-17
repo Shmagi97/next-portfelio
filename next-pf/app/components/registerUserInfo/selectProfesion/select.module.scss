@@ -1,0 +1,17 @@
+@import '../../../colors.scss';
+
+.select{
+ width: 63% !important;
+
+}
+
+.select > div{
+    
+    background-color:  $logginModalBacground  !important;
+    color: $textColors !important;
+   
+}
+
+.select > span{
+    color: $textColors !important;
+}

@@ -19,6 +19,7 @@ import {
   Upload,
 } from 'antd';
 import FileUpload from '../fileUpload/fileUpload';
+import SelectProfesion from '../selectProfesion/selectProfesion';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -34,7 +35,8 @@ const FormDisabledDemo: React.FC = () => {
 
   const [nowWorking, setNowWorking] = useState ('თავისუფალი')
   const [sliderNumber, setSliderNumber] = useState(1)
-  
+  const [radioInfo, setRadioInfo] = useState ('employable')
+
   const positionClass = `${style.myClass} ${style.position}`
   const upload = `${style.myClass} ${style.upload}`
 
@@ -43,6 +45,12 @@ const FormDisabledDemo: React.FC = () => {
     if ('workingValueChange' in changeValues){
 
       setNowWorking( changeValues.workingValueChange ? 'დასაქმებული' : 'თავისუფალი' )
+
+    } else if("radioInfo" in changeValues){
+     
+      setRadioInfo(changeValues.radioInfo == 'employable'  ? 'employable' : 'employer')
+
+      
     }
   }
 
@@ -59,9 +67,9 @@ const FormDisabledDemo: React.FC = () => {
         onValuesChange={getFromChangeValue}
       >
 
-        <Form.Item label="მიუთითეთ პოზიცია" className={positionClass}>
-          <Radio.Group>
-            <Radio value="employer"> დამსაქმებელი </Radio>
+        <Form.Item label="მიუთითეთ პოზიცია" className={positionClass} name="radioInfo" initialValue={'employable'}>
+          <Radio.Group >
+            <Radio value="employer"  > დამსაქმებელი </Radio>
             <Radio value="employable"> დასასაქმებელი </Radio>
           </Radio.Group>
         </Form.Item>
@@ -70,36 +78,52 @@ const FormDisabledDemo: React.FC = () => {
           <Input />
         </Form.Item>
 
+        {radioInfo == 'employer' ? (
+            <Form.Item label="კომპანიის სახელი" className={style.myClass}>
+              <Input />
+            </Form.Item> ) : false
+        }
+
         <Form.Item label="მისამართი" className={style.myClass}>
           <Input />
         </Form.Item>
+       
+       {radioInfo == 'employer' ? (
 
-        <Form.Item label="პროფესია" className={style.myClass}>
+        <Form.Item label="კომპანიის საქმიანობა" className={style.myClass}>
           <Select>
-            <Select.Option value="SoftwareDeveloper">Software Developer/Engineer</Select.Option>
-            <Select.Option value="WebDeveloper">Web Developer</Select.Option>
-            <Select.Option value="AppDeveloper">Mobile App Developer</Select.Option>
-            <Select.Option value="FullStackDeveloper">Full Stack Developer</Select.Option>
-            <Select.Option value="BackendDeveloper">Backend Developerr</Select.Option>
-            <Select.Option value="FrontendDeveloper">Frontend Developer</Select.Option>
-            <Select.Option value="DevOpsEngineer">DevOps Engineer</Select.Option>
-            <Select.Option value="DatabaseAdministrator">Database Administrator (DBA)</Select.Option>
-            <Select.Option value="SystemAdministrator">System Administrator</Select.Option>
-            <Select.Option value="CloudEngineer">Cloud Engineer/Architect</Select.Option>
-
-            <Select.Option value="SecurityEngineer">Security Engineer</Select.Option>
-            <Select.Option value="DataScientist">Data Scientist</Select.Option>
-            <Select.Option value="MachineLearningEngineer">Machine Learning Engineer</Select.Option>
-            <Select.Option value="GameDeveloper">Game Developer</Select.Option>
-            <Select.Option value="UI/UXDesigner">UI/UX Designer</Select.Option>
-            <Select.Option value="QAEngineer/Tester">QA Engineer/Tester</Select.Option>
-            <Select.Option value="EmbeddedSystemsDeveloper">Embedded Systems Developer</Select.Option>
-            <Select.Option value="BlockchainDeveloper">Blockchain Developer</Select.Option>
-            <Select.Option value="NetworkEngineer">Network Engineer</Select.Option>
-            <Select.Option value="AIEnginee">AI Enginee</Select.Option>
+            <Select.Option value="Tech Startups">Tech Startups</Select.Option>
+            <Select.Option value="Software Development Companies">Software Development Companies</Select.Option>
+            <Select.Option value="Technology Consultancies">Technology Consultancies</Select.Option>
+            <Select.Option value="E-commerce Companies">E-commerce Companies</Select.Option>
+            <Select.Option value="Social Media Platforms">Social Media Platforms</Select.Option>
+            <Select.Option value="Game Development Studios">Game Development Studios</Select.Option>
+            <Select.Option value="Hardware Manufacturers">Hardware Manufacturers</Select.Option>
+            <Select.Option value="Cloud Computing Providers">Cloud Computing Providers</Select.Option>
+            <Select.Option value="Telecommunication Companies">Telecommunication Companies</Select.Option>
+            <Select.Option value="Cybersecurity Firms">Cybersecurity Firms</Select.Option>
+            <Select.Option value="Data Analytics Companies">Data Analytics Companies</Select.Option>
+            <Select.Option value="AI Companies">AI Companies</Select.Option>
+            <Select.Option value="Robotics Companies">Robotics Companies</Select.Option>
+            <Select.Option value="IoT Companies">IoT Companies</Select.Option>
+            <Select.Option value="Biotechnology Companies">Biotechnology Companies</Select.Option>
+            <Select.Option value="Tech Research Institutions">Tech Research Institutions</Select.Option>
+            <Select.Option value="EdTech Companies">EdTech Companies</Select.Option>
+            <Select.Option value="HealthTech Companies">HealthTech Companies</Select.Option>
+            <Select.Option value="FinTech Companies">FinTech Companies</Select.Option>
+            <Select.Option value="AR/VR Companies">AR/VR Companies</Select.Option>
+            <Select.Option value="Open Source Projects">Open Source Projects</Select.Option>
+            <Select.Option value="Government Tech Departments">Government Tech Departments</Select.Option>
+            <Select.Option value="Nonprofit Tech Organizations">Nonprofit Tech Organizations</Select.Option>
+            <Select.Option value="Freelancers and Independent Contractors">Freelancers and Independent Contractors</Select.Option>
           </Select>
         </Form.Item>
 
+         ) : ( <div className={style.selectProfesionDiv}>
+         <p className={style.workingSpan}>აირჩიეთ პროფესია</p>
+           <SelectProfesion  />
+         </div> )
+        } 
         {/* <Form.Item label="Cascader">
           <Cascader
             options={[
@@ -121,41 +145,29 @@ const FormDisabledDemo: React.FC = () => {
           <DatePicker />
         </Form.Item>
 
-        <Form.Item label="გამოცდილების ხანგრძლივობა" className={style.birthday}>
+        <Form.Item label={ radioInfo == 'employer' ? "კომპანიის არსებობის ხანგრძლივობა" : "გამოცდილების ხანგრძლივობა"} className={style.birthday}>
           <RangePicker />
         </Form.Item>
-
-        {/* <Form.Item label="InputNumber">
-          <InputNumber />
-        </Form.Item> */}
-
-        <Form.Item label="განათლება" className={style.myClass}>
+ 
+       { radioInfo == 'employer' ? (
+          <Form.Item label="კომპანიის სესახებ" className={style.myClass}>
+            <TextArea rows={4} />
+          </Form.Item>) : (
+         <>
+          <Form.Item label="განათლება" className={style.myClass}>
           <TextArea rows={4} />
-        </Form.Item>
+          </Form.Item>
 
-        <Form.Item label="გამოცდილება" className={style.myClass}>
+          <Form.Item label="გამოცდილება" className={style.myClass}>
           <TextArea rows={4} />
-        </Form.Item>
+          </Form.Item>
 
+          
         <div className={style.chekidChangDiv}>
           <Form.Item label="ამჟამად" valuePropName="checked" className={style.working} name="workingValueChange">
             <Switch />
           </Form.Item>
          <span className={style.workingSpan}> {nowWorking} </span> 
-        </div>
-
-        <Form.Item label="პროფილის ფოტო" valuePropName="fileList" getValueFromEvent={normFile} className={upload}>
-          <Upload action="/upload.do" listType="picture-card">
-            <button style={{ border: 0, background: 'none' }} type="button">
-              <PlusOutlined />
-              <div style={{ marginTop: 8 , color: '#809ab9' }}>ატვირთვა</div>
-            </button>
-          </Upload>
-        </Form.Item>
-
-        <div className={style.fileUpload}>
-          <p className={style.workingSpan}>დიპლომი და რეზიუმე</p>
-          <FileUpload/>
         </div>
 
         <div className={style.skilss}>
@@ -201,14 +213,27 @@ const FormDisabledDemo: React.FC = () => {
             </div>
          
         </div>
+          </>
+          )
+       }
+
+        <Form.Item label="პროფილის ფოტო" valuePropName="fileList" getValueFromEvent={normFile} className={upload}>
+          <Upload action="/upload.do" listType="picture-card">
+            <button style={{ border: 0, background: 'none' }} type="button">
+              <PlusOutlined />
+              <div style={{ marginTop: 8 , color: '#809ab9' }}>ატვირთვა</div>
+            </button>
+          </Upload>
+        </Form.Item>
+
+        <div className={style.fileUpload}>
+          <p className={style.workingSpan}>{  radioInfo == 'employer' ? 'დოცუმენტაცია' : 'დიპლომი და რეზიუმე'}</p>
+          <FileUpload/>
+        </div>
 
         <Form.Item className={style.myClass} style={{marginTop:'30px'}}>
           <Button style={{background:' rgba(0, 0, 0, 0.5)', color:'#69B1FF'}}> დასრულება </Button>
         </Form.Item>
-
-        {/* <Form.Item label="ColorPicker">
-          <ColorPicker />
-        </Form.Item> */}
 
       </Form>
     </>
