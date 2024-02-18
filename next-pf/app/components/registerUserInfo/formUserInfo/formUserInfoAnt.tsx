@@ -36,18 +36,23 @@ const FormDisabledDemo: React.FC = () => {
 
   const [nowWorking, setNowWorking] = useState ('თავისუფალი')
   const [radioInfo, setRadioInfo] = useState ('employable')
-  const [sliderSkills, setSliderSkills] = useState ( [ { name: '', value: 1 } ] )
+  const [sliderSkills, setSliderSkills] = useState ( [ { name: '', value: 0 } ] )
+  const [linkFacebook, setLinkFacebook] = useState ('')
+  const [linkGithub, setLinkGithub] = useState ('')
+  const [linkLinkedln, setLinkLinkedln] = useState ('')
 
   // useEffect(()=> {
 
-  //   console.log(sendRegisterUserInNode);
+  //   console.log(linkFacebook);
+  //   console.log(linkGithub);
+  //   console.log(linkLinkedln);
   // })
 
   const positionClass = `${style.myClass} ${style.position}`
   const upload = `${style.myClass} ${style.upload}`
 
   const getFromChangeValue = (changeValues: any, allValues: any) => {
-     console.log(allValues);
+    //  console.log(allValues);
      
     if ('workingValueChange' in changeValues){
 
@@ -60,7 +65,7 @@ const FormDisabledDemo: React.FC = () => {
     } 
   }
 
-  function clickSlider () { setSliderSkills( [ ...sliderSkills, { name: '', value: 1 } ] ) }
+  function clickSlider () { setSliderSkills( [ ...sliderSkills, { name: '', value: 0 } ] ) }
 
   return (
     <>
@@ -213,9 +218,11 @@ const FormDisabledDemo: React.FC = () => {
               </div>
             ))
           }
-        <Button  onClick={clickSlider} style={{background:' rgba(0, 0, 0, 0.5)', color:'#809ab9'}}>უნარის დამატება</Button>
+        <Button  onClick={clickSlider} style={{background:' rgba(0, 0, 0, 0.5)', color:'#809ab9'}}>
+          უნარის დამატება
+        </Button>
         </div>
-          {/* aqamde movedi  @@@@@@@@@@@@@@@@@@@@@*/}
+    
         <div  className={style.skilss} >
 
           <p className={style.workingSpan}>სოციალური საიტები</p>
@@ -223,19 +230,28 @@ const FormDisabledDemo: React.FC = () => {
             <div className={style.contactLinkDiv}>
             <FacebookFilled style={{fontSize: '25px', color: '#69B1FF'}}/>
             <LinkOutlined style={{color: ' #809ab9'}}/>
-            <Input style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}/>
+            <Input 
+            style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}
+            onChange={(e)=> setLinkFacebook(e.target.value)}
+            />
             </div >
 
             <div className={style.contactLinkDiv}>
               <LinkedinOutlined style={{fontSize: '25px', color: '#69B1FF' }}/>
               <LinkOutlined style={{color: ' #809ab9'}}/>
-              <Input style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9' }}/>
+              <Input 
+              style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9' }}
+              onChange={(e)=> setLinkLinkedln(e.target.value)}
+              />
             </div>
 
             <div className={style.contactLinkDiv}>
               <GithubOutlined style={{fontSize: '25px', color: '#69B1FF'}}/>
               <LinkOutlined style={{color: ' #809ab9'}}/>
-              <Input style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}/>
+              <Input 
+              style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}
+              onChange={(e)=> setLinkGithub(e.target.value)}
+              />
             </div>
          
         </div>
