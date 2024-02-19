@@ -44,8 +44,28 @@ const tailFormItemLayout = {
 export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
   const [inputNoValid, setInputNoValid] = useState('')
+  const [submitDisabled, setSubmitDisabled] = useState (true)
   
   const { setRegisterUserInfo} = useGlobalContext()
+
+  // ar arsi dasruulebuli 
+
+  function  cheingedValue  (values: any, allValues: any) {
+
+     const email = values.email
+     const password = values.password
+     const confirm = values.confirm
+     const nickname = values.nickname
+     const phone = values.phone
+     console.log(email.length);
+   
+     if ( email.length > 0 && password.length > 0   ) {
+
+          setSubmitDisabled(false)
+
+        }
+     
+  }
 
   const onFinish = async (values: any) => {
 
@@ -57,8 +77,6 @@ export const RegisterAnt: React.FC = () => {
     const prefix = values.prefix
     const phone = values.phone
     const agreement = values.agreement
-   // const registerUserInfo
-    // რეგისტრაციის მეორე პუნქტიოსთვის ვამატებ ობიექტს 
 
     const response = await fetch(" http://localhost:4000/register ", {
      method: "POST",
@@ -118,6 +136,7 @@ export const RegisterAnt: React.FC = () => {
       layout='vertical'
       requiredMark = {false}
       className={ style.antForm }
+      onValuesChange={cheingedValue}
      
     >
       <Form.Item
@@ -257,7 +276,7 @@ export const RegisterAnt: React.FC = () => {
 
 
       <Form.Item {...tailFormItemLayout} wrapperCol={ { offset : 6 } }   className={style.formItemsRegister}>
-        <Button type="primary" htmlType="submit">
+        <Button type="primary" htmlType="submit" disabled={submitDisabled}>
           Register
         </Button>
       </Form.Item>
