@@ -39,9 +39,9 @@ export const LoginModalLogik = () => {
                  </OnclickBtn>
 
                </div>
-
+               {/* <LogginModal/> */}
               { 
-                !getRegister ? <LogginModal/>  : getRegister && !registerUserInfo ? <RegisterAnt/> 
+                !getRegister ?  <UserInfo/>  : getRegister && !registerUserInfo ? <RegisterAnt/> 
                 : registerUserInfo && getRegister ?  <UserInfo/> : false
                 
               }

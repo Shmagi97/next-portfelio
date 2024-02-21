@@ -2,11 +2,10 @@
 
 import style from './formUser.module.scss'
 
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FacebookFilled, GithubOutlined, LinkOutlined, LinkedinOutlined, PlusOutlined } from '@ant-design/icons';
 import {
   Button,
-  Cascader,
   DatePicker,
   Form,
   Input,
@@ -41,18 +40,10 @@ const FormDisabledDemo: React.FC = () => {
   const [linkGithub, setLinkGithub] = useState ('')
   const [linkLinkedln, setLinkLinkedln] = useState ('')
 
-  // useEffect(()=> {
-
-  //   console.log(linkFacebook);
-  //   console.log(linkGithub);
-  //   console.log(linkLinkedln);
-  // })
-
   const positionClass = `${style.myClass} ${style.position}`
   const upload = `${style.myClass} ${style.upload}`
 
   const getFromChangeValue = (changeValues: any, allValues: any) => {
-    //  console.log(allValues);
      
     if ('workingValueChange' in changeValues){
 
@@ -67,6 +58,52 @@ const FormDisabledDemo: React.FC = () => {
 
   function clickSlider () { setSliderSkills( [ ...sliderSkills, { name: '', value: 0 } ] ) }
 
+  const onFinish = async (getValues: any) => {
+
+   const radioinfo = getValues.radioinfo
+   const nameAndSurname = getValues.nameAndSurname
+   const address = getValues.address
+   const dateOfBirth = getValues.dateOfBirth
+   const CompanyExperienceDuration = getValues.CompanyExperienceDuration
+   const education = getValues.education
+   const experience = getValues.experience
+   const workingValueChange = getValues.workingValueChange
+   const uploadPhoto = getValues.uploadPhoto
+
+     await fetch (" http://localhost:4000/registerEdUserInfo ", {
+     
+     method: "POST",
+
+     headers: {
+      'Content-Type': 'application/json',
+     },
+
+     body: JSON.stringify({ 
+      radioinfo,
+      nameAndSurname,
+      address,
+      dateOfBirth,
+      CompanyExperienceDuration,
+      education,
+      experience,
+      workingValueChange,
+      uploadPhoto, 
+      sliderSkills, 
+      linkFacebook,
+      linkGithub, 
+      linkLinkedln,
+    })
+
+     })
+     .then((res)=>{
+        res.json()
+        console.log(res);
+        
+     } )
+ 
+     
+  }
+
   return (
     <>
       <Form
@@ -74,6 +111,8 @@ const FormDisabledDemo: React.FC = () => {
         wrapperCol={{ span: 15 }}
         layout="vertical"
         onValuesChange={getFromChangeValue}
+        onFinish={onFinish}
+        method='post'
       >
 
         <Form.Item label="მიუთითეთ პოზიცია" className={positionClass} name="radioInfo" initialValue={'employable'}>
@@ -81,21 +120,21 @@ const FormDisabledDemo: React.FC = () => {
             <Radio value="employer"  > დამსაქმებელი </Radio>
             <Radio value="employable"> დასასაქმებელი </Radio>
           </Radio.Group>
-        </Form.Item>
+        </Form.Item> {/* get in values */}
 
         <Form.Item label="სახელი და გვარი" className={style.myClass} name="nameAndSurname">
           <Input />
-        </Form.Item>
+        </Form.Item>  {/* get in values */}
 
         {radioInfo == 'employer' ? (
             <Form.Item label="კომპანიის სახელი" className={style.myClass} name="companyName">
               <Input />
-            </Form.Item> ) : false
+            </Form.Item> ) : false  // get in values
         }
 
         <Form.Item label="მისამართი" className={style.myClass} name="address">
           <Input />
-        </Form.Item>
+        </Form.Item> {/* get in values */}
        
        {radioInfo == 'employer' ? (
 
@@ -126,58 +165,42 @@ const FormDisabledDemo: React.FC = () => {
             <Select.Option value="Nonprofit Tech Organizations">Nonprofit Tech Organizations</Select.Option>
             <Select.Option value="Freelancers and Independent Contractors">Freelancers and Independent Contractors</Select.Option>
           </Select>
-        </Form.Item>
+        </Form.Item> // get in values
 
          ) : ( <div className={style.selectProfesionDiv}>
          <p className={style.workingSpan}>აირჩიეთ პროფესია</p>
         
            <SelectProfesion  /> 
-         </div> )
+         </div> ) // get in setSendRegisterUserInNode state
         } 
-        {/* <Form.Item label="Cascader">
-          <Cascader
-            options={[
-              {
-                value: 'zhejiang',
-                label: 'Zhejiang',
-                children: [
-                  {
-                    value: 'hangzhou',
-                    label: 'Hangzhou',
-                  },
-                ],
-              },
-            ]}
-          />
-        </Form.Item> */}
 
         <Form.Item label="დაბადების თარიღი" className={style.birthday} name="dateOfBirth">
           <DatePicker />
-        </Form.Item>
+        </Form.Item>   {/* get in values */}
 
         <Form.Item label={ radioInfo == 'employer' ? "კომპანიის არსებობის ხანგრძლივობა" 
                          : "გამოცდილების ხანგრძლივობა"} className={style.birthday} name="CompanyExperienceDuration">
           <RangePicker />
-        </Form.Item>
+        </Form.Item> {/* get in values */}
  
        { radioInfo == 'employer' ? (
           <Form.Item label="კომპანიის შესახებ" className={style.myClass} name="CompanyLoans">
             <TextArea rows={4} />
-          </Form.Item>) : (
+          </Form.Item>) : ( // get in values
          <>
           <Form.Item label="განათლება" className={style.myClass} name="education">
           <TextArea rows={4} />
-          </Form.Item>
+          </Form.Item> {/* get in values */}
 
           <Form.Item label="გამოცდილება" className={style.myClass} name="experience">
           <TextArea rows={4} />
-          </Form.Item>
+          </Form.Item> {/* get in values */}
 
           
         <div className={style.chekidChangDiv}>
           <Form.Item label="ამჟამად" valuePropName="checked" className={style.working} name="workingValueChange">
             <Switch />
-          </Form.Item>
+          </Form.Item> {/* get in values */}
          <span className={style.workingSpan}> {nowWorking} </span> 
         </div>
 
@@ -200,7 +223,7 @@ const FormDisabledDemo: React.FC = () => {
                       setSliderSkills(ubdateSkills)
                     }
                   }   
-                />
+                />  {/* get in setSliderSkills state */}
 
                <Form.Item  className={style.skilssFormItem} >
                 <Slider value={slider.value} onChange={
@@ -212,7 +235,7 @@ const FormDisabledDemo: React.FC = () => {
                     }
                  }   
                  
-                 />
+                 /> {/* get in setSliderSkills state */}
   
                </Form.Item>
               </div>
@@ -233,7 +256,7 @@ const FormDisabledDemo: React.FC = () => {
             <Input 
             style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}
             onChange={(e)=> setLinkFacebook(e.target.value)}
-            />
+            />  {/* get in setLinkFacebook state */}
             </div >
 
             <div className={style.contactLinkDiv}>
@@ -242,7 +265,7 @@ const FormDisabledDemo: React.FC = () => {
               <Input 
               style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9' }}
               onChange={(e)=> setLinkLinkedln(e.target.value)}
-              />
+              /> {/* get in setLinkLinkedln state */}
             </div>
 
             <div className={style.contactLinkDiv}>
@@ -251,7 +274,7 @@ const FormDisabledDemo: React.FC = () => {
               <Input 
               style={{background: ' rgba(0, 0, 0, 0.5)', color: ' #809ab9'}}
               onChange={(e)=> setLinkGithub(e.target.value)}
-              />
+              /> {/* get in setLinkGithub state */}
             </div>
          
         </div>
@@ -260,21 +283,23 @@ const FormDisabledDemo: React.FC = () => {
        }
 
         <Form.Item label="პროფილის ფოტო" valuePropName="fileList" getValueFromEvent={normFile} className={upload} name="uploadPhoto">
-          <Upload action="/upload.do" listType="picture-card">
+          <Upload listType="picture-card">
             <button style={{ border: 0, background: 'none' }} type="button">
               <PlusOutlined />
               <div style={{ marginTop: 8 , color: '#809ab9' }}>ატვირთვა</div>
             </button>
           </Upload>
-        </Form.Item>
+        </Form.Item> {/* get in values */}
 
         <div className={style.fileUpload}>
           <p className={style.workingSpan}>{  radioInfo == 'employer' ? 'დოცუმენტაცია' : 'დიპლომი და რეზიუმე'}</p>
-          <FileUpload/>
+          <FileUpload/>  {/* reqvesti komponentidan  */}
         </div>
 
         <Form.Item className={style.myClass} style={{marginTop:'30px'}}>
-          <Button style={{background:' rgba(0, 0, 0, 0.5)', color:'#69B1FF'}}> დასრულება </Button>
+          <Button type="primary" htmlType="submit" style={{background:' rgba(0, 0, 0, 0.5)', color:'#69B1FF'}}>
+             დასრულება
+          </Button>
         </Form.Item>
 
       </Form>

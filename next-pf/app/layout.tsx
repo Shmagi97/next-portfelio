@@ -40,7 +40,7 @@ export default function RootLayout({
       <main className={style.layoutMain}>
     <ReduxWrapper>
       <GlobalContextProvider>
-          {/* 1. GlobalDinamikChaild- ში ივენთზე დინამიურად იცვლება შვილი კომპპონენტები */}
+          
            <GlobalDinamikChaild/>
            
            <LoginModalLogik />
@@ -54,6 +54,7 @@ export default function RootLayout({
                    {children}
 
              </RecoilWrapper>
+             
            <WrapperFooter>
              <Footer/>
            </WrapperFooter>

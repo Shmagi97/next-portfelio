@@ -48,22 +48,24 @@ export const RegisterAnt: React.FC = () => {
   
   const { setRegisterUserInfo} = useGlobalContext()
 
-  // ar arsi dasruulebuli 
-
   function  cheingedValue  (values: any, allValues: any) {
 
-     const email = values.email
-     const password = values.password
-     const confirm = values.confirm
-     const nickname = values.nickname
-     const phone = values.phone
-     console.log(email.length);
-   
-     if ( email.length > 0 && password.length > 0   ) {
+     const allFieldsFilled = Object.values(allValues).every((fieldValue) => {
 
-          setSubmitDisabled(false)
+    if (typeof fieldValue === 'string') return fieldValue.length > 0;
+  
+     else if (typeof fieldValue === 'boolean')   return true; 
+    
+     else return false; 
 
-        }
+  });
+
+  const emailValid =  /^[a-zA-Z0-9._%+-]+@(mail|gmail)\.[a-zA-Z]{2,}/.test(allValues.email)
+  const passwordValid =  /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).+$/.test(allValues.password)
+  const phoneValid =  /^[0-9]+$/.test(allValues.phone)
+
+  if ( phoneValid && passwordValid && emailValid && allValues.agreement && allFieldsFilled)  setSubmitDisabled(false);
+   else setSubmitDisabled(true);
      
   }
 
@@ -149,7 +151,7 @@ export const RegisterAnt: React.FC = () => {
           },
           {
             required: true,
-            message: 'გთხოვთ შეიყვანეთ ტქვენი გიმეილი',
+            message: 'გთხოვთ შეიყვანეთ თქვენი გიმეილი',
           },
 
           {
@@ -244,6 +246,11 @@ export const RegisterAnt: React.FC = () => {
            { 
             required: true, message: 'გთხოვთ შეიყვანეთ ტელეფონის ნომერი' 
            } ,
+
+           {
+            pattern: /^[0-9]+$/,
+            message: 'შეიყვანეთ მხოლოდ ციფრები'
+           }
        
           
           ]}

@@ -17,8 +17,8 @@ const FileUpload: React.FC = () => {
       formData.append('files[]', file as FileType);
     });
     setUploading(true);
-    // You can use any AJAX library you like
-    fetch('https://run.mocky.io/v3/435e224c-44fb-4773-9faf-380c5e6a2188', {
+
+    fetch( " http://localhost:4000/registerUserInfo " , {
       method: 'POST',
       body: formData,
     })
