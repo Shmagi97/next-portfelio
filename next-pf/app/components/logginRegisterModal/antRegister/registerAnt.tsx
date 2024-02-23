@@ -45,6 +45,8 @@ export const RegisterAnt: React.FC = () => {
   const [form] = Form.useForm();
   const [inputNoValid, setInputNoValid] = useState('')
   const [submitDisabled, setSubmitDisabled] = useState (true)
+
+  const { setIdentifier } = useGlobalContext()
   
   const { setRegisterUserInfo} = useGlobalContext()
 
@@ -75,10 +77,12 @@ export const RegisterAnt: React.FC = () => {
     const email = values.email
     const password = values.password
     const confirm = values.confirm
-    const nickname = values.nickname
+    const identifier = values.identifier
     const prefix = values.prefix
     const phone = values.phone
     const agreement = values.agreement
+
+    setIdentifier(identifier)
 
     const response = await fetch(" http://localhost:4000/register ", {
      method: "POST",
@@ -87,7 +91,7 @@ export const RegisterAnt: React.FC = () => {
       'Content-Type': 'application/json',
      },
 
-     body: JSON.stringify( {email, password, confirm, nickname, prefix, phone , agreement } )
+     body: JSON.stringify( {email, password, confirm, identifier, prefix, phone , agreement } )
 
     });
 
@@ -105,7 +109,10 @@ export const RegisterAnt: React.FC = () => {
     } else {
      
      const errorRespons = await response.json()
-     setInputNoValid(errorRespons.error.slice(2,9).trim())
+     setInputNoValid(errorRespons.error.slice(4,10).trim())
+     console.log(errorRespons);
+     console.log(inputNoValid);
+     
      
       notification.error({
         message: 'წარუმატებელი რეგისტრაცია',
@@ -220,21 +227,21 @@ export const RegisterAnt: React.FC = () => {
       </Form.Item>
 
       <Form.Item
-        name="nickname"
-        label="Nickname"
-        tooltip="როგორც გინდათ რომ გამოჩნდეს თქვენი სახელი"
+        name="identifier"
+        label="identifier"
+        tooltip="'identifier'- არის უნიკალური იდენთიფიკატორი თქვენს პირად მონაცემებზე უსაფრთხო წვდომისათვის"
         rules={[
           { 
-            required: true, message: 'გთხოვთ შეიყვანეთ სახელი', whitespace: true
+            required: true, message: 'გთხოვთ შექმენით  იდენთიფიკატორი', whitespace: true
           },
           {
             min: 7,
-            message: 'მინიმუმ 7 სიმბოლო',
+            message: 'მინიმუმ 10 სიმბოლო',
           },
         ]}
         className={style.formItems}
       >
-        <Input  disabled = {inputNoValid === 'სახელი' || inputNoValid === '' ? false : true} />
+        <Input  disabled = {inputNoValid === 'ნტიფიკ' || inputNoValid === '' ? false : true} />
       </Form.Item>
 
 

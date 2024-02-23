@@ -22,7 +22,7 @@ type DataGlobalClickNumber = [
     { servisPageAnimNavigate :  number []} ,
 ];
 
-type SendRegisterUserInNodeTP = [
+type SelectProfesionTP = [
    {selectedProfesion: string []},
 ]
 
@@ -31,12 +31,15 @@ interface ContextProps {
     imgnumber: number,
     setImagenumber: Dispatch <SetStateAction <number> >,
 
+    identifier: string,
+    setIdentifier: Dispatch < SetStateAction < string > >,
+
     dataimg : DataType [],
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     clickGlobaldNumber : DataGlobalClickNumber ,
     setClickGlobaldNumber : Dispatch < SetStateAction < DataGlobalClickNumber > >,
-    sendRegisterUserInNode : SendRegisterUserInNodeTP  ,
-    setSendRegisterUserInNode : Dispatch < SetStateAction < SendRegisterUserInNodeTP  > >
+    selectProfesionUser : SelectProfesionTP  ,
+    setSelectProfesionUser : Dispatch < SetStateAction < SelectProfesionTP  > >
 
     chekDelay : boolean,
     setChekDelay : Dispatch <SetStateAction <boolean> >,
@@ -63,12 +66,15 @@ const GlobalContext = createContext<ContextProps>({
     imgnumber : 0,
     setImagenumber : () : number => 0,
 
+    identifier: '',
+    setIdentifier: () : string => '',
+
     dataimg : [],
     setDataimg : () : DataType [] => [],
     clickGlobaldNumber : [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] } ],
     setClickGlobaldNumber : () : DataGlobalClickNumber [] => [ [{globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] }] ],
-    sendRegisterUserInNode : [  {selectedProfesion:  []} ],
-    setSendRegisterUserInNode : () : SendRegisterUserInNodeTP [] => [ [ { selectedProfesion:  []} ] ],
+    selectProfesionUser : [  {selectedProfesion:  []} ],
+    setSelectProfesionUser : () : SelectProfesionTP [] => [ [ { selectedProfesion:  []} ] ],
 
     chekDelay : false,
     setChekDelay : () : boolean => false,
@@ -93,6 +99,9 @@ const GlobalContext = createContext<ContextProps>({
 
 export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [imgnumber, setImagenumber] = useState(0)
+
+    const [identifier, setIdentifier] = useState ('')
+    
     const [chekDelay, setChekDelay] = useState (false)
     const [clickModal , setClickModal ] = useState (false)
     const [getRegister, setGetregister] = useState (false)
@@ -103,7 +112,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [clickGlobaldNumber, setClickGlobaldNumber] = useState < DataGlobalClickNumber > 
     ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] } ] )
     const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
-    const [sendRegisterUserInNode, setSendRegisterUserInNode] = useState < SendRegisterUserInNodeTP > ( [   {selectedProfesion:  []}  ] )
+    const [selectProfesionUser, setSelectProfesionUser] = useState < SelectProfesionTP > ( [   {selectedProfesion:  []}  ] )
 
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
@@ -120,7 +129,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             clickGlobaldNumber, setClickGlobaldNumber, 
             getRegister, setGetregister, headerFooter, setHeaderFooter,
             registerUserInfo, setRegisterUserInfo, registerUserInfoSucces, serRegisterUserInfoSucces,
-            sendRegisterUserInNode, setSendRegisterUserInNode,
+            selectProfesionUser, setSelectProfesionUser, identifier, setIdentifier,
             
             }}>
 

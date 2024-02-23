@@ -8,11 +8,11 @@ import { useGlobalContext } from '@/app/context/context';
 
 const SelectProfesion: React.FC = () => {
 
-  const { setSendRegisterUserInNode } = useGlobalContext()
+  const { setSelectProfesionUser, } = useGlobalContext()
 
   const handleChange = (value: string[]) => {
 
-    setSendRegisterUserInNode( [ {selectedProfesion: value } ]  )
+    setSelectProfesionUser( [ {selectedProfesion: value } ]  )
   };
   
   const options: SelectProps['options'] = [

@@ -31,8 +31,8 @@ const normFile = (e: any) => {
 
 const FormDisabledDemo: React.FC = () => {
 
-  const { sendRegisterUserInNode } = useGlobalContext()
-
+  const { selectProfesionUser, identifier} = useGlobalContext()
+  
   const [nowWorking, setNowWorking] = useState ('თავისუფალი')
   const [radioInfo, setRadioInfo] = useState ('employable')
   const [sliderSkills, setSliderSkills] = useState ( [ { name: '', value: 0 } ] )
@@ -60,7 +60,7 @@ const FormDisabledDemo: React.FC = () => {
 
   const onFinish = async (getValues: any) => {
 
-   const radioinfo = getValues.radioinfo
+   const radioinfo = getValues.radioInfo
    const nameAndSurname = getValues.nameAndSurname
    const address = getValues.address
    const dateOfBirth = getValues.dateOfBirth
@@ -69,6 +69,10 @@ const FormDisabledDemo: React.FC = () => {
    const experience = getValues.experience
    const workingValueChange = getValues.workingValueChange
    const uploadPhoto = getValues.uploadPhoto
+   const identifier = getValues.identifier
+   const companyName = getValues.companyName
+   const CompanyActivity = getValues.CompanyActivity
+   const CompanyLoans = getValues.CompanyLoans
 
      await fetch (" http://localhost:4000/registerEdUserInfo ", {
      
@@ -79,6 +83,7 @@ const FormDisabledDemo: React.FC = () => {
      },
 
      body: JSON.stringify({ 
+      identifier,
       radioinfo,
       nameAndSurname,
       address,
@@ -92,6 +97,10 @@ const FormDisabledDemo: React.FC = () => {
       linkFacebook,
       linkGithub, 
       linkLinkedln,
+      selectProfesionUser,
+      companyName,
+      CompanyActivity,
+      CompanyLoans,
     })
 
      })
@@ -121,6 +130,17 @@ const FormDisabledDemo: React.FC = () => {
             <Radio value="employable"> დასასაქმებელი </Radio>
           </Radio.Group>
         </Form.Item> {/* get in values */}
+
+        <Form.Item
+            name="identifier"
+            label="შენი იდენთიფიკატორი"
+            initialValue={identifier}
+            tooltip="'identifier'-ეს არის თქვენს მიერ უკვე დარეგისტრირებული იდენთიფიკატორი"
+            className={positionClass}
+            
+          >
+        <Input disabled placeholder={identifier}/>
+      </Form.Item>
 
         <Form.Item label="სახელი და გვარი" className={style.myClass} name="nameAndSurname">
           <Input />
@@ -198,7 +218,8 @@ const FormDisabledDemo: React.FC = () => {
 
           
         <div className={style.chekidChangDiv}>
-          <Form.Item label="ამჟამად" valuePropName="checked" className={style.working} name="workingValueChange">
+          <Form.Item label="ამჟამად" valuePropName="checked" 
+                     className={style.working} name="workingValueChange" initialValue={false}>
             <Switch />
           </Form.Item> {/* get in values */}
          <span className={style.workingSpan}> {nowWorking} </span> 
