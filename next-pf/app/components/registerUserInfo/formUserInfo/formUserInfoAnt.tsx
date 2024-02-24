@@ -14,6 +14,7 @@ import {
   Slider,
   Switch,
   Upload,
+  message,
 } from 'antd';
 import FileUpload from '../fileUpload/fileUpload';
 import SelectProfesion from '../selectProfesion/selectProfesion';
@@ -74,7 +75,7 @@ const FormDisabledDemo: React.FC = () => {
    const CompanyActivity = getValues.CompanyActivity
    const CompanyLoans = getValues.CompanyLoans
 
-     await fetch (" http://localhost:4000/registerEdUserInfo ", {
+    await fetch (" http://localhost:4000/registerEdUserInfo ", {
      
      method: "POST",
 
@@ -104,12 +105,15 @@ const FormDisabledDemo: React.FC = () => {
     })
 
      })
-     .then((res)=>{
-        res.json()
-        console.log(res);
-        
-     } )
- 
+     .then((res)=> res.json())
+     .then((result)=> {
+      message.success(` მომხმარებელი  "${result.userData.nameAndSurname}"  დამატებულია`)
+      
+     })
+     .catch((errors)=> {
+      message.error(errors)
+     })
+     .finally(()=> console.log('finaly'))
      
   }
 

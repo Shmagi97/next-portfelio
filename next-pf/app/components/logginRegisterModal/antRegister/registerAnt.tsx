@@ -110,10 +110,7 @@ export const RegisterAnt: React.FC = () => {
      
      const errorRespons = await response.json()
      setInputNoValid(errorRespons.error.slice(4,10).trim())
-     console.log(errorRespons);
-     console.log(inputNoValid);
-     
-     
+ 
       notification.error({
         message: 'წარუმატებელი რეგისტრაცია',
         description: `${errorRespons.error}. გთხოვთ ცადოთ ხელახლა.`,
