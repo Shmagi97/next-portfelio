@@ -10,13 +10,13 @@ import { UserInfo } from "../../registerUserInfo/userInfo"
 
 export const LoginModalLogik = () => {
 
-    const { clickModal, getRegister, setGetregister , registerUserInfo, registerUserInfoSucces, serRegisterUserInfoSucces} = useGlobalContext()
+    const { clickModal, getRegister, setGetregister , registerUserInfo } = useGlobalContext()
 
     function modalChaildCheing () { 
       
       setGetregister(!getRegister) 
 
-      if (registerUserInfo && getRegister && !registerUserInfoSucces) {
+      if (registerUserInfo && getRegister) {
 
         const leaveUserRegister = window.confirm('პერსონალური ინფორმაციის დარეგისტრირება აუცილებელია თუმცა შესაძლებელია მოგვიანებით, ნამდვილად გსურთ გამოტოვება')
         if(!leaveUserRegister){

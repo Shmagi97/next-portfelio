@@ -37,13 +37,13 @@ const Navigate = () => {
      </OnclickButtonLink>
 
      <OnclickButtonLink getServises = {servises} dropDown = 'servisebi' onClick={loginModalFolse}>
-         <Link href={'/servisePage'}  className={style.buttonLink}>
+         <Link href={'/pages/servisePage'}  className={style.buttonLink}>
          სერვისები
          </Link>
      </OnclickButtonLink>
 
      <OnclickButtonLink  getServises = {servises} dropDown = 'statiebi' onClick={loginModalFolse}>
-         <Link href={'/statiebiPage'}  className={style.buttonLink}>
+         <Link href={'/pages/statiebiPage'}  className={style.buttonLink}>
          სტატიები
          </Link>
      </OnclickButtonLink>

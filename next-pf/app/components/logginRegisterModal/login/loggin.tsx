@@ -1,16 +1,32 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import style from './loggin.module.scss'
 import { notification } from 'antd'
+import { useRouter } from 'next/navigation'
+import { useGlobalContext } from '@/app/context/context'
 
 export const LogginModal = () => {
 
+    const { setClickModal, setHeaderFooter } = useGlobalContext()
+
     const [nameValue, setNameValue] = useState('')
     const [paswordValue, setPaswordValue] = useState('')
+    
+    const savedHeaderFooter = localStorage.getItem('headerFooterNone')
+    const initialHeaderFooter = savedHeaderFooter ? JSON.parse(savedHeaderFooter) : false
+
+    const [headerFooterNone, setHeaderFooterNone] = useState(initialHeaderFooter)
+    console.log(headerFooterNone, 'headerFooterNone');
+    
+    const router = useRouter()
+
+    useEffect(()=> {
+      localStorage.setItem('headerFooterNone', JSON.stringify(headerFooterNone))
+    }, [headerFooterNone])
    
     const submitUser = async (e : any) => {
-     e.preventDefault()
+      e.preventDefault()
        
       const getUserResponse = await fetch(" http://localhost:4000/register ", {
 
@@ -27,9 +43,20 @@ export const LogginModal = () => {
         
         notification.success({
           message: 'შესვლა ნებადართულია',
-          description: `${getUser.loggin}`
+       
         })
+
+        // router.push('/pages/usersPage')
+        // setClickModal(false)
+        // setPaswordValue('')
+        // setNameValue('')
+
+        setHeaderFooterNone('true')
         
+        if(headerFooterNone === 'true'){
+          setHeaderFooter(false)
+        } 
+
       } else {
      
         notification.error({
@@ -55,7 +82,7 @@ export const LogginModal = () => {
                    className={paswordValue.length > 0 ? style.inputFocus2 : undefined}/>
                    <label htmlFor="forLabel2">პაროლი</label>
                  </div>
-                 <button  onClick={submitUser}>
+                 <button type='submit'  onClick={submitUser}>
                   <span></span>
                   <span></span>
                   <span></span>

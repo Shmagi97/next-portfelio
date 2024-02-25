@@ -51,8 +51,6 @@ interface ContextProps {
     setHeaderFooter: Dispatch < SetStateAction < boolean > >,
     registerUserInfo: boolean,
     setRegisterUserInfo: Dispatch < SetStateAction < boolean > >,
-    registerUserInfoSucces: boolean,
-    serRegisterUserInfoSucces: Dispatch < SetStateAction < boolean > >,
 
     globalChildSection : RefObject < HTMLDivElement | null > ,
     setGlobalChildSection : Dispatch < SetStateAction < RefObject < HTMLDivElement | null > > >,
@@ -86,9 +84,6 @@ const GlobalContext = createContext<ContextProps>({
     setHeaderFooter : () : boolean => true,
     registerUserInfo: false,
     setRegisterUserInfo: () : boolean => false,
-    registerUserInfoSucces: false,
-    serRegisterUserInfoSucces: () : boolean => false,
-
 
     globalChildSection : { current: null } ,
     setGlobalChildSection : () : RefObject < HTMLDivElement | null > => ({ current: null }),
@@ -107,7 +102,6 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [getRegister, setGetregister] = useState (false)
     const [headerFooter, setHeaderFooter] = useState (true)
     const [registerUserInfo, setRegisterUserInfo ] = useState (false)
-    const [registerUserInfoSucces, serRegisterUserInfoSucces ] = useState (false)
 
     const [clickGlobaldNumber, setClickGlobaldNumber] = useState < DataGlobalClickNumber > 
     ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] } ] )
@@ -128,7 +122,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             setGlobalChildSection,  clickModal, setClickModal, 
             clickGlobaldNumber, setClickGlobaldNumber, 
             getRegister, setGetregister, headerFooter, setHeaderFooter,
-            registerUserInfo, setRegisterUserInfo, registerUserInfoSucces, serRegisterUserInfoSucces,
+            registerUserInfo, setRegisterUserInfo,
             selectProfesionUser, setSelectProfesionUser, identifier, setIdentifier,
             
             }}>

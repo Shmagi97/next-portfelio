@@ -2,7 +2,7 @@
 
 import style from './formUser.module.scss'
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FacebookFilled, GithubOutlined, LinkOutlined, LinkedinOutlined, PlusOutlined } from '@ant-design/icons';
 import {
   Button,
@@ -30,9 +30,9 @@ const normFile = (e: any) => {
   return e?.fileList;
 };
 
-const FormDisabledDemo: React.FC = () => {
+const FormDisabledDemo: React.FC = () => { 
 
-  const { selectProfesionUser, identifier} = useGlobalContext()
+  const { selectProfesionUser, identifier, setGetregister , setRegisterUserInfo} = useGlobalContext()
   
   const [nowWorking, setNowWorking] = useState ('თავისუფალი')
   const [radioInfo, setRadioInfo] = useState ('employable')
@@ -108,25 +108,28 @@ const FormDisabledDemo: React.FC = () => {
      .then((res)=> res.json())
      .then((result)=> {
       message.success(` მომხმარებელი  "${result.userData.nameAndSurname}"  დამატებულია`)
-      
+     
      })
      .catch((errors)=> {
       message.error(errors)
      })
-     .finally(()=> console.log('finaly'))
+     .finally(()=> {
+      console.log('finaly');
+      
+
+    })
      
   }
 
-  return (
-    <>
-      <Form
-        labelCol={{ span: 10 }}
-        wrapperCol={{ span: 15 }}
-        layout="vertical"
-        onValuesChange={getFromChangeValue}
-        onFinish={onFinish}
-        method='post'
-      >
+  return( <Form
+          labelCol={{ span: 10 }}
+          wrapperCol={{ span: 15 }}
+          layout="vertical"
+          onValuesChange={getFromChangeValue}
+          onFinish={onFinish}
+          method={'post'}
+          action={"/registerEdUserInfo"}
+          >
 
         <Form.Item label="მიუთითეთ პოზიცია" className={positionClass} name="radioInfo" initialValue={'employable'}>
           <Radio.Group >
@@ -322,13 +325,20 @@ const FormDisabledDemo: React.FC = () => {
         </div>
 
         <Form.Item className={style.myClass} style={{marginTop:'30px'}}>
-          <Button type="primary" htmlType="submit" style={{background:' rgba(0, 0, 0, 0.5)', color:'#69B1FF'}}>
+          <Button type="primary" htmlType="submit" 
+                  style={{background:' rgba(0, 0, 0, 0.5)', color:'#69B1FF'}}
+                  onClick={()=> setTimeout(()=> 
+                    {
+                      setGetregister(false)
+                      setRegisterUserInfo(false)
+                    } ,1000) }  
+                  >
              დასრულება
           </Button>
         </Form.Item>
 
       </Form>
-    </>
+  
   );
 };
 
