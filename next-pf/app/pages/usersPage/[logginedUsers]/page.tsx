@@ -1,25 +1,28 @@
 'use client'
 
-import { useState } from 'react'
+import {  useEffect, useState } from 'react'
 import style from './page.module.scss'
+import headerFooterNone from '@/app/components/functionsFN/headerFooterNone'
+import axios from 'axios'
 
 const LogginedUsers = () => {
+    headerFooterNone('true')
 
-    const [userData, setUserData] = useState (null)
+    const [ registerEdUserDataInfo, setRegisterEdUserDataInfo ] = useState (null)
+console.log(registerEdUserDataInfo);
 
-    const userId = '65d8b1cfca245fe918e15a22'
+    useEffect(()=> {
 
-    // useEffect(()=> {
+        const localUserInfoED = localStorage.getItem('registerEdUserId')
 
-    //     axios.get(`http://localhost:4000/users/${userId}`)
-    //      .then((res)=> {
-    //         setUserData(res.data)
-    //         console.log(res);
-            
-    //      })
-
+        axios.get(`http://localhost:4000/users/${localUserInfoED}`)
+         .then((res)=> {
+            setRegisterEdUserDataInfo(res.data)
         
-    // }, [])
+            
+         })
+   
+    }, [])
 
     return <section className={style.logginedUsersSection}>
    

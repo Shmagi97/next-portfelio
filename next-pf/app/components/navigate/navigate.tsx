@@ -4,10 +4,10 @@ import { useGlobalContext } from "@/app/context/context"
 import style from './navigate.module.scss'
 import { GlobalOutlined, LeftOutlined  } from "@ant-design/icons"
 import OnclickButtonLink from "../button/buttonLink/onClickButtonLink"
-import Link from "next/link"
 import { MouseEvent } from "react"
 import  globalNumberSection  from "../functionsFN/numberGlobalSection"
 import { servises } from "./servises/servises"
+import { useRouter } from "next/navigation"
 
 const Navigate = () => {
 
@@ -24,28 +24,29 @@ const Navigate = () => {
         setHeaderFooter(false)
     }
 
-    function loginModalFolse() { setClickModal(false) }
-
+    const router = useRouter();
 
     return <div className={style.cont} >
      <GlobalOutlined  className={style.logginAntIcon} onClick={logginModalFn} suppressHydrationWarning/>
 
-     <OnclickButtonLink >
-         <Link href={'/'}  className={style.buttonLink}>
-            მთავარი
-         </Link>
+     <OnclickButtonLink onClick={ ()=> router.push('/') }>
+          <p className={style.buttonLink}>მთავარი</p>
      </OnclickButtonLink>
 
-     <OnclickButtonLink getServises = {servises} dropDown = 'servisebi' onClick={loginModalFolse}>
-         <Link href={'/pages/servisePage'}  className={style.buttonLink}>
-         სერვისები
-         </Link>
+     <OnclickButtonLink getServises = {servises} dropDown = 'servisebi' 
+     onClick={()=> {
+        setClickModal(false)
+        router.push('/pages/servisePage')
+     }}>
+         <p className={style.buttonLink}>სერვისები</p>
      </OnclickButtonLink>
 
-     <OnclickButtonLink  getServises = {servises} dropDown = 'statiebi' onClick={loginModalFolse}>
-         <Link href={'/pages/statiebiPage'}  className={style.buttonLink}>
-         სტატიები
-         </Link>
+     <OnclickButtonLink  getServises = {servises} dropDown = 'statiebi' 
+     onClick={()=> {
+        setClickModal(false)
+        router.push('/pages/statiebiPage')
+     }}>
+           <p className={style.buttonLink}>სტატიები</p>
      </OnclickButtonLink>
     
      <OnclickButtonLink onClick={clickPortfelio}>

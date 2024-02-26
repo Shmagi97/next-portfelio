@@ -3,6 +3,7 @@
 import { LeftOutlined, RightOutlined } from '@ant-design/icons'
 import Background from './components/background/background'
 import OnclickBtn from './components/button/onClickBtn/onClickBtn'
+import headerFooterNone from './components/functionsFN/headerFooterNone'
 
 import styles from './page.module.scss'
 import { useGlobalContext } from './context/context'
@@ -13,8 +14,10 @@ export default function Home() {
  // event : MouseEvent <HTMLButtonElement>
  // const [clear, setClear] = useState <NodeJS.Timeout | null > ( null )
 
-  const {  setImagenumber , imgnumber , setChekDelay, headerFooter, } = useGlobalContext ()
+  headerFooterNone('false')
 
+  const {  setImagenumber , imgnumber , setChekDelay, headerFooter,  headerFooterLoclaStorage, setHeaderFooterLoclaStorage} = useGlobalContext ()
+ 
   const limit = 6;
 
  function lefClicked () {

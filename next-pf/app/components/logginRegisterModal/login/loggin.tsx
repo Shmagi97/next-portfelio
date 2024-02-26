@@ -1,29 +1,19 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import style from './loggin.module.scss'
 import { notification } from 'antd'
-import { useRouter } from 'next/navigation'
 import { useGlobalContext } from '@/app/context/context'
+import { useRouter } from 'next/navigation'
 
 export const LogginModal = () => {
 
-    const { setClickModal, setHeaderFooter } = useGlobalContext()
+    const { setClickModal } = useGlobalContext()
 
     const [nameValue, setNameValue] = useState('')
     const [paswordValue, setPaswordValue] = useState('')
-    
-    const savedHeaderFooter = localStorage.getItem('headerFooterNone')
-    const initialHeaderFooter = savedHeaderFooter ? JSON.parse(savedHeaderFooter) : false
 
-    const [headerFooterNone, setHeaderFooterNone] = useState(initialHeaderFooter)
-    console.log(headerFooterNone, 'headerFooterNone');
-    
-    const router = useRouter()
-
-    useEffect(()=> {
-      localStorage.setItem('headerFooterNone', JSON.stringify(headerFooterNone))
-    }, [headerFooterNone])
+    const router = useRouter();
    
     const submitUser = async (e : any) => {
       e.preventDefault()
@@ -46,17 +36,9 @@ export const LogginModal = () => {
        
         })
 
-        // router.push('/pages/usersPage')
-        // setClickModal(false)
-        // setPaswordValue('')
-        // setNameValue('')
-
-        setHeaderFooterNone('true')
-        
-        if(headerFooterNone === 'true'){
-          setHeaderFooter(false)
-        } 
-
+        localStorage.setItem('registerEdUserId', getUser.userDataIdentifier._id)
+        router.push(`/pages/usersPage/${getUser.userDataIdentifier._id}`)
+        setClickModal(false)
       } else {
      
         notification.error({
@@ -75,7 +57,7 @@ export const LogginModal = () => {
                  <div>
                    <input type="text" id="forLabel1" value={nameValue} onChange={(e)=> setNameValue(e.target.value)}
                     className={nameValue.length > 0 ? style.inputFocus : undefined}/>
-                   <label htmlFor="forLabel1">მომხმარებელი</label>
+                   <label htmlFor="forLabel1">იდენთიფიკატორი</label>
                  </div>
                  <div>
                    <input type='password' id="forLabel2" value={paswordValue} onChange={(e)=> setPaswordValue(e.target.value)} 

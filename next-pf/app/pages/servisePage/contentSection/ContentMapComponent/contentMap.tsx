@@ -59,7 +59,7 @@ export default ()=> {
 
     const loadedFilter = filterEdMasiv?.filter((el, index)=> index <= contentLoaded)
 
-    return <div className={ servisPageMapWidth? style.returnDiv : style.returnDivWidthChange}>
+    return <div className={ servisPageMapWidth ? style.returnDiv : style.returnDivWidthChange}>
 
            { loadedFilter?.map((el, index)=> <section key={index}>
 

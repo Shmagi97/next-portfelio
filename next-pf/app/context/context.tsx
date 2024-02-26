@@ -33,13 +33,15 @@ interface ContextProps {
 
     identifier: string,
     setIdentifier: Dispatch < SetStateAction < string > >,
+    headerFooterLoclaStorage: string ,
+    setHeaderFooterLoclaStorage: Dispatch < SetStateAction < string > >,
 
     dataimg : DataType [],
     setDataimg : Dispatch <SetStateAction < DataType [] >>,
     clickGlobaldNumber : DataGlobalClickNumber ,
     setClickGlobaldNumber : Dispatch < SetStateAction < DataGlobalClickNumber > >,
     selectProfesionUser : SelectProfesionTP  ,
-    setSelectProfesionUser : Dispatch < SetStateAction < SelectProfesionTP  > >
+    setSelectProfesionUser : Dispatch < SetStateAction < SelectProfesionTP  > >,
 
     chekDelay : boolean,
     setChekDelay : Dispatch <SetStateAction <boolean> >,
@@ -66,6 +68,8 @@ const GlobalContext = createContext<ContextProps>({
 
     identifier: '',
     setIdentifier: () : string => '',
+    headerFooterLoclaStorage: 'true' ,
+    setHeaderFooterLoclaStorage: () : string => 'true',
 
     dataimg : [],
     setDataimg : () : DataType [] => [],
@@ -95,7 +99,8 @@ const GlobalContext = createContext<ContextProps>({
 export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [imgnumber, setImagenumber] = useState(0)
 
-    const [identifier, setIdentifier] = useState ('')
+    const [ identifier, setIdentifier ] = useState ('')
+    const [ headerFooterLoclaStorage, setHeaderFooterLoclaStorage ] = useState('true')
     
     const [chekDelay, setChekDelay] = useState (false)
     const [clickModal , setClickModal ] = useState (false)
@@ -103,11 +108,10 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
     const [headerFooter, setHeaderFooter] = useState (true)
     const [registerUserInfo, setRegisterUserInfo ] = useState (false)
 
-    const [clickGlobaldNumber, setClickGlobaldNumber] = useState < DataGlobalClickNumber > 
+    const [ clickGlobaldNumber, setClickGlobaldNumber ] = useState < DataGlobalClickNumber > 
     ( [ {globalNavigateNumber :[0,0,0,0]},  {globalSectionChildren :  [0,0] }, {servisPageAnimNavigate :  [0,0,0,0,0,0] } ] )
-    const [dataimg, setDataimg] = useState < [] | DataType [] > ([]); 
-    const [selectProfesionUser, setSelectProfesionUser] = useState < SelectProfesionTP > ( [   {selectedProfesion:  []}  ] )
-
+    const [ dataimg, setDataimg ] = useState < [] | DataType [] > ([]); 
+    const [ selectProfesionUser, setSelectProfesionUser ] = useState < SelectProfesionTP > ( [   {selectedProfesion:  []}  ] )
     
     const initialGlobalChildSection = useRef<HTMLDivElement | null>(null);
     const [globalChildSection, setGlobalChildSection] = useState (initialGlobalChildSection);
@@ -124,6 +128,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             getRegister, setGetregister, headerFooter, setHeaderFooter,
             registerUserInfo, setRegisterUserInfo,
             selectProfesionUser, setSelectProfesionUser, identifier, setIdentifier,
+            headerFooterLoclaStorage, setHeaderFooterLoclaStorage,
             
             }}>
 

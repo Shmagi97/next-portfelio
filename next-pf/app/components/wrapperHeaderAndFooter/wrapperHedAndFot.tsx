@@ -5,19 +5,19 @@ import {  ReactNode } from "react"
 
 const WrapperHeader = ( props : { children: ReactNode } )=> {
 
-    const { headerFooter } = useGlobalContext()
+    const { headerFooter , headerFooterLoclaStorage} = useGlobalContext()
   
     return <>
-        { headerFooter ? props.children : false}
+        { headerFooterLoclaStorage === 'false' && headerFooter ? props.children : false}
     </>
 }
 
 const WrapperFooter = ( props : { children: ReactNode } )=> {
 
-    const { headerFooter } = useGlobalContext()
+    const { headerFooter, headerFooterLoclaStorage } = useGlobalContext()
 
     return <>
-        { headerFooter ? props.children : false}
+        { headerFooterLoclaStorage === 'false' && headerFooter ? props.children : false}
     </>
 }
 
