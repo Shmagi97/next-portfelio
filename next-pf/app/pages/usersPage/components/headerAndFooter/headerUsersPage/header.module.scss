@@ -1,0 +1,122 @@
+@import '../../../../../colors.scss';
+
+.headerSection{
+    position: fixed;
+    width: 99.7%;
+}
+
+.navTeg{
+    border: solid yellow;
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: $globalSectionTextColor ;
+    height: 40px;
+}
+
+.navDiv{
+    display: flex;
+    column-gap: 20px;
+    border: solid red;
+    align-items: center;
+}
+
+.navDiv > p {
+    cursor: pointer;
+    color: $usersPageNavTextColor ;
+  
+}
+
+.usersAndNames{
+    border: solid red;
+    display: flex;
+    align-items: center;
+}
+
+.usersAndNames > p{
+    color: $usersPageNavTextColor ;
+}
+
+.seracDiv{
+    border: solid red;
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seracDiv > div:first-child > input{
+    border: none;
+    outline: none;
+}
+
+.searchIqon{
+    cursor: pointer;
+}
+
+.seracDiv > div:last-child{
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+    width: 100px;
+    position: relative;
+    border: 0.01px solid   rgb(179, 179, 179) ;
+    border-radius: 10px;
+    background-color: $MeBackgroundColor ;
+}
+
+.seracDiv > div:last-child > div:first-child{
+  
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    cursor: pointer;
+}
+
+.downIqon{
+    font-size: 13px;
+}
+
+.MeButtonModal{
+    
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    top: 40px;
+    left: -150px;
+    border: 0.01px solid   rgb(179, 179, 179);
+    background-color:  $MeBackgroundColor ;
+}
+
+.MeButtonModalNone{
+    
+    display: none;
+}
+
+.usersImage{
+    border-radius: 50%;
+    cursor: pointer;
+  
+}
+
+.usersImageMeModal{
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.MeButtonModal > div:first-child{
+   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btnProfile{
+   border: 0.1px solid $searchBtnBacgroundNotHover;
+}

@@ -1,6 +1,6 @@
 'use client'
 
-import { atom, selector } from "recoil"
+import { atom, selector, useRecoilState } from "recoil"
 
 // sacdeli
 
@@ -33,5 +33,12 @@ export const vcadeFunqcia = selector({
     default : false,
 
    } )
+
+   export const userInfoState = atom ({
+    key: 'userInfo',
+    default: [],
+   })
+
+   export const useRecoilUserInfo = () => useRecoilState(userInfoState);
 
 

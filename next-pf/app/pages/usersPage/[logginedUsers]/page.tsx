@@ -11,18 +11,18 @@ const LogginedUsers = () => {
     const [ registerEdUserDataInfo, setRegisterEdUserDataInfo ] = useState (null)
 console.log(registerEdUserDataInfo);
 
-    useEffect(()=> {
+    // useEffect(()=> {
 
-        const localUserInfoED = localStorage.getItem('registerEdUserId')
+    //     const localUserInfoED = localStorage.getItem('registerEdUserId')
 
-        axios.get(`http://localhost:4000/users/${localUserInfoED}`)
-         .then((res)=> {
-            setRegisterEdUserDataInfo(res.data)
+    //     axios.get(`http://localhost:4000/users/${localUserInfoED}`)
+    //      .then((res)=> {
+    //         setRegisterEdUserDataInfo(res.data)
         
             
-         })
+    //      })
    
-    }, [])
+    // }, [])
 
     return <section className={style.logginedUsersSection}>
    

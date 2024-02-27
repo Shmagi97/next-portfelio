@@ -37,7 +37,7 @@ export const LogginModal = () => {
         })
 
         localStorage.setItem('registerEdUserId', getUser.userDataIdentifier._id)
-        router.push(`/pages/usersPage/${getUser.userDataIdentifier._id}`)
+        router.push('/pages/usersPage/')
         setClickModal(false)
       } else {
      
