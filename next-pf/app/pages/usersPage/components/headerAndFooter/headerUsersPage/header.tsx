@@ -1,6 +1,6 @@
 'use client'
 
-import {  DownOutlined, SearchOutlined } from '@ant-design/icons'
+import {  DollarOutlined, DownOutlined, HomeOutlined, MessageOutlined, NotificationOutlined, SearchOutlined, UsergroupAddOutlined } from '@ant-design/icons'
 import style from './header.module.scss'
 import Image from 'next/image'
 import img1 from '@/public/image/myImage1.webp'
@@ -15,7 +15,9 @@ import { useRouter } from 'next/navigation'
 
     const [userInfo] = useRecoilUserInfo()
 
-    const router = useRouter()
+    const signOutRouter = useRouter()
+    const viewProfile = useRouter()
+    const usersHomePage = useRouter()
     
 //    console.log(userInfo);  
 
@@ -23,11 +25,35 @@ import { useRouter } from 'next/navigation'
 
         <nav className={style.navTeg}>
               <div className={style.navDiv}>
-                <p>Home</p>
-                <p>My Network</p>
-                <p>Jobs</p>
-                <p>Messaging</p>
-                <p>Notifications</p>
+                <article onClick={()=> {
+                    usersHomePage.push('/pages/usersPage')
+                    setMeclick(false)
+                }}>
+                   <HomeOutlined className={style.iqons}/>
+                   <p>Home</p> 
+                    
+                </article>
+
+                <article>
+                   <UsergroupAddOutlined  className={style.iqons}/>
+                   <p>My Network</p>
+                </article>
+
+                <article>
+                  <DollarOutlined className={style.iqons}/>
+                  <p>Jobs</p>
+                </article>
+                
+                <article>
+                  <MessageOutlined className={style.iqons}/>
+                  <p>Messaging</p>
+                </article>
+
+                <article>
+                  <NotificationOutlined className={style.iqons}/>
+                  <p>Notifications</p>
+                </article>
+                
               </div>
               
               <div className={style.usersAndNames}>
@@ -72,13 +98,19 @@ import { useRouter } from 'next/navigation'
                             />
                             <h1>{userInfo.nameAndSurname}</h1>
                         </div>
-                        <OnclickBtn className={style.btnProfile}>
+                        <OnclickBtn className={style.btnProfile}
+                                    onClick={()=> {
+                                       const getUserId = localStorage.getItem('registerEdUserId')
+                                       viewProfile.push(`/pages/usersPage/${getUserId}`)
+                                       setMeclick(false)
+                                    }}
+                        >
                             view profile
                         </OnclickBtn>
                         <OnclickBtn 
                             className={style.btnProfile} 
                             onClick={()=> {
-                                router.push('/')
+                                signOutRouter.push('/')
                                 localStorage.removeItem('registerEdUserId')
                             }}
                             >

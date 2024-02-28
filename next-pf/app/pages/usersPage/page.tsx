@@ -5,7 +5,7 @@ import style from './page.module.scss'
 import { useEffect } from 'react'
 import axios from 'axios'
 import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
-// import SliderPoster from './components/headerSlider/SliderPoster'
+import SliderPoster from './components/headerSlider/sliderPoster'
 
 const Users = () => {
 
@@ -23,7 +23,9 @@ const Users = () => {
     },[])
 
     return <section className={style.usersSection}>
-        {/* <SliderPoster/> */}
+
+        <SliderPoster/>
+       
     </section>
 }
 export default Users

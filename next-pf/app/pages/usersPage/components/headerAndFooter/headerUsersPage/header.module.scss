@@ -2,34 +2,47 @@
 
 .headerSection{
     position: fixed;
-    width: 99.7%;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+    
 }
 
 .navTeg{
-    border: solid yellow;
-    width: 90%;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
     background-color: $globalSectionTextColor ;
-    height: 40px;
+    height: 45px;
+    padding: 5px;
 }
 
 .navDiv{
     display: flex;
     column-gap: 20px;
-    border: solid red;
-    align-items: center;
+    
 }
 
-.navDiv > p {
+.navDiv > article{
+    text-align: center;
     cursor: pointer;
+   
+}
+
+.navDiv > article > p{
+  font-size: 13px;
+  margin-top: 5px;
+  color: $usersPageNavTextColor ;
+
+}
+
+.iqons{
+    font-size: 20px;
     color: $usersPageNavTextColor ;
-  
 }
 
 .usersAndNames{
-    border: solid red;
+   
     display: flex;
     align-items: center;
 }
@@ -39,7 +52,7 @@
 }
 
 .seracDiv{
-    border: solid red;
+  
     width: 400px;
     display: flex;
     justify-content: space-between;

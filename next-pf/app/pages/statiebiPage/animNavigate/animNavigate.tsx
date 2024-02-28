@@ -54,29 +54,29 @@ const AnimNavigate = () => {
 
          <div className={style.container} onMouseEnter={ stopAnimFN } onMouseLeave={ startAnim }>
 
-          <OnclickBtn className={style.box}>
-           <p>javasCript</p>
-          </OnclickBtn>
+            <OnclickBtn className={style.box}>
+            <p>javasCript</p>
+            </OnclickBtn>
 
-          <OnclickBtn className={style.box}>
-          <p>python</p>
-          </OnclickBtn>
+            <OnclickBtn className={style.box}>
+            <p>python</p>
+            </OnclickBtn>
 
-          <OnclickBtn className={style.box}>
-          <p>typeScript</p>
-          </OnclickBtn>
+            <OnclickBtn className={style.box}>
+            <p>typeScript</p>
+            </OnclickBtn>
 
-          <OnclickBtn className={style.box}>
-          <p>java</p>
-          </OnclickBtn>
+            <OnclickBtn className={style.box}>
+            <p>java</p>
+            </OnclickBtn>
 
-          <OnclickBtn className={style.box}>
-          <p>php</p>
-          </OnclickBtn>
+            <OnclickBtn className={style.box}>
+            <p>php</p>
+            </OnclickBtn>
 
-          <OnclickBtn className={style.box}>
-          <p>ruby</p>
-          </OnclickBtn>
+            <OnclickBtn className={style.box}>
+            <p>ruby</p>
+            </OnclickBtn>
 
         </div>
 

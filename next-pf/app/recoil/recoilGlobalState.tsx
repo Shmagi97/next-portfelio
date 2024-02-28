@@ -34,9 +34,17 @@ export const vcadeFunqcia = selector({
 
    } )
 
-   export const userInfoState = atom ({
+   interface iserInfoTP {
+    companyName: string,
+    nameAndSurname: string,
+   }
+
+   export const userInfoState = atom < iserInfoTP > ({
     key: 'userInfo',
-    default: [],
+    default: {
+      companyName: '',
+      nameAndSurname: '',
+    }
    })
 
    export const useRecoilUserInfo = () => useRecoilState(userInfoState);
