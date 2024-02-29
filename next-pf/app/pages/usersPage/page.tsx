@@ -3,29 +3,31 @@
 import headerFooterNone from '@/app/components/functionsFN/headerFooterNone'
 import style from './page.module.scss'
 import { useEffect } from 'react'
-import axios from 'axios'
 import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
 import SliderPoster from './components/headerSlider/sliderPoster'
+import { useGlobalContext } from '@/app/context/context'
 
 const Users = () => {
 
     headerFooterNone('true')
 
-    const [ , setUserInfo ] = useRecoilUserInfo()
+    const  { userInfoID , setUserInfoID } = useRecoilUserInfo()
+    const { clickModal } = useGlobalContext()
 
+    // გასაწერია პროგრამა თუ უზერი არ არის დალოგინებული და ისე მოხვდა ამ ფეიჯზე 
+    
     useEffect(()=> {
 
         const localUserInfoED = localStorage.getItem('registerEdUserId')
 
-        axios.get(`http://localhost:4000/users/${localUserInfoED}`)
-             .then((res)=> setUserInfo(res.data.userData))
+        setUserInfoID(localUserInfoED)
+    
+    },[userInfoID])
 
-    },[])
-
-    return <section className={style.usersSection}>
+    return !clickModal ?  <section className={style.usersSection}>
 
         <SliderPoster/>
        
-    </section>
+    </section> : null
 }
 export default Users

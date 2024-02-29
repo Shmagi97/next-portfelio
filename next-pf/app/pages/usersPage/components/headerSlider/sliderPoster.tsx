@@ -38,7 +38,7 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
     bottom: 100px;
     left: 2%;
     animation: ${(props)=> props.$startAndStop } 7s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
-
+    
     @keyframes animUserSlideName {
         from{
             left: -180%;
@@ -56,7 +56,7 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
  const SliderPoster = () => {
 
     const [usefectRerender, setUsefectRerender] = useState(0)
-    const [animUserName , setAnimUserName] = useState('')
+    const [animUserName , setAnimUserName] = useState('none')
 
     useEffect(()=> {
 
@@ -64,13 +64,15 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
         const clearTimeaut = setTimeout(()=> {
            
             const last = container?.firstChild;
-            // last?.remove();
-            if(last)  container.appendChild(last) 
-            // bagia gasasworebeli
-            setAnimUserName('')
+            last?.remove();
+            if(last) {
+                container.appendChild(last) 
+                setAnimUserName('none')
+            }
+          
             setUsefectRerender(usefectRerender < 1 ? usefectRerender + 1 : usefectRerender - 1)
 
-        }, 10 * 1000)
+        }, 15 * 1000)
 
         return ()=> {
             clearTimeout(clearTimeaut)

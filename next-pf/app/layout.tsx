@@ -43,8 +43,9 @@ export default function RootLayout({
           
            <GlobalDinamikChaild/>
           
+           <LoginModalLogik />
+
              <WrapperHeader>
-               <LoginModalLogik />
                <Header />
              </WrapperHeader>
 

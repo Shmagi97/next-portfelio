@@ -1,0 +1,44 @@
+@import '../../../../../colors.scss';
+
+.downIqon{
+    font-size: 13px;
+}
+
+.MeButtonModal{
+    
+    position: absolute;
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    top: 40px;
+    left: -150px;
+    border: 0.01px solid   rgb(179, 179, 179);
+    background-color:  $MeBackgroundColor ;
+}
+
+.MeButtonModalNone{
+    
+    display: none;
+}
+
+.usersImage{
+    border-radius: 50%;
+    cursor: pointer;
+  
+}
+
+.usersImageMeModal{
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.MeButtonModal > div:first-child{
+   
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.btnProfile{
+   border: 0.1px solid $searchBtnBacgroundNotHover;
+}

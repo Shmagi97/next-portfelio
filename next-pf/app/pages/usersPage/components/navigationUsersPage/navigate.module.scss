@@ -1,0 +1,56 @@
+@import '../../../../colors.scss';
+
+.navTeg{
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: $globalSectionTextColor ;
+    height: 45px;
+    padding: 5px;
+}
+
+.usersAndNames{
+   
+    display: flex;
+    align-items: center;
+}
+
+.usersAndNames > p{
+    color: $usersPageNavTextColor ;
+}
+
+.seracDiv{
+  
+    width: 400px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.seracDiv > div:first-child > input{
+    border: none;
+    outline: none;
+}
+
+.seracDiv > div:last-child{
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 20px;
+    width: 100px;
+    position: relative;
+    border: 0.01px solid   rgb(179, 179, 179) ;
+    border-radius: 10px;
+    background-color: $MeBackgroundColor ;
+}
+
+.seracDiv > div:last-child > div:first-child{
+  
+    display: flex;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2px;
+    cursor: pointer;
+}
