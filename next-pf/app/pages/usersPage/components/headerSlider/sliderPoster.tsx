@@ -56,9 +56,11 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
  const SliderPoster = () => {
 
     const [usefectRerender, setUsefectRerender] = useState(0)
-    const [animUserName , setAnimUserName] = useState('none')
-
+    const [animUserName , setAnimUserName] = useState('')
+    
     useEffect(()=> {
+
+        setAnimUserName('animUserSlideName')
 
         const container = document.querySelector(`.${style.silderDiv}`)
         const clearTimeaut = setTimeout(()=> {
@@ -68,15 +70,14 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
             if(last) {
                 container.appendChild(last) 
                 setAnimUserName('none')
-            }
-          
-            setUsefectRerender(usefectRerender < 1 ? usefectRerender + 1 : usefectRerender - 1)
+                setUsefectRerender(usefectRerender < 1 ? usefectRerender + 1 : usefectRerender - 1)
+             } 
 
         }, 15 * 1000)
 
         return ()=> {
             clearTimeout(clearTimeaut)
-            setAnimUserName('animUserSlideName')
+            setAnimUserName('')
         }
         
     }, [usefectRerender])

@@ -52,8 +52,7 @@ const MeModal = () => {
                 </div>
                 <OnclickBtn className={style.btnProfile}
                             onClick={()=> {
-                                const getUserId = localStorage.getItem('registerEdUserId')
-                                viewProfile.push(`/pages/usersPage/${getUserId}`)
+                                viewProfile.push(`/pages/usersPage/${localStorage.getItem('registerEdUserId')}`)
                                 setMeclick(false)
                             }}
                 >

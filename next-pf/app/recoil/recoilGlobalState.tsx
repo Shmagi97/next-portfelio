@@ -37,11 +37,6 @@ import { atom, selector, useRecoilState } from "recoil"
   
    // სელექტორით აქსიოსი გამოყენება 
 
-   export const userIDCheckSucessState = atom < string | null > ({
-    key: 'userIDCheckSucess',
-    default: '',
-   })
-
    export const userInfoIDState = atom < string | null > ({
     key: 'userInfo',
     default: '',
@@ -80,12 +75,10 @@ import { atom, selector, useRecoilState } from "recoil"
 
    export const useRecoilUserInfo = () =>{ 
     const [ userInfoID , setUserInfoID ] = useRecoilState(userInfoIDState)
-    const [ userIDCheckSucess , setUserIDCheckSucess ] = useRecoilState(userIDCheckSucessState)
     const [ meClick, setMeclick ] = useRecoilState(meClickState)
 
     return {
       userInfoID , setUserInfoID,
-      userIDCheckSucess , setUserIDCheckSucess,
       meClick, setMeclick,
     }
   

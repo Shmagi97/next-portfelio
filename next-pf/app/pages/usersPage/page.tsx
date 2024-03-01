@@ -12,17 +12,16 @@ const Users = () => {
     headerFooterNone('true')
 
     const  { userInfoID , setUserInfoID } = useRecoilUserInfo()
-    const { clickModal } = useGlobalContext()
-
-    // გასაწერია პროგრამა თუ უზერი არ არის დალოგინებული და ისე მოხვდა ამ ფეიჯზე 
+    const { clickModal , setClickModal } = useGlobalContext()
     
     useEffect(()=> {
 
         const localUserInfoED = localStorage.getItem('registerEdUserId')
-
         setUserInfoID(localUserInfoED)
+
+         if(!localUserInfoED) setClickModal(true);
     
-    },[userInfoID])
+    },[userInfoID, clickModal])
 
     return !clickModal ?  <section className={style.usersSection}>
 
