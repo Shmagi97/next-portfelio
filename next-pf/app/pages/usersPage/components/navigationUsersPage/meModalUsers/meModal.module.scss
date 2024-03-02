@@ -14,6 +14,8 @@
     left: -150px;
     border: 0.01px solid   rgb(179, 179, 179);
     background-color:  $MeBackgroundColor ;
+    display: grid;
+    row-gap: 10px;
 }
 
 .MeButtonModalNone{

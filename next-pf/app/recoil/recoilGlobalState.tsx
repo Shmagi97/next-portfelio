@@ -69,8 +69,6 @@ import { atom, selector, useRecoilState } from "recoil"
     default: false,
    })
 
-
-
    // combined recoil states
 
    export const useRecoilUserInfo = () =>{ 

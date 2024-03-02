@@ -1,0 +1,44 @@
+
+
+.slidesStartStopH1 {
+
+    position: absolute;
+
+    bottom: 100px;
+    left: 2%;
+    animation: animUserSlideName 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
+
+}
+
+.slidesStartStopH1None{
+    display: none;
+}
+
+.slidesStartStopArticle {
+
+    position: absolute;
+
+    bottom: 30px;
+    left: 2%;
+    animation: animUserSlideName 7s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
+
+}
+
+.slidesStartStopArticleNone{
+    display: none;
+}
+
+    
+@keyframes animUserSlideName {
+    from{
+        left: -180%;
+        visibility: hidden;
+    }
+
+    to{
+        left: 2%;
+    
+    }
+}
+
+

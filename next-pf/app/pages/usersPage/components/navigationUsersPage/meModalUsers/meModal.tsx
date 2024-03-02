@@ -58,6 +58,11 @@ const MeModal = () => {
                 >
                     view profile
                 </OnclickBtn>
+
+                <OnclickBtn className={style.btnProfile}>
+                   Upload your ad
+                </OnclickBtn>
+
                 <OnclickBtn 
                     className={style.btnProfile} 
                     onClick={()=> {

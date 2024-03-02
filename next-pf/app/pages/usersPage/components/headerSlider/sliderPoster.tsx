@@ -6,61 +6,16 @@ import image1 from '@/public/image/img2.webp'
 import image2 from '@/public/image/images6.webp'
 import image3 from '@/public/image/images5.webp'
 import { useEffect, useState } from 'react'
-import styled from 'styled-components'
-
-const UsersNameAnim = styled.h1 < { $startAndStop: string } > `
-
-    font-size: 25px;
-    color: black;
-    position: absolute;
-
-    bottom: 150px;
-    left: 2%;
-    animation:  ${(props)=> props.$startAndStop} 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
-
-    @keyframes animUserSlideName {
-        from{
-            left: -130%;
-            visibility: hidden;
-        }
-
-        to{
-            left: 2%;
-        
-        }
-    }
-`
-
-const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
-
-    position: absolute;
-
-    bottom: 100px;
-    left: 2%;
-    animation: ${(props)=> props.$startAndStop } 7s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
-    
-    @keyframes animUserSlideName {
-        from{
-            left: -180%;
-            visibility: hidden;
-        }
-
-        to{
-            left: 2%;
-        
-        }
-    }
-
-`
+import { SlidesInSliderArticle, SlidesInSliderH1 } from './sliderSlideKomponents/slideKomponents'
 
  const SliderPoster = () => {
 
     const [usefectRerender, setUsefectRerender] = useState(0)
-    const [animUserName , setAnimUserName] = useState('')
+    const [animSlides , setAnimSlides] = useState(false)
     
     useEffect(()=> {
 
-        setAnimUserName('animUserSlideName')
+        setAnimSlides(true)
 
         const container = document.querySelector(`.${style.silderDiv}`)
         const clearTimeaut = setTimeout(()=> {
@@ -69,7 +24,7 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
             last?.remove();
             if(last) {
                 container.appendChild(last) 
-                setAnimUserName('none')
+                setAnimSlides(false)
                 setUsefectRerender(usefectRerender < 1 ? usefectRerender + 1 : usefectRerender - 1)
              } 
 
@@ -77,7 +32,7 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
 
         return ()=> {
             clearTimeout(clearTimeaut)
-            setAnimUserName('')
+            
         }
         
     }, [usefectRerender])
@@ -92,15 +47,8 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
                 src={image1}
                 className={style.sliderItemImage}
                 />
-
-                <UsersNameAnim  $startAndStop = {animUserName}>
-                   shmagi narsavidze 111111
-                </UsersNameAnim>
-
-                <UserDescriptionAnim $startAndStop = {animUserName}>
-                    <p>პროფესია: </p>
-                    <p> -: descrifshen adddd ddadadd dadddd   addadd</p>
-                </UserDescriptionAnim>
+               <SlidesInSliderH1 startAndStop = {animSlides}/>
+               <SlidesInSliderArticle startAndStop = {animSlides}/>
             </div>
 
             <div  className={style.sliderItem}>
@@ -109,15 +57,8 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
                 src={image2}
                 className={style.sliderItemImage}
                 />
-
-                <UsersNameAnim  $startAndStop = {animUserName}>
-                   shmagi narsavidze 222222
-                </UsersNameAnim>
-
-                 <UserDescriptionAnim $startAndStop = {animUserName} >
-                    <p>პროფესია: </p>
-                    <p> -: descrifshen adddd ddadadd dadddd   addadd</p>
-                </UserDescriptionAnim>
+               <SlidesInSliderH1 startAndStop = {animSlides}/>
+               <SlidesInSliderArticle startAndStop = {animSlides}/>
             </div>
 
             <div  className={style.sliderItem}>
@@ -126,16 +67,8 @@ const UserDescriptionAnim = styled.article < { $startAndStop: string } >`
                 src={image3}
                 className={style.sliderItemImage}
                 />
-                
-                <UsersNameAnim  $startAndStop = {animUserName}>
-                   shmagi narsavidze 33333
-                </UsersNameAnim>
-
-                <UserDescriptionAnim $startAndStop = {animUserName}>
-                    <p>პროფესია: </p>
-                    <p> -: descrifshen adddd ddadadd dadddd   addadd</p>
-                </UserDescriptionAnim>
-
+               <SlidesInSliderH1 startAndStop = {animSlides}/>
+               <SlidesInSliderArticle startAndStop = {animSlides}/>
             </div>
 
         </div>
