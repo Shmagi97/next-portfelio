@@ -1,7 +1,7 @@
 @import '../../../../colors.scss';
 
 // .sliderPosterSection{
-//     // border: solid rgb(60, 0, 255);
+//     border: solid rgb(60, 0, 255);
     
 // }
 
@@ -9,20 +9,16 @@
 
     position: relative;
     column-gap: 50px;
-    perspective: 500px;
-    transform-style: preserve-3d;
     height: 600px;
     overflow: hidden;
 
 }
 
 .sliderItem{
-    display: inline-block;
     position: absolute;
-    box-sizing: border-box;
     left: 0;
-    transition: 3s ease-in-out;
     width: 100%;
+
 }
 
 .sliderItemImage{
@@ -30,11 +26,28 @@
     height: 600px;
 }
 
-.sliderItem:nth-of-type(3){
-    left: -300%;
-    scale: -4;
+.visibleChildren3{
+   
+  animation: animUserAdInfo 0.1s 3 ;
+  background-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 10px;
+
 }
 
+@keyframes animUserAdInfo{
+
+    0%{
+        background-color: black;
+    }
+
+    50%{
+        background-color: rgb(77, 76, 76);
+    }
+
+    100%{
+        background-color: black;
+    }
+}
 
 
 

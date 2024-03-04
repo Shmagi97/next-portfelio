@@ -1,44 +1,60 @@
-
+@import '../../../../../colors.scss';
 
 .slidesStartStopH1 {
 
     position: absolute;
-
-    bottom: 100px;
-    left: 2%;
+    color: $searchBtnBacgroundNotHover;
+    border-radius: 10px;
+    font-size: 30px;
+    bottom: 250px;
+    width: 350px;
+    left: 15%;
     animation: animUserSlideName 6s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
 
-}
-
-.slidesStartStopH1None{
-    display: none;
 }
 
 .slidesStartStopArticle {
 
     position: absolute;
-
-    bottom: 30px;
-    left: 2%;
+    color: $searchBtnBacgroundNotHover;
+    border-radius: 10px;
+    font-size: 17px;
+    bottom: 150px;
+    left: 15%;
     animation: animUserSlideName 7s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
 
 }
 
-.slidesStartStopArticleNone{
-    display: none;
+.moreInfoDiv{
+    position: absolute;
+    bottom: 100px;
+    border-radius: 10px;
+    left: 15%;
+    animation: animUserSlideName 8s cubic-bezier(0.68, -0.55, 0.27, 1.55) ;
 }
-
-    
+ 
 @keyframes animUserSlideName {
     from{
         left: -180%;
         visibility: hidden;
+        z-index: 0;
+        background-color: wheat;
     }
 
     to{
-        left: 2%;
-    
+        left: 15%;
     }
 }
+
+.articleLine{
+    width: 100px;
+    border: 0.5px solid  wheat;
+}
+
+.moreInfoButton{
+    color: $searchBtnBacgroundNotHover ;
+    padding: 6px;
+}
+
 
 

@@ -1,23 +1,21 @@
 'use client'
 
+import OnclickBtn from '@/app/components/button/onClickBtn/onClickBtn'
 import style from './sliderSlide.module.scss'
 
-type propsTP = {
-    startAndStop: boolean;
-}
 
-const SlidesInSliderH1 = ( props:propsTP ) => {
+const SlidesInSliderH1 = ( ) => {
 
-    return <div className={props.startAndStop ? style.slidesStartStopH1 : style.slidesStartStopH1None}>
+    return <div className={style.slidesStartStopH1 }>
      
-     <h1> shmagi narsavidze 111111</h1>
-    
+     <h1> shmagi narsavidze frontAnd developer</h1>
+     <article className={style.articleLine}></article>
     </div>
 }
 
-const SlidesInSliderArticle = ( props:propsTP ) => {
+const SlidesInSliderArticle = ( ) => {
 
-    return <div className={props.startAndStop ? style.slidesStartStopArticle : style.slidesStartStopArticleNone}>
+    return <div className={style.slidesStartStopArticle }>
      
      <article>
        <p>პროფესია: </p>
@@ -27,6 +25,15 @@ const SlidesInSliderArticle = ( props:propsTP ) => {
     </div>
 }
 
+const MoreInfoSlide = () => {
+
+    return <div className={style.moreInfoDiv}>
+         <OnclickBtn className={style.moreInfoButton}>
+            Show More Info
+         </OnclickBtn>
+    </div>
+}
 
 
-export { SlidesInSliderH1, SlidesInSliderArticle }
+
+export { SlidesInSliderH1, SlidesInSliderArticle, MoreInfoSlide }
