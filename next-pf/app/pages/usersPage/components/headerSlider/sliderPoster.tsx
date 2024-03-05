@@ -2,80 +2,56 @@
 
 import Image from 'next/image'
 import style from './sliderPoster.module.scss'
-import image1 from '@/public/image/images2.webp'
-import image2 from '@/public/image/images6.webp'
-import image3 from '@/public/image/image7.webp'
-import { useEffect, useState } from 'react'
+import { RefObject, useEffect, useRef, useState } from 'react'
 import { MoreInfoSlide, SlidesInSliderArticle, SlidesInSliderH1 } from './sliderSlideKomponents/slideKomponents'
 import PaginationSlider from './paginationSlider/pagination'
 import { sliderAd } from './sliderAdMasiv/sliderAd'
+import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
+
 
  const SliderPoster = () => {
 
-    const [usefectRerender, setUsefectRerender] = useState(0)
+    const {  sliderPosterNumber, setSliderPosterNumber } = useRecoilUserInfo()
+    // gasasworebelia roca viyeneb globalur steits animacia ar gadaecema userefDiv?.classList.add(`${style.getLastAnim}`)
+    // const [  sliderPosterNumber, setSliderPosterNumber ] = useState(0)
     const [animSlides , setAnimSlides] = useState(false)
     const [sliderStop, setSliderStop] = useState(false)
-     
-    useEffect(()=> {
-
-        setAnimSlides(true)
-        
-        // const container = document.querySelector(`.${style.silderDiv}`)
     
-        // if (sliderStop){
-            
-        //     const nodeChildren = container?.childNodes
+    const useRefElement : RefObject < HTMLDivElement > = useRef(null)
 
-        //     if (nodeChildren ) {
-            
-        //         const visibleChildren = nodeChildren[1].childNodes
-            
-        //         if (visibleChildren[3] instanceof HTMLElement  ) {
-                       
-        //              visibleChildren[3].classList.add(`${style.visibleChildren3}`)
-                
-        //         }
- 
-        //     }
-        // }
+    useEffect(()=> {
+        setAnimSlides(true)
+        const userefDiv = useRefElement.current
+        userefDiv?.classList.add(`${style.getLastAnim}`)
 
-        if (sliderStop){
-            // gasaweria   <MoreInfoSlide/> -is animacia 
+        if (sliderStop && animSlides){
+            const divLastChild =  useRefElement.current?.lastChild
+            if(divLastChild instanceof HTMLDivElement) divLastChild.classList.add(`${style.visibleChildren}`)
+            
         }
 
-        const clearTimeaut = setTimeout(()=> {
-           
-        // if(!sliderStop) {
-
-        //     const last = container?.firstChild;
-        //     last?.remove();
-          
-        //     if(last) {
-        //         container.appendChild(last) 
-        //         setAnimSlides(false)
-        //         setUsefectRerender(usefectRerender < 1 ? usefectRerender + 1 : usefectRerender - 1)
-        //      } 
-        // } 
+        const clearTimeaut = setTimeout(()=> { 
 
         if(!sliderStop){
 
             const last = sliderAd.shift()
-            
+       
             if(last) {
+
               sliderAd.push(last)
+              userefDiv?.classList.remove(`${style.getLastAnim}`)
               setAnimSlides(false)
-              setUsefectRerender(usefectRerender < 1 ? usefectRerender + 1 : usefectRerender - 1)
+              setSliderPosterNumber(  sliderPosterNumber < sliderAd.length -1 ? sliderPosterNumber + 1 : 0)
             }
         }
         
         }, 10 * 1000)
 
-        return ()=> {
-            clearTimeout(clearTimeaut)
-            
-        }
+        return ()=>  clearTimeout(clearTimeaut)
         
-    }, [usefectRerender, sliderStop ])
+    }, [sliderPosterNumber, sliderStop ])
+
+    const elementSelected = sliderAd.find((_, index)=> sliderPosterNumber == index)
 
     return <section className={style.sliderPosterSection} >
 
@@ -85,62 +61,20 @@ import { sliderAd } from './sliderAdMasiv/sliderAd'
              >
 
              {
-                sliderAd.map((el , index)=> 
-                 
-                 <div  className={style.sliderItem} key={index}>
+                elementSelected && <div className={style.sliderItem} ref={useRefElement}>
                     <Image
                     alt={'imagesSliderPoster'}
-                    src={el.image}
+                    src={elementSelected.image}
                     className={style.sliderItemImage}
+                    priority
                     />
                     { animSlides ? <>
                         <SlidesInSliderH1 /> 
                         <SlidesInSliderArticle />
                         <MoreInfoSlide/>
                     </>  : null }         
-                 </div>
-                
-                )
-             }   
-
-            {/* <div  className={style.sliderItem}>
-                <Image
-                alt={'imagesSliderPoster'}
-                src={image1}
-                className={style.sliderItemImage}
-                />
-                { animSlides ? <>
-                    <SlidesInSliderH1 /> 
-                    <SlidesInSliderArticle />
-                    <MoreInfoSlide/>
-                </>  : null }         
-            </div>
-
-            <div  className={style.sliderItem}>
-                <Image
-                alt={'imagesSliderPoster'}
-                src={image2}
-                className={style.sliderItemImage}
-                />
-                   { animSlides ? <>
-                    <SlidesInSliderH1 /> 
-                    <SlidesInSliderArticle />
-                    <MoreInfoSlide/>
-                </>  : null }
-            </div>
-
-            <div  className={style.sliderItem}>
-                <Image
-                alt={'imagesSliderPoster'}
-                src={image3}
-                className={style.sliderItemImage}
-                />
-                    { animSlides ? <>
-                    <SlidesInSliderH1 /> 
-                    <SlidesInSliderArticle />
-                    <MoreInfoSlide/>
-                </>  : null }
-            </div> */}
+                 </div>           
+             }  
 
         </div>
 

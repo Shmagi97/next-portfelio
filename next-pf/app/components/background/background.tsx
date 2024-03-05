@@ -9,7 +9,7 @@ const Background = () => {
 
     const { imgnumber,  dataimg, } = useGlobalContext ()
 
-    const selectImage = dataimg.find(( el , index )=> index == imgnumber)
+    const selectImage = dataimg.find(( _, index )=> index == imgnumber)
     
    globalImageFn()
 

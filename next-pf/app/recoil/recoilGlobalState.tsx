@@ -69,15 +69,24 @@ import { atom, selector, useRecoilState } from "recoil"
     default: false,
    })
 
+   // sliderPoster usefect rerender an return 
+
+   export const sliderPosterNumberState = atom ({
+    key: 'sliderPosterNumber',
+    default: 0,
+   })
+
    // combined recoil states
 
    export const useRecoilUserInfo = () =>{ 
     const [ userInfoID , setUserInfoID ] = useRecoilState(userInfoIDState)
     const [ meClick, setMeclick ] = useRecoilState(meClickState)
+    const [ sliderPosterNumber, setSliderPosterNumber ] = useRecoilState (sliderPosterNumberState)
 
     return {
       userInfoID , setUserInfoID,
       meClick, setMeclick,
+      sliderPosterNumber, setSliderPosterNumber
     }
   
   };

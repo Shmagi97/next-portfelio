@@ -26,7 +26,30 @@
     height: 600px;
 }
 
-.visibleChildren3{
+.getLastAnim{
+   
+    animation: lastAnim 1s linear ;
+}
+
+@keyframes lastAnim {
+
+    0%{
+        transform: scale(1 , 1);
+        
+    }
+
+    50%{
+        transform: scale(0 , 0);
+        rotate: 180deg;
+    }
+
+    100%{
+        transform: scale(1 , 1);
+    }
+
+}
+
+.visibleChildren{
    
   animation: animUserAdInfo 0.1s 3 ;
   background-color: hsla(0, 0%, 0%, 0.5);
