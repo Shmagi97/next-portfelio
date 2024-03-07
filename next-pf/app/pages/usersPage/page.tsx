@@ -6,6 +6,8 @@ import { useEffect } from 'react'
 import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
 import SliderPoster from './components/headerSlider/sliderPoster'
 import { useGlobalContext } from '@/app/context/context'
+import NewUserProjects from './components/newUsersProjects/newUserProjects'
+import PopularProjects from './components/popularProjects/populatProjects'
 
 const Users = () => {
 
@@ -26,7 +28,8 @@ const Users = () => {
     return !clickModal ?  <section className={style.usersSection}>
 
         <SliderPoster/>
-       
+        <NewUserProjects/> 
+        <PopularProjects/>
     </section> : null
 }
 export default Users

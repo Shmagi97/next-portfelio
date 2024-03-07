@@ -6,29 +6,21 @@ import { RefObject, useEffect, useRef, useState } from 'react'
 import { MoreInfoSlide, SlidesInSliderArticle, SlidesInSliderH1 } from './sliderSlideKomponents/slideKomponents'
 import PaginationSlider from './paginationSlider/pagination'
 import { sliderAd } from './sliderAdMasiv/sliderAd'
+import { useGlobalContext } from '@/app/context/context'
 import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
 
 
  const SliderPoster = () => {
 
-    const {  sliderPosterNumber, setSliderPosterNumber } = useRecoilUserInfo()
-    // gasasworebelia roca viyeneb globalur steits animacia ar gadaecema userefDiv?.classList.add(`${style.getLastAnim}`)
-    // const [  sliderPosterNumber, setSliderPosterNumber ] = useState(0)
-    const [animSlides , setAnimSlides] = useState(false)
+    const { sliderPosterNumber,  setSliderPosterNumber } = useGlobalContext()
+    const { animSlides , setAnimSlides } = useRecoilUserInfo()
+
     const [sliderStop, setSliderStop] = useState(false)
     
     const useRefElement : RefObject < HTMLDivElement > = useRef(null)
 
-    useEffect(()=> {
+    useEffect( ()=> {
         setAnimSlides(true)
-        const userefDiv = useRefElement.current
-        userefDiv?.classList.add(`${style.getLastAnim}`)
-
-        if (sliderStop && animSlides){
-            const divLastChild =  useRefElement.current?.lastChild
-            if(divLastChild instanceof HTMLDivElement) divLastChild.classList.add(`${style.visibleChildren}`)
-            
-        }
 
         const clearTimeaut = setTimeout(()=> { 
 
@@ -36,10 +28,9 @@ import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
 
             const last = sliderAd.shift()
        
-            if(last) {
+            if(last ) {
 
               sliderAd.push(last)
-              userefDiv?.classList.remove(`${style.getLastAnim}`)
               setAnimSlides(false)
               setSliderPosterNumber(  sliderPosterNumber < sliderAd.length -1 ? sliderPosterNumber + 1 : 0)
             }
@@ -49,15 +40,42 @@ import { useRecoilUserInfo } from '@/app/recoil/recoilGlobalState'
 
         return ()=>  clearTimeout(clearTimeaut)
         
-    }, [sliderPosterNumber, sliderStop ])
+    }, [sliderPosterNumber, sliderStop])
 
     const elementSelected = sliderAd.find((_, index)=> sliderPosterNumber == index)
+
+    const userefDiv = useRefElement.current
+    const divLastChild =  useRefElement.current?.lastChild
+
+    function userefDivStyleEnter (){
+
+        setSliderStop(true)
+        userefDiv?.classList.add(`${style.getLastAnim}`)
+
+        if(userefDiv){ 
+            userefDiv.style.transform = 'scale(1.2)';
+            userefDiv.style.transition = '2s'
+        }
+
+        if(divLastChild instanceof HTMLDivElement ) divLastChild.classList.add(`${style.visibleChildren}`)
+    }
+
+    function userefDivStyleLeave() {
+
+        setSliderStop(false)
+        userefDiv?.classList.remove(`${style.getLastAnim}`)
+
+        if(userefDiv){ 
+            userefDiv.style.transform = 'scale(1)';
+            userefDiv.style.transition = '2s'
+        }
+    }
 
     return <section className={style.sliderPosterSection} >
 
         <div className={style.silderDiv}
-             onMouseEnter={()=>  setSliderStop(true) } 
-             onMouseLeave={()=>  setSliderStop(false) } 
+             onMouseEnter={ userefDivStyleEnter }
+             onMouseLeave={ userefDivStyleLeave } 
              >
 
              {

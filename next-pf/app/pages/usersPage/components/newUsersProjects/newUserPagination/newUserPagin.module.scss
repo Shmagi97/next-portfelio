@@ -1,0 +1,43 @@
+@import '../../../../../colors.scss';
+
+.newUserDiv{
+
+  display: flex;
+  justify-content: space-between;
+}
+
+// .newUserDiv > div:first-child{
+//    border: solid red;
+// }
+.newUserDiv > div:first-child > h2 {
+    color: black;
+    font-size: 18px;
+}
+
+.newUserDiv > div:first-child > article{
+    width: 40%;
+    border-bottom: solid $btnActiveClassColor;
+}
+
+.newUserDiv > div:last-child{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 25px;
+}
+
+.newUserDiv > div:last-child > article {
+    width: 20px;
+    height: 20px;
+    background-color: $leftElseInfoBacground ;
+    text-align: center;
+    cursor: pointer;
+}
+
+.newUserDiv > div:last-child > article:active{
+  background-color: $OkColor;
+}
+
+.newUserDiv > div:last-child > article > span {
+    font-size: 12px;
+}

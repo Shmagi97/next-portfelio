@@ -30,6 +30,9 @@ interface ContextProps {
 
     imgnumber: number,
     setImagenumber: Dispatch <SetStateAction <number> >,
+    // sliderPoster usefect rerender an return ( davamate contextshi radgan recoili ar amuShavebda sworad )
+    sliderPosterNumber: number,
+    setSliderPosterNumber: Dispatch < SetStateAction < number > >,
 
     identifier: string,
     setIdentifier: Dispatch < SetStateAction < string > >,
@@ -65,6 +68,8 @@ const GlobalContext = createContext<ContextProps>({
     
     imgnumber : 0,
     setImagenumber : () : number => 0,
+    sliderPosterNumber: 0,
+    setSliderPosterNumber: () : number => 0,
 
     identifier: '',
     setIdentifier: () : string => '',
@@ -97,7 +102,9 @@ const GlobalContext = createContext<ContextProps>({
 
 
 export const GlobalContextProvider = ( props : { children : ReactNode }) => {
+
     const [imgnumber, setImagenumber] = useState(0)
+    const [ sliderPosterNumber,  setSliderPosterNumber ] = useState(0)
 
     const [ identifier, setIdentifier ] = useState ('')
     const [ headerFooterLoclaStorage, setHeaderFooterLoclaStorage ] = useState('true')
@@ -129,6 +136,7 @@ export const GlobalContextProvider = ( props : { children : ReactNode }) => {
             registerUserInfo, setRegisterUserInfo,
             selectProfesionUser, setSelectProfesionUser, identifier, setIdentifier,
             headerFooterLoclaStorage, setHeaderFooterLoclaStorage,
+            sliderPosterNumber,  setSliderPosterNumber,
             
             }}>
 

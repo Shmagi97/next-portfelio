@@ -1,0 +1,9 @@
+@import '../../../../colors.scss';
+
+.popularProjectsSection{
+    height: 400px;
+    border: solid red;
+    width: 90%;
+    margin: 0px auto;
+    background-color: $globalSectionTextColor;
+}

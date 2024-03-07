@@ -1,0 +1,55 @@
+
+
+.gredSection{
+
+    border: solid rgb(0, 255, 94);
+
+    display: grid;
+    height: 1000px;
+    gap: 20px;
+    grid-template-areas: 
+    
+    "bigBoxHad bigBoxHad smalBox1 smalBox2 smalBox3"
+    "bigBoxHad bigBoxHad smalBox4 smalBox5 smalBox6"
+    "bigBoxFooter bigBoxFooter bigBoxFooter bigBoxFooter bigBoxFooter"
+    ;
+}
+
+.gredSection > div {
+
+    border: solid red;
+   
+}
+
+.gredSection > div:nth-child(1){
+    grid-area: bigBoxHad ;
+}
+
+.gredSection > div:nth-child(2){
+    grid-area: smalBox1 ;
+}
+
+.gredSection > div:nth-child(3){
+    grid-area: smalBox2 ;
+}
+
+.gredSection > div:nth-child(4){
+    grid-area: smalBox3 ;
+}
+
+.gredSection > div:nth-child(5){
+    grid-area: smalBox4 ;
+}
+
+.gredSection > div:nth-child(6){
+    grid-area: smalBox5 ;
+}
+
+.gredSection > div:nth-child(7){
+    grid-area: smalBox6 ;
+}
+
+.gredSection > div:nth-child(8){
+    grid-area: bigBoxFooter ;
+}
+

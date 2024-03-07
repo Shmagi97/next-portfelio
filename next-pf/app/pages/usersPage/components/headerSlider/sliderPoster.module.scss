@@ -26,27 +26,32 @@
     height: 600px;
 }
 
-.getLastAnim{
-   
-    animation: lastAnim 1s linear ;
+
+
+.getLastAnim {
+    position: relative;
+    overflow: hidden;
 }
 
-@keyframes lastAnim {
+.getLastAnim:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.7);
+    animation: rippleAnimationBefore 2s ease-in-out ;
+}
 
-    0%{
-        transform: scale(1 , 1);
-        
+@keyframes rippleAnimationBefore {
+    to {
+        width: 400%;
+        padding-bottom: 400%;
+        opacity: 0;
     }
-
-    50%{
-        transform: scale(0 , 0);
-        rotate: 180deg;
-    }
-
-    100%{
-        transform: scale(1 , 1);
-    }
-
 }
 
 .visibleChildren{

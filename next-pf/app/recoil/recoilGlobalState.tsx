@@ -3,30 +3,6 @@
 import axios from "axios";
 import { atom, selector, useRecoilState } from "recoil"
 
-// sacdeli
-
-// export const recoilSacdeli = atom({
-//     key : 'sacdeli' ,
-//     default : ''
-// })
-
-// export const vcadeFunqcia = selector({
-//     key: 'charCountState', // unique ID (with respect to other atoms/selectors)
-//     get: ({get}) => {
-//       const text = get(recoilSacdeli);
-  
-//       return text.length;
-//     },
-//   });
-
-//   export const clickGlobalNavigate = atom({
-
-//     key: 'clickGlobalNavigate',
-//     default : Array(4).fill(0)
-//   })
-
-  // children page global states
-
   export const servisPageMapWidthState = atom( { 
    
     key : 'servisPageMapWidthKey',
@@ -69,11 +45,11 @@ import { atom, selector, useRecoilState } from "recoil"
     default: false,
    })
 
-   // sliderPoster usefect rerender an return 
+   //paginations changes animSlides
 
-   export const sliderPosterNumberState = atom ({
-    key: 'sliderPosterNumber',
-    default: 0,
+   export const animSlidesState = atom ({
+    key: 'animSlidesState',
+    default: false,
    })
 
    // combined recoil states
@@ -81,12 +57,13 @@ import { atom, selector, useRecoilState } from "recoil"
    export const useRecoilUserInfo = () =>{ 
     const [ userInfoID , setUserInfoID ] = useRecoilState(userInfoIDState)
     const [ meClick, setMeclick ] = useRecoilState(meClickState)
-    const [ sliderPosterNumber, setSliderPosterNumber ] = useRecoilState (sliderPosterNumberState)
+    const [ animSlides , setAnimSlides ] = useRecoilState(animSlidesState)
 
     return {
       userInfoID , setUserInfoID,
       meClick, setMeclick,
-      sliderPosterNumber, setSliderPosterNumber
+      animSlides , setAnimSlides,
+
     }
   
   };
