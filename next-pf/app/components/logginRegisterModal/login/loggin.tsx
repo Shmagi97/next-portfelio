@@ -30,15 +30,27 @@ export const LogginModal = () => {
       const getUser = await getUserResponse.json()
 
       if(getUserResponse.ok){
-        
-        notification.success({
+
+          setClickModal(false)
+
+          notification.success({
           message: 'შესვლა ნებადართულია',
        
-        })
+          })
+       
+         if (getUser.error) {
+          
+            notification.success({
+            message: `${getUser.error}`,
+            })
+            localStorage.setItem('registerEdUserId', 'NotFoundUserId')
 
-        localStorage.setItem('registerEdUserId', getUser.userDataIdentifier._id)
-        router.push('/pages/usersPage/')
-        setClickModal(false)
+          } else {
+            localStorage.setItem('registerEdUserId', getUser.userDataIdentifier._id)
+          }
+          
+           router.push('/pages/usersPage/')
+        
       } else {
      
         notification.error({

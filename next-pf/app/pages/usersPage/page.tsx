@@ -11,6 +11,8 @@ import PopularProjects from './components/popularProjects/populatProjects'
 
 const Users = () => {
 
+    // საჭიროა სურათების სწორად ატვირთვა და წამოღება განიხილე ჩატჯიპიტის შემპთავაზება
+
     headerFooterNone('true')
 
     const  { userInfoID , setUserInfoID } = useRecoilUserInfo()
@@ -18,7 +20,7 @@ const Users = () => {
     
     useEffect(()=> {
 
-        const localUserInfoED = localStorage.getItem('registerEdUserId')
+        const localUserInfoED = localStorage.getItem('registerEdUserId') 
         setUserInfoID(localUserInfoED)
 
          if(!localUserInfoED) setClickModal(true);

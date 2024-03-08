@@ -5,7 +5,7 @@ import ProjectInfo from './newUserProjectInfo/projectInfo'
 import style from './newUserProjects.module.scss'
 
 const NewUsersProjects = () => {
-   // gaakette serverze bcrypt-it parolis dashifrva
+
     return <section className={style.newUserSection}>
       
       <NewUserPagination>

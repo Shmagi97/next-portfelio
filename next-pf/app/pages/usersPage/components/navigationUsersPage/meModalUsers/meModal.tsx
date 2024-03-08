@@ -66,6 +66,7 @@ const MeModal = () => {
                 <OnclickBtn 
                     className={style.btnProfile} 
                     onClick={()=> {
+                        setMeclick(false)
                         signOutRouter.push('/')
                         localStorage.removeItem('registerEdUserId')
                     }}

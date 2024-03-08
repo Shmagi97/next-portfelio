@@ -22,9 +22,9 @@ import { atom, selector, useRecoilState } from "recoil"
     key: 'geuUserInfoAxios',
     get:  ({get})=> {
       const userId = get(userInfoIDState)
+     
+      if ( userId && userId !== "NotFoundUserId") {
        
-      if (userId) {
-
       try{
 
         const response = axios.get(`http://localhost:4000/users/${userId}`)

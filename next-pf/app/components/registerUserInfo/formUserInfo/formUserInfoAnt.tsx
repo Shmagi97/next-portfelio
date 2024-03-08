@@ -105,10 +105,10 @@ const FormDisabledDemo: React.FC = () => {
     })
 
      })
-     .then((res)=> res.json())
-     .then((result)=> {
-      message.success(` მომხმარებელი  "${result.userData.nameAndSurname}"  დამატებულია`)
-     
+     .then( async (res)=>{
+      const response = await res.json()
+      message.success(` მომხმარებელი  "${response.nameAndSurname}"  დამატებულია`)
+      
      })
      .catch((errors)=> {
       message.error(errors)

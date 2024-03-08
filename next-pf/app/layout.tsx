@@ -42,10 +42,9 @@ export default function RootLayout({
       <GlobalContextProvider>
           
            <GlobalDinamikChaild/>
-          
-           <LoginModalLogik />
-
+           
              <WrapperHeader>
+             <LoginModalLogik />
                <Header />
              </WrapperHeader>
 
