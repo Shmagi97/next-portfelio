@@ -18,7 +18,7 @@ export const LogginModal = () => {
     const submitUser = async (e : any) => {
       e.preventDefault()
        
-      const getUserResponse = await fetch(" http://localhost:4000/register ", {
+      const getUserResponse = await fetch(" http://localhost:4000/loggin ", {
 
       method: 'POST',
       headers: {
@@ -46,7 +46,7 @@ export const LogginModal = () => {
             localStorage.setItem('registerEdUserId', 'NotFoundUserId')
 
           } else {
-            localStorage.setItem('registerEdUserId', getUser.userDataIdentifier._id)
+            localStorage.setItem('registerEdUserId', getUser.userIdetifirED)
           }
           
            router.push('/pages/usersPage/')

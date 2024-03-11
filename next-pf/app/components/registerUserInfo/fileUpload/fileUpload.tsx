@@ -17,8 +17,10 @@ const FileUpload: React.FC = () => {
       formData.append('files[]', file as FileType);
     });
     setUploading(true);
+    console.log(fileList);
+    
 
-    fetch( " http://localhost:4000/registerUserInfo " , {
+    fetch( "  http://localhost:4000/registerEdUserInfo  " , {
       method: 'POST',
       body: formData,
     })

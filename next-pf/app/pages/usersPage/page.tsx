@@ -11,8 +11,6 @@ import PopularProjects from './components/popularProjects/populatProjects'
 
 const Users = () => {
 
-    // საჭიროა სურათების სწორად ატვირთვა და წამოღება განიხილე ჩატჯიპიტის შემპთავაზება
-
     headerFooterNone('true')
 
     const  { userInfoID , setUserInfoID } = useRecoilUserInfo()
