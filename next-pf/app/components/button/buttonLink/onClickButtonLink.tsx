@@ -58,12 +58,12 @@ interface BtnLink {
                  { 
 
                    dropDown === 'servisebi' ?  
-                   <Link href={'/servisePage'} className={style.dropDownLink}>
+                   <Link href={'/pages/servisePage'} className={style.dropDownLink}>
                      {el.service} 
                      </Link>
 
                    : dropDown === 'statiebi' && el.statia !== undefined ?  
-                    <Link href={'/'} className={style.dropDownLink}> 
+                    <Link href={'/pages/statiebiPage'} className={style.dropDownLink}> 
                     {el.statia} 
                     </Link> 
 

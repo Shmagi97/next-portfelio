@@ -8,7 +8,7 @@ const UserProfile = () => {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        <h1 className={styles.name}>Kate Miller</h1>
+        <h1 className={styles.name}>shmagi narsavidze</h1>
         <nav>
           <ul className={styles.navigation}>
             <li>Home</li>
@@ -22,9 +22,9 @@ const UserProfile = () => {
       <div className={styles.content}>
         <div className={styles.intro}>
           <h2 className={styles.jobTitle}>FRONT-END DEVELOPER</h2>
-          <h1 className={styles.name}>Kate Miller</h1>
+          <h1 className={styles.name}>shmagi narsavidze</h1>
           <p className={styles.description}>
-            Hi, I'm Kate Miller, a passionate front-end developer specializing in
+            Hi, I'm shmagi narsavidze, a passionate front-end developer specializing in
             translating design concepts into seamless and interactive web experiences
             using HTML, CSS, and JavaScript.
           </p>

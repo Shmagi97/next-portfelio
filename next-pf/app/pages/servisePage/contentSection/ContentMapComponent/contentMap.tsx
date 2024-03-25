@@ -44,7 +44,7 @@ export default ()=> {
        if (filterEdMasiv && window.innerHeight + window.scrollY >= document.body.offsetHeight - 100){
 
             setLoading(false)
-            setContentLoaded( contentLoaded < 3?  contentLoaded+1 : contentLoaded )
+            setContentLoaded( contentLoaded < 3 ?  contentLoaded+1 : contentLoaded )
 
         } else { null }
      }
