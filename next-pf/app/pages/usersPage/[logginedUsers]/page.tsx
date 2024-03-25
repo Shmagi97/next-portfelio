@@ -4,12 +4,13 @@ import {  useEffect, useState } from 'react'
 import style from './page.module.scss'
 import headerFooterNone from '@/app/components/functionsFN/headerFooterNone'
 import axios from 'axios'
+import UserProfile from '../components/userProfile/userProfile'
 
 const LogginedUsers = () => {
     headerFooterNone('true')
 
-    const [ registerEdUserDataInfo, setRegisterEdUserDataInfo ] = useState (null)
-console.log(registerEdUserDataInfo);
+    // const [ registerEdUserDataInfo, setRegisterEdUserDataInfo ] = useState (null)
+    // console.log(registerEdUserDataInfo, 'user profile');
 
     // useEffect(()=> {
 
@@ -25,7 +26,7 @@ console.log(registerEdUserDataInfo);
     // }, [])
 
     return <section className={style.logginedUsersSection}>
-   
+           <UserProfile/>
     </section>
 }
 
